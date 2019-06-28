@@ -1,17 +1,25 @@
 import React from 'react';
-import { Registry } from 'classModel';
-/*import { Module } from "classModel/lib/src/entity/core"*/
-import ModuleComp from './classModel/Module';
-/*import {createConnection, createRegistry} from "../src/Factory";*/
 import axios from 'axios';
+import * as Components from './classModel';
+import { EntityCore } from 'classModel';
+import ModuleComp from './classModel/Module';
 
-export default class ClassModel extends React.Component {
-    state: { error?: Error, modules: {}[] } = {modules: []};
+export interface ClassModelProps {
+projects?: EntityCore.Project[];
+}
 
+export default class ClassModel extends React.Component<ClassModelProps> {
+    state: { error?: Error, projects: EntityCore.Project[] };
+
+public constructor(props: ClassModelProps) {
+super(props);
+this.state = { projects: this.props.projects || []};
+}
 
     componentDidMount(): void {
-    axios.get('/entity/module').then(response => {
-    this.setState({modules: response.data.modules});
+    console.log('comonent did mount');
+    axios.get('/entity/project').then(response => {
+    this.setState({project: response.data.projects});
     }).catch(error =>{
     this.setState({error: error});
     });
@@ -28,6 +36,6 @@ export default class ClassModel extends React.Component {
 
     render() {
     // @ts-ignore
-        return <div>{this.state.modules.map(m => <ModuleComp name={m.name} key={m.id} id={m.id}/>)}</div>;
+        return <div className="projects">{this.state.projects.map(m => <Components.Project name={m.name} key={m.id} id={m.id}/>)}</div>;
     }
 }

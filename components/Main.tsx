@@ -1,5 +1,4 @@
 import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import Tree, { TreeNode } from 'rc-tree';
 
-export default () => <div><Menu>
-<a id="a" href="/">hi</a></Menu><div style={{border: 'solid 1px black'}}>foo</div></div>;
+export default () => <div><div id="tree1"><Tree><TreeNode title="foo"/></Tree></div><div style={{border: 'solid 1px black'}}>foo</div></div>;

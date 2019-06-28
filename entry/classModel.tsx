@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ClassModel from '../components/ClassModel';
-
-// @ts-ignore
-
-const root = document.getElementById('root');
-ReactDOM.hydrate(<ClassModel />, root);
+import ClassModelRouter from '../components/ClassModelRouter';
+console.log('foop');
+const root = document.getElementById('app');
+ReactDOM.hydrate(<ClassModelRouter />, root);
