@@ -8,7 +8,9 @@ export default class EntityAttribute {
 
     @Column({nullable: true})
     public commonName?: string;
+    @Column({nullable: true})
+    public displayName?: string;
 
-//    @OneToMany(type => AttributeType, 
+//    @OneToMany(type => AttributeType,
 
 }

@@ -1,12 +1,18 @@
 import React, {MouseEvent, MouseEventHandler} from 'react';
-import {DragSource} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContext, DropTarget } from 'react-dnd'
 import axios from 'axios';
 import Entity from '../../model/Entity';
 import * as Components from './';
 import EntityAdd from './Command/EntityAdd';
 import { List } from 'immutable'
+import EntityView from './EntityView';
 
-export interface MainViewProps {
+export interface MainViewState {
+entities: List<Entity>;
+}
+
+export interface MainViewProps  {
 entities?: Entity[];
 }
 
@@ -25,13 +31,16 @@ this.handleEntityAdd = this._handleEntityAdd.bind(this);
 
 // @ts-ignore
 public _handleEntityAdd(e: any) {
-    this.setState({entities: this.state.entities.push(new Entity())});
+    this.setState((state: MainViewState, props) => ({entities: state.entities.push(new Entity())}));
     e.preventDefault();
+    console.log('add');
 }
 
     render() {
-        return <div className="mainView"><form><div><EntityAdd onClick={this.handleEntityAdd}/></div><div className="entityView" style={{width: "100%", height: "100%"}}>{this.state.entities ? this.state.entities.map((entity: Entity): void => <Components.Entity editMode={true} entity={entity}/>) : []}</div></form></div>;
+        return <form><div className="mainView"><div><EntityAdd onClick={this.handleEntityAdd}/></div><EntityView entities={this.state.entities}/></div></form>;
     }
 }
-export default MainView
+export default MainView;
+
+
 
