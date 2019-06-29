@@ -2,8 +2,8 @@ import EntityAttribute from './EntityAttribute';
 import EntitySection from './EntitySection';
 import EntityMethod from './EntityMethod';
 
-export default class Entity {
-    public id?: number;
+class Entity {
+    public public id?: number;
 
     public commonName?: string;
 
@@ -20,5 +20,4 @@ export default class Entity {
         }
     }
 }
-
-
+export default Entity;
