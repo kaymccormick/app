@@ -1,4 +1,5 @@
 lib
 *~
 \#*\#
+tscommand*.txt
 node_modules

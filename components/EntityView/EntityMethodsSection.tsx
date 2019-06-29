@@ -1,7 +1,7 @@
 import React from 'react';
 import Entity from '../../model/Entity';
 import EntityAttribute from '../../model/EntityAttribute';
-import { EntitySectionProps, EntitySection } from '../../model/EntitySection';
+import { EntitySectionProps } from './EntitySection';
 
 /* Used in Components.Entity */
 export interface EntityMethodsSectionProps extends EntitySectionProps {

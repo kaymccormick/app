@@ -6,6 +6,6 @@ import MainViewLayout from './EntityView/MainViewLayout';
 export default class EntityViewRouter extends React.Component {
     render() {
     // @ts-ignore
-        return <Router><Route path="/" exact><MainViewLayout/></Route></Router>;
+        return <Router><Route path="/" exact><MainViewLayout {...this.props}/></Route></Router>;
     }
 }

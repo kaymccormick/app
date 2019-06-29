@@ -10,8 +10,8 @@ const defaultWidth = 100;
 const defaultHeight = 400;
 
 const Sections = {
-    attributes: { render: (props: EntityAttributesSectionProps) => <Components.EntityAttributesSection/> },
-    methods: { render: (props: EntityAttributesMethodsProps) => <Components.EntityMethodsSection/> },
+    attributes: { render: (props: EntityAttributesSectionProps) => <Components.EntityAttributesSection {...props}/> },
+    methods: { render: (props: EntityMethodsSectionProps) => <Components.EntityMethodsSection {...props}/> },
 };
 
 export interface EntityProps {
