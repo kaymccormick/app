@@ -1,3 +1,5 @@
+import {connect} from 'react-redux';
+import { addEntity } from '../../model/actions';
 import React, {ClassAttributes, MouseEvent, MouseEventHandler} from 'react';
 import HTML5Backend from 'react-dnd-html5-backend'
 import {DragDropContext, DragSourceMonitor, DropTarget, DropTargetConnector, DropTargetMonitor} from 'react-dnd'
@@ -9,27 +11,36 @@ import { Types } from '../../src/types';
 import classNames from 'classnames';
 import { EntityPosition } from './types';
 import Rect from '../../model/ui/Rect';
+import { ApplicationState, EntityUIState } from '../../model/ApplicationState';
+
+const mapStateToProps = (state: ApplicationState): EntityViewProps => ({
+  entities: state.entities,
+  entityUIState: state.ui.entityUIState,
+  });
+
+const mapDispatchToProps = (dispatch) => ({
+});
+
 
 /* used in MainView */
 export interface EntityViewProps {
-    entities: List<Entity>;
-    entityPositions: List<EntityPosition>;
+   entities: List<Entity>;
+ entityUIState: List<EntityUIState>;
     canDrop?: boolean;
-    connectDropTarget: any;
+    connectDropTarget?: any;
     handleDrop?: (monitor: DropTargetMonitor) => void;
 }
 
 interface EntityViewState {
-    x?: number;
-    y?: number;
 }
 
 const spec = {
     drop(props: EntityViewProps, monitor: DropTargetMonitor, component: React.RefObject<any>) {
         const item = monitor.getItem();
-        if(props.handleDrop) {
+/*        if(props.handleDrop) {
             props.handleDrop(monitor);
-        }
+        }*/
+	// KM!
         console.log('props');
         console.log(props);
   
@@ -64,9 +75,15 @@ class EntityView extends React.Component<EntityViewProps> {
     render() {
         const {  connectDropTarget } = this.props;
         return connectDropTarget(<div ref={this.entityViewRef} className={classNames('entityView', this.props.canDrop ? 'canDrop' : '')} style={{width: "100%", height: "100%"}}>{this.props.entities ? (this.props.entities.map ? this.props.entities.map((entity: Entity, i: number): {} => {
-            const position = this.props.entityPositions.get(i) || { x: this.state.x || 0, y:this.state.y || 0 };
-            return <Components.Entity editMode={true} x={position.x} y={position.y} modelKey={i.toString()} key={i.toString()} entity={entity}/>;
+	const uiState = this.props.entityUIState.get(i);
+	let x = 0;
+	let y = 0;
+	if(uiState) {
+	x = uiState.x || 0;
+	y = uiState.y || 0;
+	}
+            return <Components.Entity editMode={true} x={x} y={y} modelKey={i.toString()} key={i.toString()} entity={entity}/>;
         }) : []) : []}</div>);
     }
 }
-export default DropTarget(Types.ENTITY, spec, collect)(EntityView);
+export default connect(mapStateToProps, mapDispatchToProps)(DropTarget(Types.ENTITY, spec, collect)(EntityView));

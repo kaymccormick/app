@@ -5,7 +5,7 @@ import { Pojo } from '../types';
 export default class RcTreeAdapter {
   public tree: Tree;
 
-  public constructor(tree) {
+  public constructor(tree: Tree) {
     this.tree = tree;
   }
 

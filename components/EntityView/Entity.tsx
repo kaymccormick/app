@@ -83,8 +83,8 @@ class Entity extends React.Component<EntityProps> {
                 <input value={this.props.entity.displayName}/> : <span>this.props.entity.displayName</span>}</div>
             {Object.keys(Sections).map(section => {
 	    // @ts-ignore
-	    const Component = Sections[section].component;
-	    return <Component entity={this.props.entity} section={section}/>;
+	    const render = Sections[section].render;
+	    return render({ entity: this.props.entity, section });
 	    })}
         </div></div>);
     }

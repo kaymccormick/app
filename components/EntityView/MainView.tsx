@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faProjectDiagram} from "@fortawesome/free-solid-svg-icons";
 import React, {MouseEvent, MouseEventHandler} from 'react';
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext, DropTarget, DropTargetMonitor } from 'react-dnd'
@@ -35,7 +33,7 @@ class MainView extends React.Component<MainViewProps> {
     }
 
     componentDidMount() {
-        axios.get('/entity/entity').then(response => response.data.entities).then(entities => this.setState({ entities })).catch(error => {
+        axios.get('/entity/entity').then(response => response.data.entities).then(entities => this.setState({ "entities": List<Entity>(entities) })).catch(error => {
             console.log('unable to get entities');
         });
     }
@@ -43,8 +41,8 @@ class MainView extends React.Component<MainViewProps> {
     // @ts-ignore
     public _handleEntityAdd(e: any) {
         this.setState((state: MainViewState, props) => {
-	console.log(`number of entities is ${state.entities ? state.entities.count() : 'undefined'}`);
-	return {entities: state.entities ? state.entities.push(new Entity()) : List<Entity>([new Entity()])};
+	console.log(`number of entities is ${state.entities ? state.entities.size : 'undefined'}`);
+	return {entities: state.entities.push(new Entity()) };
 	});
         e.preventDefault();
         console.log('add');
@@ -65,9 +63,8 @@ class MainView extends React.Component<MainViewProps> {
 	  });
     }
 
-//<Menu><MenuItem text="File"><MenuItem text="Reset"/></MenuItem></Menu>
     render() {
-        return <div className="mainView"><Toolbar><ToolbarItem><ButtonGroup><Button onClick={this.handleEntityAdd} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button><Button onClick={this.handleEntityAdd} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar><EntityView handleDrop={this.handleDrop} entityPositions={this.state.entityPositions} entities={this.state.entities}/></div>;
+        return <div className="mainView entityViewContainer"><EntityView/></div>;
     }
 }
 export default MainView;
