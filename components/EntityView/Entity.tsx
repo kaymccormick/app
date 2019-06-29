@@ -8,7 +8,7 @@ const defaultWidth = 100;
 const defaultHeight = 400;
 
 const Sections = { attributes: true,
-methods: true };
+    methods: true };
 
 export interface EntityProps {
     entity: ModelEntity;
@@ -23,22 +23,22 @@ export interface EntityProps {
 }
 
 export interface Rect {
-x: number;
-y: number;
-width: number;
-height: number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
 }
 export interface EntityDragDropItem {
-modelKey: string;
-clientRect?: Rect;
+    modelKey: string;
+    clientRect?: Rect;
 }
 
 const entitySource = {
     beginDrag(props: EntityProps): EntityDragDropItem {
-//	const r = this.myRef.current.getBoundingClientRect();
+        //	const r = this.myRef.current.getBoundingClientRect();
         const item = { modelKey: props.modelKey,
-//	clientRect: { x: r.x, y: r.y, width: r.width, height: r.height },
-	};
+            //	clientRect: { x: r.x, y: r.y, width: r.width, height: r.height },
+        };
         return item;
     },
     endDrag(props: EntityProps, monitor: DragSourceMonitor, component: React.RefObject<any>) {
@@ -61,23 +61,23 @@ function collect(connect: DragSourceConnector, monitor: DragSourceMonitor) {
 
 class Entity extends React.Component<EntityProps> {
     private myRef: React.RefObject<any>;
-public constructor(props: EntityProps) {
-super(props);
-console.log(props);
-this.myRef = React.createRef();
-}
+    public constructor(props: EntityProps) {
+        super(props);
+        console.log(props);
+        this.myRef = React.createRef();
+    }
 
-componentDidMount() {
-const rect = this.myRef.current.getBoundingClientRect();
-console.log(rect);
-}
+    componentDidMount() {
+        const rect = this.myRef.current.getBoundingClientRect();
+        console.log(rect);
+    }
 
-public render() {
+    public render() {
         const {isDragging, connectDragSource} = this.props;
         return connectDragSource(<div ref={this.myRef} style={{position: 'absolute', left: (this.props.x || 0), top: (this.props.y || 0), right: ((this.props.x || 0) + (this.props.width || defaultWidth)), bottom: ((this.props.y || 0) + (this.props.height || defaultHeight))}}><div className="entityView__entity">
             <div className="entityView__entity__displayName">{this.props.editMode ?
                 <input value={this.props.entity.displayName}/> : <span>this.props.entity.displayName</span>}</div>
-		{Object.keys(Sections).map(section => <Components.EntitySection section={section}/>)}
+            {Object.keys(Sections).map(section => <Components.EntitySection section={section}/>)}
         </div></div>);
     }
 }

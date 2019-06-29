@@ -3,7 +3,7 @@ import EntitySection from './EntitySection';
 import EntityMethod from './EntityMethod';
 
 class Entity {
-    public public id?: number;
+ public id?: number;
 
     public commonName?: string;
 
