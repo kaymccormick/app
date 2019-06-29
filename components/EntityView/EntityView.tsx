@@ -8,6 +8,8 @@ import { List } from 'immutable'
 import { Types } from '../../src/types';
 import classNames from 'classnames';
 import { EntityPosition } from './types';
+import Rect from '../../model/ui/Rect';
+
 /* used in MainView */
 export interface EntityViewProps {
     entities: List<Entity>;
@@ -53,9 +55,10 @@ class EntityView extends React.Component<EntityViewProps> {
     }
 
     componentDidMount() {
-        const rect = this.entityViewRef.current.getBoundingClientRect();
-        console.log(rect);
-        this.setState( { x: rect.x, y: rect.y } );
+        const rect = Rect.fromDOMRect(this.entityViewRef.current.getBoundingClientRect());
+	console.log(`retrieving bound client reactangle for entity view: ${rect}`);
+	console.log('setting state on EntityView');
+ this.setState( { x: rect.x, y: rect.y } );
     }
 
     render() {

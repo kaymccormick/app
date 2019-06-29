@@ -2,5 +2,8 @@
 import Entity from './Entity';
 import EntitySection from './EntitySection';
 import EntityAttribute from './EntityAttribute';
-export { Entity, EntityAttribute, EntitySection };
+import EntityAttributesSection from './EntityAttributesSection';
+import EntityMethodsSection from './EntityMethodsSection';
+
+export { Entity, EntityAttribute, EntitySection, EntityMethodsSection, EntityAttributesSection };
 

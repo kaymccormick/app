@@ -42,12 +42,16 @@ class MainView extends React.Component<MainViewProps> {
 
     // @ts-ignore
     public _handleEntityAdd(e: any) {
-        this.setState((state: MainViewState, props) => ({entities: state.entities.push(new Entity())}));
+        this.setState((state: MainViewState, props) => {
+	console.log(`number of entities is ${state.entities ? state.entities.count() : 'undefined'}`);
+	return {entities: state.entities ? state.entities.push(new Entity()) : List<Entity>([new Entity()])};
+	});
         e.preventDefault();
         console.log('add');
     }
 
     public _handleDrop(monitor: DropTargetMonitor) {
+    console.log(`handle drop`);
 	  const rect1 = monitor.getInitialSourceClientOffset();
 	  const rect2 = monitor.getDifferenceFromInitialOffset();
 	  const item = monitor.getItem();
@@ -61,8 +65,9 @@ class MainView extends React.Component<MainViewProps> {
 	  });
     }
 
+//<Menu><MenuItem text="File"><MenuItem text="Reset"/></MenuItem></Menu>
     render() {
-        return <div className="mainView"><Menu><MenuItem text="File"><MenuItem text="Reset"/></MenuItem></Menu><Toolbar><ToolbarItem><ButtonGroup><Button onClick={this.handleEntityAdd} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button><Button onClick={this.handleEntityAdd} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar><EntityView handleDrop={this.handleDrop} entityPositions={this.state.entityPositions} entities={this.state.entities}/></div>;
+        return <div className="mainView"><Toolbar><ToolbarItem><ButtonGroup><Button onClick={this.handleEntityAdd} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button><Button onClick={this.handleEntityAdd} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar><EntityView handleDrop={this.handleDrop} entityPositions={this.state.entityPositions} entities={this.state.entities}/></div>;
     }
 }
 export default MainView;

@@ -5,24 +5,24 @@ import { EntityCore } from 'classModel';
 import ModuleComp from './classModel/Module';
 
 export interface ClassModelProps {
-projects?: EntityCore.Project[];
+    projects?: EntityCore.Project[];
 }
 
 export default class ClassModel extends React.Component<ClassModelProps> {
-    state: { error?: Error, projects: EntityCore.Project[] };
+    state: { error?: Error; projects: EntityCore.Project[] };
 
-public constructor(props: ClassModelProps) {
-super(props);
-this.state = { projects: this.props.projects || []};
-}
+    public constructor(props: ClassModelProps) {
+        super(props);
+        this.state = { projects: this.props.projects || []};
+    }
 
     componentDidMount(): void {
-    console.log('comonent did mount');
-    axios.get('/entity/project').then(response => {
-    this.setState({project: response.data.projects});
-    }).catch(error =>{
-    this.setState({error: error});
-    });
+        console.log('comonent did mount');
+        axios.get('/entity/project').then(response => {
+            this.setState({project: response.data.projects});
+        }).catch(error =>{
+            this.setState({error: error});
+        });
     }
     
     /*

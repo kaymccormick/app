@@ -1,5 +1,6 @@
 import React from 'react';
 
+/* USed in Entity */
 export interface EntitySectionProps {
     section: string;
     sectionTitle?: string;

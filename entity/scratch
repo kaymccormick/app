@@ -1,0 +1,37 @@
+@OrmEntity()
+class EntityField {
+  @PrimaryColumn()
+    entityid: number;
+
+  @Column()
+  fieldname: string;
+  @Column()
+  typeid: number;
+  @Column()
+  flags: number;
+  @Column()
+  defaultid: number;
+
+  constructor(entityid: number, fieldname: string, typeid: number, flags: number, defaultid: number) {
+      this.entityid = entityid;
+      this.fieldname = fieldname;
+      this.typeid = typeid;
+      this.flags = flags;
+      this.defaultid = defaultid;
+  }
+}
+@OrmEntity()
+class FieldType {
+  @PrimaryColumn()
+    typeid: number;
+  @Column()
+  typename: string;
+  @Column()
+  objectid: number;
+
+  constructor(typeid: number, typename: string, objectid: number) {
+      this.typeid = typeid;
+      this.typename = typename;
+      this.objectid = objectid;
+  }
+}

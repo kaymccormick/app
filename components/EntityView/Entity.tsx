@@ -2,13 +2,17 @@ import React from 'react';
 import {Types} from '../../src/types';
 import ModelEntity from '../../model/Entity';
 import {DragSource, DragSourceConnector, DragSourceMonitor} from 'react-dnd';
-import * as Components from './'; 
+import * as Components from './';
+import {EntityAttributesSectionProps} from './EntityAttributesSection';
+import {EntityMethodsSectionProps} from './EntityMethodsSection';
 
 const defaultWidth = 100;
 const defaultHeight = 400;
 
-const Sections = { attributes: true,
-    methods: true };
+const Sections = {
+    attributes: { render: (props: EntityAttributesSectionProps) => <Components.EntityAttributesSection/> },
+    methods: { render: (props: EntityAttributesMethodsProps) => <Components.EntityMethodsSection/> },
+};
 
 export interface EntityProps {
     entity: ModelEntity;
@@ -35,9 +39,9 @@ export interface EntityDragDropItem {
 
 const entitySource = {
     beginDrag(props: EntityProps): EntityDragDropItem {
-        //	const r = this.myRef.current.getBoundingClientRect();
+        // const r = this.myRef.current.getBoundingClientRect();
         const item = { modelKey: props.modelKey,
-            //	clientRect: { x: r.x, y: r.y, width: r.width, height: r.height },
+        // clientRect: { x: r.x, y: r.y, width: r.width, height: r.height },
         };
         return item;
     },
@@ -77,7 +81,11 @@ class Entity extends React.Component<EntityProps> {
         return connectDragSource(<div ref={this.myRef} style={{position: 'absolute', left: (this.props.x || 0), top: (this.props.y || 0), right: ((this.props.x || 0) + (this.props.width || defaultWidth)), bottom: ((this.props.y || 0) + (this.props.height || defaultHeight))}}><div className="entityView__entity">
             <div className="entityView__entity__displayName">{this.props.editMode ?
                 <input value={this.props.entity.displayName}/> : <span>this.props.entity.displayName</span>}</div>
-            {Object.keys(Sections).map(section => <Components.EntitySection section={section}/>)}
+            {Object.keys(Sections).map(section => {
+	    // @ts-ignore
+	    const Component = Sections[section].component;
+	    return <Component entity={this.props.entity} section={section}/>;
+	    })}
         </div></div>);
     }
 }
