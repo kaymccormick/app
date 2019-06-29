@@ -1,5 +1,5 @@
 import { Entity as OrmEntity, Column, PrimaryGeneratedColumn, OneToOne, ManyToOne } from "typeorm";
-import AttributeType from './AttributeType';
+import Entity from './Entity';
 
 @OrmEntity()
 export default class EntityAttribute {
@@ -11,6 +11,7 @@ export default class EntityAttribute {
     @Column({nullable: true})
     public displayName?: string;
 
-//    @OneToMany(type => AttributeType,
+    @ManyToOne(type => Entity, entity => entity.attributes)
+    public entity?: Entity;
 
 }

@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faProjectDiagram} from "@fortawesome/free-solid-svg-icons";
 import React, {MouseEvent, MouseEventHandler} from 'react';
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext, DropTarget, DropTargetMonitor } from 'react-dnd'
@@ -8,6 +10,8 @@ import EntityAdd from './Command/EntityAdd';
 import { List } from 'immutable'
 import EntityView from './EntityView';
 import { EntityPosition } from './types';
+import {ButtonGroup, Toolbar, ToolbarItem,Button} from "@progress/kendo-react-buttons";
+import {Menu,MenuItem} from '@progress/kendo-react-layout';
 
 export interface MainViewState {
 entities: List<Entity>;
@@ -30,6 +34,12 @@ this.handleEntityAdd = this._handleEntityAdd.bind(this);
 this.handleDrop = this._handleDrop.bind(this);
 }
 
+componentDidMount() {
+axios.get('/entity/entity').then(response => response.data.entities).then(entities => this.setState({ entities })).catch(error => {
+console.log('unable to get entities');
+});
+}
+
 // @ts-ignore
 public _handleEntityAdd(e: any) {
     this.setState((state: MainViewState, props) => ({entities: state.entities.push(new Entity())}));
@@ -50,9 +60,9 @@ public _handleEntityAdd(e: any) {
 	  }
 	  });
 	}
-	
+
     render() {
-        return <div className="mainView"><div><EntityAdd onClick={this.handleEntityAdd}/></div><EntityView handleDrop={this.handleDrop} entityPositions={this.state.entityPositions} entities={this.state.entities}/></div>;
+		return <div className="mainView"><Menu><MenuItem text="File"><MenuItem text="Reset"/></MenuItem></Menu><Toolbar><ToolbarItem><ButtonGroup><Button onClick={this.handleEntityAdd} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar><EntityView handleDrop={this.handleDrop} entityPositions={this.state.entityPositions} entities={this.state.entities}/></div>;
     }
 }
 export default MainView;

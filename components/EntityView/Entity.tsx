@@ -2,9 +2,13 @@ import React from 'react';
 import {Types} from '../../src/types';
 import ModelEntity from '../../model/Entity';
 import {DragSource, DragSourceConnector, DragSourceMonitor} from 'react-dnd';
+import * as Components from './'; 
 
 const defaultWidth = 100;
 const defaultHeight = 400;
+
+const Sections = { attributes: true,
+methods: true };
 
 export interface EntityProps {
     entity: ModelEntity;
@@ -73,6 +77,7 @@ public render() {
         return connectDragSource(<div ref={this.myRef} style={{position: 'absolute', left: (this.props.x || 0), top: (this.props.y || 0), right: ((this.props.x || 0) + (this.props.width || defaultWidth)), bottom: ((this.props.y || 0) + (this.props.height || defaultHeight))}}><div className="entityView__entity">
             <div className="entityView__entity__displayName">{this.props.editMode ?
                 <input value={this.props.entity.displayName}/> : <span>this.props.entity.displayName</span>}</div>
+		{Object.keys(Sections).map(section => <Components.EntitySection section={section}/>)}
         </div></div>);
     }
 }
