@@ -5,18 +5,25 @@ export interface EntityUIState {
     x?: number;
     y?: number;
 }
+export interface EntityViewUIState {
+  selectedIndex: number|undefined;
+  entityUIState: List<EntityUIState>;
+}
+export interface ModelState {
+    entities: List<Entity>;
+}
 
 export interface ApplicationState {
-    entities: List<Entity>;
-    ui: {
-        entityUIState: List<EntityUIState>;
-        selectedEntityIndex?: number|undefined;
-    };
+    model: ModelState;
+    entityViewUI: EntityViewUIState;
 }
 
 export const initialState: ApplicationState = {
-    entities: List<Entity>(),
-    ui: {
+    model: {
+      entities: List<Entity>(),
+    },
+    entityViewUI: {
         entityUIState: List<EntityUIState>(),
+	selectedIndex: undefined;
     },
 }
