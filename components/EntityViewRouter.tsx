@@ -5,7 +5,7 @@ import MainViewLayout from './EntityView/MainViewLayout';
 import Site from '../model/site/Site';
 
 interface EntityViewRouterProps {
-site: Site;
+    site: Site;
 }
 
 export default class EntityViewRouter extends React.Component<EntityViewRouterProps> {

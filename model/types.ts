@@ -3,14 +3,14 @@ export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
 export interface Pojo {[propName: string]: any}
 export interface Action {
-type: string;
+    type: string;
 }
 export interface MoveEntityAction extends Omit<Action, 'type'> {
-type: "MOVE_ENTITY",
-index: number;
-x: number;
-y: number;
+    type: "MOVE_ENTITY";
+    index: number;
+    x: number;
+    y: number;
 }
 export interface AddEntityAction extends Omit<Action, 'type'> {
-type: "ADD_ENTITY";
+    type: "ADD_ENTITY";
 }

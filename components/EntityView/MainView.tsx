@@ -21,7 +21,7 @@ class MainView extends React.Component<MainViewProps> {
 //    public handleEntityAdd: (e: MouseEvent) => void;
 //    public handleDrop: (monitor: DropTargetMonitor) => void;
 
-    public state: MainViewState = { }
+    public state: MainViewState = { };
 
     public constructor(props: MainViewProps) {
         super(props);
@@ -29,7 +29,7 @@ class MainView extends React.Component<MainViewProps> {
 //        this.handleDrop = this._handleDrop.bind(this);
     }
 
-    componentDidMount() {
+    public componentDidMount() {
         axios.get('/entity/entity').then(response => response.data.entities).then(entities => this.setState({ "entities": List<Entity>(entities) })).catch(error => {
             console.log('unable to get entities');
         });
@@ -60,7 +60,7 @@ class MainView extends React.Component<MainViewProps> {
 	  });*/
     }
 
-    render() {
+    public render() {
         return <div className="mainView entityViewContainer"><EntityView/></div>;
     }
 }

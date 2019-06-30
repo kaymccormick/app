@@ -16,6 +16,7 @@ import { ApplicationState, EntityUIState } from '../../model/ApplicationState';
 const mapStateToProps = (state: ApplicationState): EntityViewProps => ({
   entities: state.entities,
   entityUIState: state.ui ? state.ui.entityUIState : List<EntityUIState>(),
+  selectedEntityIndex: state.ui && state.ui.selectedEntityIndex : undefined,
   });
 
 // @ts-ignore

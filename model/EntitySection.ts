@@ -5,6 +5,6 @@ export default class EntitySection<T extends EntityElement> {
     public sectionContents?: T[];
 
     public toJS(): Pojo {
-        return { sectionContents: this.sectionContents ? this.sectionContents.map(item => item.toJS()) : undefined };
+        return { sectionContents: this.sectionContents ? this.sectionContents.map((item): Pojo => item.toJS()) : undefined };
     }
 }
