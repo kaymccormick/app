@@ -15,16 +15,9 @@ export interface ApplicationState {
     };
 }
 
-const initialState: ApplicationState = {
+export const initialState: ApplicationState = {
   entities: List<Entity>(),
   ui: {
   entityUIState: List<EntityUIState>(),
   },
-}
-function entityViewApp(state: ApplicationState = initialState, action: Action): ApplicationState {
-switch(action.type) {
-case ADD_ENTITY:
-return Object.assign({}, state, { entities: state.entities.push(new Entity()) });
-}
-return state;
 }

@@ -4,6 +4,8 @@ import { DragDropContext } from 'react-dnd'
 import MainView from './MainView'
 import MainTree from '../MainTree';
 import Site from '../../model/site/Site';
+import Toolbar from './Toolbar';
+
 /* what component uses this?
 */
 
@@ -19,7 +21,7 @@ super(props);
 }
 
     render() {
-        return <div className="mainViewLayout"><div className="mainTreeContainer"><MainTree site={this.props.site}/></div><div className="mainViewContainer"><MainView/></div></div>;
+        return <div className="mainViewLayout"><div className="toolbarContainer"><Toolbar/></div><div className="mainTreeContainer"><MainTree site={this.props.site}/></div><div className="mainViewContainer"><MainView/></div></div>;
     }
 }
 export default DragDropContext(HTML5Backend)(MainViewLayout)

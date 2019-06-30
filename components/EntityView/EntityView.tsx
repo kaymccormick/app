@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { addEntity } from '../../model/actions';
+import { addEntity,moveEntity } from '../../model/actions';
 import React, {ClassAttributes, MouseEvent, MouseEventHandler} from 'react';
 import HTML5Backend from 'react-dnd-html5-backend'
 import {DragDropContext, DragSourceMonitor, DropTarget, DropTargetConnector, DropTargetMonitor} from 'react-dnd'
@@ -15,10 +15,12 @@ import { ApplicationState, EntityUIState } from '../../model/ApplicationState';
 
 const mapStateToProps = (state: ApplicationState): EntityViewProps => ({
   entities: state.entities,
-  entityUIState: state.ui.entityUIState,
+  entityUIState: state.ui ? state.ui.entityUIState : List<EntityUIState>(),
   });
 
-const mapDispatchToProps = (dispatch) => ({
+// @ts-ignore
+const mapDispatchToProps = (dispatch: any) => ({
+"moveEntity": (index: number, x:number, y: number) => dispatch(moveEntity(index, x, y)),
 });
 
 
@@ -29,23 +31,27 @@ export interface EntityViewProps {
     canDrop?: boolean;
     connectDropTarget?: any;
     handleDrop?: (monitor: DropTargetMonitor) => void;
+    moveEntity?: (index: number, x: number, y: number) => ApplicationState
 }
 
 interface EntityViewState {
+x?: number;
+y?: number;
 }
 
 const spec = {
     drop(props: EntityViewProps, monitor: DropTargetMonitor, component: React.RefObject<any>) {
         const item = monitor.getItem();
-/*        if(props.handleDrop) {
-            props.handleDrop(monitor);
-        }*/
-	// KM!
-        console.log('props');
-        console.log(props);
-  
-        console.log(monitor.getInitialSourceClientOffset());
-        console.log(monitor.getDifferenceFromInitialOffset());
+	if(props.moveEntity) {
+	const r = monitor.getInitialClientOffset();
+	if(!r) {
+	throw new Error('');
+	}
+	const { x, y  } = monitor.getDifferenceFromInitialOffset() || { x: 0, y: 0};
+	props.moveEntity(parseInt(item.modelKey), r.x + x, r.y + y);
+	}
+//        console.log(monitor.getInitialSourceClientOffset());
+//        console.log(monitor.getDifferenceFromInitialOffset());
     },
 };
 

@@ -12,24 +12,21 @@ import {ButtonGroup, Toolbar, ToolbarItem,Button} from "@progress/kendo-react-bu
 import {Menu,MenuItem} from '@progress/kendo-react-layout';
 
 export interface MainViewState {
-    entities: List<Entity>;
-    entityPositions: List<EntityPosition>;
 }
 
 export interface MainViewProps  {
 }
 
 class MainView extends React.Component<MainViewProps> {
-    public handleEntityAdd: (e: MouseEvent) => void;
-    public handleDrop: (monitor: DropTargetMonitor) => void;
+//    public handleEntityAdd: (e: MouseEvent) => void;
+//    public handleDrop: (monitor: DropTargetMonitor) => void;
 
-    public state: MainViewState = { entities: List<Entity>(),
-        entityPositions: List<EntityPosition>() };
+    public state: MainViewState = { }
 
     public constructor(props: MainViewProps) {
         super(props);
-        this.handleEntityAdd = this._handleEntityAdd.bind(this);
-        this.handleDrop = this._handleDrop.bind(this);
+//        this.handleEntityAdd = this._handleEntityAdd.bind(this);
+//        this.handleDrop = this._handleDrop.bind(this);
     }
 
     componentDidMount() {
@@ -39,16 +36,16 @@ class MainView extends React.Component<MainViewProps> {
     }
 
     // @ts-ignore
-    public _handleEntityAdd(e: any) {
+/*    public _handleEntityAdd(e: any) {
         this.setState((state: MainViewState, props) => {
 	console.log(`number of entities is ${state.entities ? state.entities.size : 'undefined'}`);
 	return {entities: state.entities.push(new Entity()) };
 	});
         e.preventDefault();
         console.log('add');
-    }
+    }*/
 
-    public _handleDrop(monitor: DropTargetMonitor) {
+    public _handleDrop(monitor: DropTargetMonitor) {/*
     console.log(`handle drop`);
 	  const rect1 = monitor.getInitialSourceClientOffset();
 	  const rect2 = monitor.getDifferenceFromInitialOffset();
@@ -60,7 +57,7 @@ class MainView extends React.Component<MainViewProps> {
 	  entityPositions = entityPositions.set(i, { x: rect2.x, y: rect2.y });
 	  return { entityPositions };
 	  }
-	  });
+	  });*/
     }
 
     render() {

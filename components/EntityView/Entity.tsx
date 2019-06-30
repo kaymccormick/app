@@ -10,8 +10,8 @@ const defaultWidth = 100;
 const defaultHeight = 400;
 
 const Sections = {
-    attributes: { render: (props: EntityAttributesSectionProps) => <Components.EntityAttributesSection {...props}/> },
-    methods: { render: (props: EntityMethodsSectionProps) => <Components.EntityMethodsSection {...props}/> },
+    attributes: { render: (props: EntityAttributesSectionProps) => <Components.EntityAttributesSection key={props.section} {...props}/> },
+    methods: { render: (props: EntityMethodsSectionProps) => <Components.EntityMethodsSection key={props.section} {...props}/> },
 };
 
 export interface EntityProps {
@@ -78,7 +78,7 @@ class Entity extends React.Component<EntityProps> {
 
     public render() {
         const {isDragging, connectDragSource} = this.props;
-        return connectDragSource(<div ref={this.myRef} style={{position: 'absolute', left: (this.props.x || 0), top: (this.props.y || 0), right: ((this.props.x || 0) + (this.props.width || defaultWidth)), bottom: ((this.props.y || 0) + (this.props.height || defaultHeight))}}><div className="entityView__entity">
+        return connectDragSource(<div className="entityView__entityContainer" ref={this.myRef} style={{position: 'absolute', left: (this.props.x || 0), top: (this.props.y || 0), right: ((this.props.x || 0) + (this.props.width || defaultWidth)), bottom: ((this.props.y || 0) + (this.props.height || defaultHeight))}}><div className="entityView__entity">
             <div className="entityView__entity__displayName">{this.props.editMode ?
                 <input value={this.props.entity.displayName}/> : <span>this.props.entity.displayName</span>}</div>
             {Object.keys(Sections).map(section => {
