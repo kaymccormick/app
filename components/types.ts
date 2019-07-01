@@ -62,3 +62,5 @@ export interface EntityAttributesSectionProps extends EntitySectionProps {
 
 export interface EntityMethodsSectionProps extends EntitySectionProps {
 }
+export interface MyEditorState {
+}
