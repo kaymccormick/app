@@ -12,9 +12,9 @@ export default class RcTreeAdapter {
   public toData(): Pojo[] {
   const convert = (node: TreeNode): Pojo => {
   return { title: node.displayName,
-  	 children: node.children.map(c => convert(c)),
-	 key: '',
-	 };
+         children: node.children.map(c => convert(c)),
+         key: '',
+         };
  };
  return this.tree.rootNode.children.map(c => convert(c));
  }

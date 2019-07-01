@@ -84,12 +84,13 @@ private target: any;
                                      this.props.entity.displayName: ''}/> :
                   <span>{this.props.entity !== undefined ? this.props.entity.displayName: ''}</span>}
                 </div>
+                <div className="debug">{this.props.entity !== undefined? this.props.entity.key:''}</div>
                 <div className="entity__header">Description</div>
                 <div className="entity__description">hello</div>
             {Object.keys(Sections).map(section => Sections[section].render(
-	    { index: this.props.index,
+            { index: this.props.index,
             entity: this.props.entity,
-	    section }))}
+            section }))}
             <div><a href="#" onClick={(e) => { e.preventDefault(); if(this.props.updateEntity) { this.props.updateEntity(); } }}>Update</a></div>
             </div></div><div style={{width: '1px'}} ref={(node) => { this.target = node; }}/></div></div>);
     }

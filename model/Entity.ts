@@ -4,8 +4,8 @@ import EntityMethod from './EntityMethod';
 import BaseModel from './BaseModel';
 
 class Entity extends BaseModel {
-    public attributes?: EntitySection<EntityAttribute> = new EntitySection<EntityAttribute>();
-    public methods?: EntitySection<EntityMethod> = new EntitySection<EntityMethod>();
+    public attributes: EntitySection<EntityAttribute> = new EntitySection<EntityAttribute>();
+    public methods: EntitySection<EntityMethod> = new EntitySection<EntityMethod>();
     public description?: string;
 
     public constructor(objectid?: number, commonName?: string, displayName?: string) {
@@ -21,19 +21,19 @@ class Entity extends BaseModel {
     }
 
     public updateFrom(from: Entity): void {
-    	   if(from.commonName) {
-    	   this.commonName = from.commonName;
-	   }
-	   if(from.displayName) {
-	   this.displayName = from.displayName;
-	   }
-	   if(from.tenant) {
-	   this.tenant = from.tenant;
-	   }
-	   if(from.owner) {
-	   this.owner = from.owner;
-	   }
-	   }
+        if(from.commonName) {
+            this.commonName = from.commonName;
+        }
+        if(from.displayName) {
+            this.displayName = from.displayName;
+        }
+        if(from.tenant) {
+            this.tenant = from.tenant;
+        }
+        if(from.owner) {
+            this.owner = from.owner;
+        }
+    }
 
     public copy(): Entity {
         const r = new Entity();
