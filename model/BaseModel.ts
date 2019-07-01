@@ -9,12 +9,12 @@ export default class BaseModel {
     public owner?: User;
 
     public copy(): BaseModel {
-    const r = new BaseModel();
-    r.objectid = this.objectid;
-r.commonName = this.commonName;
-r.displayName = this.displayName;
-r.tenant = this.tenant;
-r.owner = this.owner;
-return r;
+        const r = new BaseModel();
+        r.objectid = this.objectid;
+        r.commonName = this.commonName;
+        r.displayName = this.displayName;
+        r.tenant = this.tenant;
+        r.owner = this.owner;
+        return r;
     }
 }

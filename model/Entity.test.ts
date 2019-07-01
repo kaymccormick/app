@@ -1,7 +1,7 @@
 import Entity from './Entity';
 
 test('construction', () => {
-const e = new Entity();
+    const e = new Entity();
     expect(e).toBeDefined();
     expect(e.attributes).toBeDefined();
     
@@ -15,6 +15,6 @@ test('toJs', () => {
 })
 
 test('copy', () => {
-const e= new Entity();
-expect(e.copy()).toBeDefined();
+    const e= new Entity();
+    expect(e.copy()).toBeDefined();
 })
