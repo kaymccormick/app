@@ -1,12 +1,11 @@
 import React, {MouseEvent, MouseEventHandler} from 'react';
-import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext, DropTarget, DropTargetMonitor } from 'react-dnd'
 import axios from 'axios';
 import Entity from '../../model/Entity';
 import * as Components from './';
 import EntityAdd from './Command/EntityAdd';
 import { List } from 'immutable'
-import EntityView from './EntityView';
+import {EntityViewContainer} from '../containers/EntityViewContainer';
 import { EntityPosition } from './types';
 import {ButtonGroup, Toolbar, ToolbarItem,Button} from "@progress/kendo-react-buttons";
 import {Menu,MenuItem} from '@progress/kendo-react-layout';
@@ -61,10 +60,7 @@ class MainView extends React.Component<MainViewProps> {
     }
 
     public render() {
-        return <div className="mainView entityViewContainer"><EntityView/></div>;
+        return <div className="mainView entityViewContainer"><EntityViewContainer/></div>;
     }
 }
 export default MainView;
-
-
-

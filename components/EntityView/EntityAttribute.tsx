@@ -7,7 +7,7 @@ export interface EntityAttributeProps {
 
 class EntityAttribute extends React.Component<EntityAttributeProps> {
     render() {
-        return <div><div>{this.props.entityAttribute.displayName}</div></div>;
+        return <div className="entityAttribute"><div className="entityAttribute__displayName">{this.props.entityAttribute.displayName}</div></div>;
     }
 }
 

@@ -1,5 +1,6 @@
 {
    "compilerOptions" : {
+    "incremental": true,
       "strictBindCallApply" : true,
       "esModuleInterop" : true,
       "allowSyntheticDefaultImports" : true,
