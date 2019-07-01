@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1 1`] = `
+Object {
+  "commonName": undefined,
+  "displayName": undefined,
+  "entity": Object {
+    "attributes": Object {
+      "sectionContents": Immutable.List [],
+    },
+    "commonName": undefined,
+    "displayName": undefined,
+    "objectid": 1,
+  },
+  "objectid": undefined,
+  "owner": undefined,
+  "tenant": undefined,
+}
+`;
+
+exports[`1 2`] = `
+Object {
+  "commonName": undefined,
+  "displayName": undefined,
+  "objectid": undefined,
+  "owner": undefined,
+  "tenant": undefined,
+}
+`;

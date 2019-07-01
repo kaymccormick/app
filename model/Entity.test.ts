@@ -11,7 +11,7 @@ test('toJs', () => {
     const e = new Entity();
     e.commonName = 'commonName';
     const j = e.toJS();
-    expect(j.commoname).toBe(e.commonName);
+    expect(j.commonName).toBe(e.commonName);
 })
 
 test('copy', () => {

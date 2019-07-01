@@ -8,8 +8,8 @@ class Entity extends BaseModel {
     public methods?: EntitySection<EntityMethod> = new EntitySection<EntityMethod>();
     public description?: string;
 
-    public constructor() {
-        super();
+    public constructor(objectid?: number, commonName?: string, displayName?: string) {
+        super(objectid, commonName, displayName);
     }
 
     public toJS(): { [propName: string]: any } {

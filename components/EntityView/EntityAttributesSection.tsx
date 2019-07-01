@@ -3,9 +3,10 @@ import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import React from 'react';
 import Entity from '../../model/Entity';
 import {addAttribute} from '../../model/actions';
-import EntityAttribute from '../../model/EntityAttribute';
+import * as Model from '../../model';
 import { connect } from 'react-redux';
 import{ ModelState,ApplicationState}from'../../model/types';
+import EntityAttribute from './EntityAttribute';
 import { EntitySectionProps, EntityAttributesSectionProps } from '../types';
 
 
@@ -23,8 +24,17 @@ const mapDispatchToProps = (dispatch: any) => ({
 
 
 //<div>{props.entity.attributes.map((att) =>
-export default connect(mapStateToProps, mapDispatchToProps)((props: EntityAttributesSectionProps) => <React.Fragment><div style={{gridColumn: '1 / 3'}} className="entitySection__sectionTitle">{props.sectionTitle || props.section}</div>
-<div style={{gridColumn: '3'}}><a className="addAttributeLink" href="#" onClick={(e) => { if(props.addAttribute) { props.addAttribute(props.index); } e.preventDefault(); }}><FontAwesomeIcon style={{color: 'black'}} icon={faPlusSquare}/></a></div>
-{props.entity && props.entity.attributes && props.entity.attributes.sectionContents ? props.entity.attributes.sectionContents.map((attr) => <div style={{gridColumn: '1 / 3'}}>{JSON.stringify(attr, null, 4)}</div>) : null}
+/*       <div style={{gridColumn: '1 / 2'}}>entity</div>
+       <div style={{gridColumn: '2 / 4'}}>{props.entity ? 'yes' : 'no'}</div>
+       <div style={{gridColumn: '1 / 2'}}>sectionContents</div>
+       <div style={{gridColumn: '2 / 4'}}>{props.entity && props.entity.attributes && props.entity.attributes.sectionContents ? 'yes' : 'no'}</div>
+*/export default connect(mapStateToProps, mapDispatchToProps)((props: EntityAttributesSectionProps) =>
+   <React.Fragment>
+    <div style={{gridColumn: '1 / 3'}}
+      className="entitySection__sectionTitle">{props.sectionTitle || props.section}</div>
+     <div style={{gridColumn: '3'}}>{
+       }<a className="addAttributeLink" href="#" onClick={(e) => { if(props.addAttribute) { props.addAttribute(props.index); } e.preventDefault(); }}><FontAwesomeIcon style={{color: 'black'}} icon={faPlusSquare}/></a>{
+       }</div>
+      {props.entity && props.entity.attributes && props.entity.attributes.sectionContents ? props.entity.attributes.sectionContents.map((attr, index) => <div key={(index || -1).toString()} className="entityAttributes__attribute" style={{gridColumn: '1 / 4'}}>z{attr !== undefined ? <EntityAttribute key={(index || -1).toString()} entityAttribute={attr}/> : null}</div>) : null}
 </React.Fragment>);
 

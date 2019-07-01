@@ -1,8 +1,14 @@
 import {ADD_ATTRIBUTE, ADD_ENTITY, MOVE_ENTITY} from './actions';
 import {List} from "immutable";
 import Entity from "./Entity";
+import * as Model from './Model';
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+
+export interface ModelFactory {
+    createEntity(objectid?: number, commonName?: string, displayName?: string | undefined): Model.Entity;
+    createEntityAttribute(objectid?: number, commonName?: string, displayName?: string | undefined, entity: Entity): Model.EntityAttribute;
+}
 
 export interface Pojo {[propName: string]: any}
 export interface Action {

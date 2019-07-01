@@ -1,14 +1,13 @@
 import React from 'react';
 /*import Popover from 'react-simple-popover';*/
-import {Types} from '../../src/types';
 import {DragSource, DragSourceConnector, DragSourceMonitor} from 'react-dnd';
 import * as Components from './';
-import {EntityDragDropItem, EntityProps,EntityMethodsSectionProps,EntityAttributesSectionProps} from "../types";
+import {Types,EntityDragDropItem, EntityProps,EntityMethodsSectionProps,EntityAttributesSectionProps} from "../types";
 
 const defaultWidth = 100;
 const defaultHeight = 400;
 
-const Sections = {
+const Sections: { [propName: string]: { render: any } } = {
     attributes: { render: (props: EntityAttributesSectionProps) => <Components.EntityAttributesSection index={props.index||-1} key={props.section} {...props}/> },
     methods: { render: (props: EntityMethodsSectionProps) => <Components.EntityMethodsSection index={props.index} key={props.section} {...props}/> },
 };

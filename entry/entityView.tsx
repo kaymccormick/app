@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-
+import BasicModelFactory from '../model/BasicModelFactory';
 import EntityViewRouter from '../components/EntityViewRouter';
 import Site from '../site/Site';
-import
-rootReducer from '../model/reducers';
+import rootReducer from '../model/reducers';
 
-const store = createStore(rootReducer);
-
+const factory = new BasicModelFactory();
+const store = createStore(rootReducer(factory));
 const site = new Site();
 
 window.oncontextmenu = function ()

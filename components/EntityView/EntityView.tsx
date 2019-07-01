@@ -5,11 +5,10 @@ import EntityContainer from '../containers/EntityContainer';
 
 import * as Components from './';
 import { List } from 'immutable'
-import { Types } from '../../src/types';
 import classNames from 'classnames';
 import Rect from '../../model/ui/Rect';
 import {ApplicationState, EntityUIState, EntityViewState} from "../../model/types";
-import {EntityViewProps} from "../types";
+import {EntityViewProps,Types} from "../types";
 
 /* used in MainView */
 
@@ -71,7 +70,7 @@ console.log(error);
                 x = uiState.x || 0;
                 y = uiState.y || 0;
             }
-            return <EntityContainer index={index}/>;// editMode={true} x={x} y={y} modelKey={i.toString()} key={i.toString()} entity={entity}
+            return <EntityContainer key={index.toString()} index={index}/>;// editMode={true} x={x} y={y} modelKey={i.toString()} key={i.toString()} entity={entity}
         }) : []) : []}</div>);
     }
 }

@@ -1,12 +1,12 @@
 import { Action } from '../types'
 import { ADD_ENTITY, UPDATE_ENTITY, ADD_ATTRIBUTE } from '../actions';
-import {ModelState, UpdateEntityAction, AddAttributeAction} from "../types";
+import {ModelFactory,ModelState, UpdateEntityAction, AddAttributeAction} from "../types";
 import Entity from '../Entity';
 import EntityAttribute from '../EntityAttribute';
 import { model as initialModelState } from '../ApplicationState';
 import {List} from 'immutable';
 
-const model = (state: ModelState = initialModelState, action: Action): ModelState|undefined => {
+const model = (factory: ModelFactory) => (state: ModelState = initialModelState, action: Action): ModelState|undefined => {
     switch(action.type) {
         case ADD_ENTITY:
 	console.log(state.entities);
@@ -37,7 +37,7 @@ if(entity2.attributes && entity2.attributes.sectionContents) {
 		    console.log('here');
 		    entity2.attributes.sectionContents = entity2.attributes.sectionContents.push(new EntityAttribute());
 		    }
-		    console.log(entity2);
+		    console.log(entity2.toJS());
 		    return Object.assign({}, state, { entities: state.entities.set(index, entity2) });
 		    }
 		    return state;
@@ -45,4 +45,4 @@ if(entity2.attributes && entity2.attributes.sectionContents) {
             return state;
     }
 }
-export default model;
+export default (factory: ModelFactory) => model(factory);

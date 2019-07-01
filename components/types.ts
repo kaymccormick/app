@@ -64,3 +64,9 @@ export interface EntityMethodsSectionProps extends EntitySectionProps {
 }
 export interface MyEditorState {
 }
+export const Types = {
+    ENTITY: 'entity',
+}
+export interface EntityAttributeProps {
+    entityAttribute: Model.EntityAttribute;
+}

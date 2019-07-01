@@ -1,9 +1,6 @@
 import React from 'react';
 import * as EntityCore from '../../entity/core';
-import { Types } from '../../src/types';
-export interface EntityAttributeProps {
-    entityAttribute: EntityCore.EntityAttribute;
-}
+import { Types, EntityAttributeProps } from '../types';
 
 class EntityAttribute extends React.Component<EntityAttributeProps> {
     render() {
