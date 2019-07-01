@@ -52,6 +52,12 @@ class EntityView extends React.Component<EntityViewProps> {
         this.setState( { x: rect.x, y: rect.y } );
     }
 
+// @ts-ignore
+public componentDidCatch(error: any, info: any) {
+console.log(error);
+}
+
+
     public render() {
         const {  connectDropTarget } = this.props;
         return connectDropTarget(<div ref={this.entityViewRef} className={classNames('entityView', this.props.canDrop ? 'canDrop' : '')} style={{width: "100%", height: "100%"}}>{this.props.entities ? (this.props.entities.map ? this.props.entities.map((entity: Entity|undefined, index?: number | undefined): {}|null => {

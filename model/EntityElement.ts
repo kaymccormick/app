@@ -9,6 +9,6 @@ export default  class EntityElement {
     public entity?: Entity;
 
     public toJS(): Pojo {
-    return  {};
+        return  {};
     }
 }

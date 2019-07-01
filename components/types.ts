@@ -5,7 +5,7 @@ import {DropTargetMonitor} from "react-dnd";
 import {ApplicationState, EntityUIState} from "../model/types";
 
 export interface EntityProps {
-    entity: Model.Entity;
+    entity?: Model.Entity;
     editMode?: boolean;
     connectDragSource?: any;
     isDragging?: boolean;
@@ -15,6 +15,8 @@ export interface EntityProps {
     width?: number;
     height?: number;
     index: number;
+    updateEntity?: any;
+    changeSelection?: any;
 }
 
 export interface Rect {
@@ -36,9 +38,26 @@ export interface EntityViewProps {
     canDrop?: boolean;
     connectDropTarget?: any;
     handleDrop?: (monitor: DropTargetMonitor) => void;
-    moveEntity?: (index: number, x: number, y: number) => ApplicationState
+    moveEntity?: (index: number, x: number, y: number) => ApplicationState;
 }
 export interface EntityContainerProps {
-index: number;
-entity?: Model.Entity;
+    index?: number;
+    entity?: Model.Entity;
+    updateEntity?: any;
+    modelKey?: string;
+}
+export interface EntityViewContainerProps {
+}
+export interface EntitySectionProps {
+    section: string;
+    sectionTitle?: string;
+    index?: number;
+    entity?: Model.Entity;
+}
+export interface EntityAttributesSectionProps extends EntitySectionProps {
+// @ts-ignore
+    addAttribute?: any;
+}
+
+export interface EntityMethodsSectionProps extends EntitySectionProps {
 }

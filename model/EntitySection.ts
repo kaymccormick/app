@@ -1,10 +1,11 @@
 import EntityElement from './EntityElement';
 import { Pojo } from './types';
+import { List } from 'immutable';
 
 export default class EntitySection<T extends EntityElement> {
-    public sectionContents?: T[];
+    public sectionContents?: List<T> = List<T>();
 
     public toJS(): Pojo {
-        return { sectionContents: this.sectionContents ? this.sectionContents.map((item): Pojo => item.toJS()) : undefined };
+        return { sectionContents: this.sectionContents ? this.sectionContents.map((item): Pojo => item !== undefined ? item.toJS(): {}) : undefined };
     }
 }

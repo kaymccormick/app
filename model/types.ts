@@ -18,8 +18,8 @@ export interface AddEntityAction extends Omit<Action, 'type'> {
     type: "ADD_ENTITY";
 }
 export interface ChangeSelectionAction extends Omit<Action, 'type'> {
-type: "CHANGE_SELECTION";
-index: number;
+    type: "CHANGE_SELECTION";
+    index: number;
 }
 
 export interface EntityUIState {
@@ -41,23 +41,23 @@ export interface ApplicationState {
     entityViewUI: EntityViewUIState;
 }
 export interface AddAttributeAction extends Omit<Action, 'type'> {
-type:"ADD_ATTRIBUTE";
-  index:number;
-  }
+    type: "ADD_ATTRIBUTE";
+    index: number;
+}
 export interface AddMethodAction extends Omit<Action, 'type'> {
-type:"ADD_METHOD";
-  index:number;
-  }
+    type: "ADD_METHOD";
+    index: number;
+}
 
 export interface UpdateEntityAction extends Omit<Action, 'type'> {
-type:"UPDATE_ENTITY";
-  index:number;
-  entityData: Entity;
-  }
+    type: "UPDATE_ENTITY";
+    index: number;
+    entityData: Entity;
+}
 
 
 
 export interface EntityViewState {
-x?: number;
-y?: number;
+    x?: number;
+    y?: number;
 }

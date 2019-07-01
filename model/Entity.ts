@@ -4,9 +4,13 @@ import EntityMethod from './EntityMethod';
 import BaseModel from './BaseModel';
 
 class Entity extends BaseModel {
-    public attributes?: EntitySection<EntityAttribute>;
-    public methods?: EntitySection<EntityMethod>;
+    public attributes?: EntitySection<EntityAttribute> = new EntitySection<EntityAttribute>();
+    public methods?: EntitySection<EntityMethod> = new EntitySection<EntityMethod>();
     public description?: string;
+
+public constructor() {
+super();
+}
 
     public toJS(): { [propName: string]: any } {
         return { objectid: this.objectid,
@@ -30,7 +34,21 @@ class Entity extends BaseModel {
 	   this.owner = from.owner;
 	   }
 	   }
+
+public copy(): Entity {
+const r = new Entity();
+    r.objectid = this.objectid;
+r.commonName = this.commonName;
+r.displayName = this.displayName;
+r.tenant = this.tenant;
+r.owner = this.owner;
+r.attributes = this.attributes;
+r.methods = this.methods;
+r.description = this.description;
+return r;
 }
+}
+
 
 
 export default Entity;

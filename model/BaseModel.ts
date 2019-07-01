@@ -7,4 +7,14 @@ export default class BaseModel {
     public displayName?: string;
     public tenant?: Tenant;
     public owner?: User;
+
+    public copy(): BaseModel {
+    const r = new BaseModel();
+    r.objectid = this.objectid;
+r.commonName = this.commonName;
+r.displayName = this.displayName;
+r.tenant = this.tenant;
+r.owner = this.owner;
+return r;
+    }
 }

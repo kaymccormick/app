@@ -1,7 +1,10 @@
 import Entity from './Entity';
 
 test('construction', () => {
-    expect(new Entity()).toBeDefined();
+const e = new Entity();
+    expect(e).toBeDefined();
+    expect(e.attributes).toBeDefined();
+    
 });
 
 test('toJs', () => {
@@ -10,4 +13,8 @@ test('toJs', () => {
     const j = e.toJS();
     expect(j.commoname).toBe(e.commonName);
 })
-   
+
+test('copy', () => {
+const e= new Entity();
+expect(e.copy()).toBeDefined();
+})

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import EntityViewRouter from '../components/EntityViewRouter';
 import Site from '../site/Site';
 import
-    rootReducer from '../model/reducers';
+rootReducer from '../model/reducers';
 
 const store = createStore(rootReducer);
 
