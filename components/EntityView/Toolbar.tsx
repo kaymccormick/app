@@ -19,4 +19,4 @@ console.log('click');
 if(props.addEntity) {
 props.addEntity();
 }
-}} title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button><Button title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar>);
+}} title="Add Entity"><FontAwesomeIcon style={{color: 'black'}} icon={faProjectDiagram}/></Button><Button title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar>);

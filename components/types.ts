@@ -7,6 +7,7 @@ import {ApplicationState, EntityUIState} from "../model/types";
 export interface EntityProps {
     entity?: Model.Entity;
     editMode?: boolean;
+    // @ts-ignore
     connectDragSource?: any;
     isDragging?: boolean;
     modelKey: string;

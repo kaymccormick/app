@@ -66,7 +66,9 @@ private target: any;
     public render() {
     /*<Popover placement='right' container={this} target={this.target} show={this.state.popoverOpen}>test</Popover>*/
         const {isDragging, connectDragSource} = this.props;
-        return connectDragSource(<div className="entity__outerGrid" style={{display: 'grid', gridTemplateColumns: '100% 1px'}}><div className="entityView__draggableEntity" ref={this.myRef} style={{position: 'absolute', left: (this.props.x || 0), top: (this.props.y || 0), right: ((this.props.x || 0) + (this.props.width || defaultWidth)), bottom: ((this.props.y || 0) + (this.props.height || defaultHeight))}}><div className="entityView__entityContainer"><div onClick={(e) => this.handleOnClick(e)} className="entityView__entity">
+        return connectDragSource(<div className="entity__outerGrid"
+	style={{display: 'grid',
+	gridTemplateColumns: '100% 1px'}}><div className="entityView__draggableEntity" ref={this.myRef} style={{position: 'absolute', left: (this.props.x || 0), top: (this.props.y || 0), right: ((this.props.x || 0) + (this.props.width || defaultWidth)), bottom: ((this.props.y || 0) + (this.props.height || defaultHeight))}}><div className="entityView__entityContainer"><div onClick={(e) => this.handleOnClick(e)} className="entityView__entity">
             <div style={{gridColumn: '1 / 4'}} className="entity__displayName">{this.props.editMode ?
                 <input value={this.props.entity !== undefined ? this.props.entity.displayName: ''}/> : <span>{this.props.entity !== undefined ? this.props.entity.displayName: ''}</span>}</div>
 		<div className="entity__header" style={{gridColumn: '1 / 4'}}>Description</div>

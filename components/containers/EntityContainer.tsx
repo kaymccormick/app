@@ -6,7 +6,6 @@ import * as Model from '../../model';
 import { EntityProps, EntityContainerProps } from '../types';
 import { ApplicationState } from '../../model/types';
 
-
 const mapStateToProps = (state: ApplicationState, ownProps: EntityContainerProps): EntityProps => ({
 entity: ownProps.index !== undefined ? state.model.entities.get(ownProps.index): undefined,
 index: ownProps.index === undefined ? -1 : ownProps.index,
