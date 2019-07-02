@@ -10,6 +10,6 @@ export default class EntitySection<T extends EntityElement> {
     }
 
     public toJS(): Pojo {
-        return { sectionContents: this.sectionContents ? this.sectionContents.map((item): Pojo => item !== undefined ? item.toJS(): {}) : undefined };
+        return { sectionContents: this.sectionContents ? this.sectionContents.toJS() :undefined };
     }
 }

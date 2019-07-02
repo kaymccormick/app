@@ -12,6 +12,7 @@ const model = (factory: ModelFactory) => (state: ModelState = initialModelState,
             console.log(state.entities);
             const ary = state.entities || List<Entity>();
             const entity = factory.createEntity(undefined, 'unnamed');
+            entity.isNew = true;
             return Object.assign({}, state, { entities: ary.push(entity) });
         case UPDATE_ENTITY:
             console.log('update');
@@ -36,6 +37,7 @@ const model = (factory: ModelFactory) => (state: ModelState = initialModelState,
 
                     console.log('here');
                     const att = factory.createEntityAttribute(undefined, undefined, undefined, entity2);
+                    att.isNew = true;
                     //entity2.attributes.sectionContents = entity2.attributes.sectionContents.push(new EntityAttribute());
                 }
                 console.log(entity2.toJS());

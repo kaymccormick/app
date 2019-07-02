@@ -3,6 +3,7 @@ import User from './user/User';
 import {Pojo} from './types';
 
 export default class BaseModel {
+    public isNew?: boolean;
     public objectid?: number;
     public commonName?: string;
     public displayName?: string;
@@ -18,6 +19,7 @@ export default class BaseModel {
 
     public copy(): BaseModel {
         const r = new BaseModel();
+        r.isNew = this.isNew;
         r.objectid = this.objectid;
         r.commonName = this.commonName;
         r.displayName = this.displayName;
@@ -27,7 +29,10 @@ export default class BaseModel {
     }
 
     public toJS(): Pojo {
-        return { objectid: this.objectid,
+        return {
+        key:this.key,
+            isNew:this.isNew,
+            objectid: this.objectid,
             commonName: this.commonName,
             displayName: this.displayName,
             tenant: this.tenant ? this.tenant.toJS() : undefined,
