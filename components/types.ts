@@ -1,4 +1,4 @@
-import Entity from '../model/Entity';
+import Entity from '../model/entity/Entity';
 import * as Model from '../model';
 import {List} from "immutable";
 import {DropTargetMonitor} from "react-dnd";

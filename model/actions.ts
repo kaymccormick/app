@@ -1,5 +1,5 @@
 import {MoveEntityAction,AddEntityAction,ChangeSelectionAction,AddAttributeAction,AddMethodAction,UpdateEntityAction} from './types';
-import Entity from './Entity';
+import Entity from './entity/Entity';
 
 export const ADD_ENTITY = 'ADD_ENTITY';
 export const MOVE_ENTITY = 'MOVE_ENTITY';

@@ -1,8 +1,8 @@
 import { Action } from '../types'
 import { ADD_ENTITY, UPDATE_ENTITY, ADD_ATTRIBUTE } from '../actions';
 import {ModelFactory,ModelState, UpdateEntityAction, AddAttributeAction} from "../types";
-import Entity from '../Entity';
-import EntityAttribute from '../EntityAttribute';
+import Entity from '../entity/Entity';
+import EntityAttribute from '../entity/EntityAttribute';
 import { model as initialModelState } from '../ApplicationState';
 import {List} from 'immutable';
 

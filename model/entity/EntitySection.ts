@@ -1,5 +1,5 @@
 import EntityElement from './EntityElement';
-import { Pojo } from './types';
+import { Pojo } from '../types';
 import { List } from 'immutable';
 
 export default class EntitySection<T extends EntityElement> {

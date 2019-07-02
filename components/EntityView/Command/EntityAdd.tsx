@@ -1,5 +1,5 @@
 import  {MouseEventHandler} from 'react';
-import Entity from '../../../model/Entity';
+import Entity from '../../../model/entity/Entity';
 import {Button} from "@progress/kendo-react-buttons";
 import * as React from "react";
 

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import React from 'react';
-import Entity from '../../model/Entity';
+import Entity from '../../model/entity/Entity';
 import {addAttribute} from '../../model/actions';
 import * as Model from '../../model';
 import { connect } from 'react-redux';

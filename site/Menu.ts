@@ -3,7 +3,10 @@ import TreeNode from '../model/tree/TreeNode';
 
 export default () => {
     const tree = new Tree('Menu');
-    tree.rootNode.children.push(new TreeNode('Users'));
+    const users = new TreeNode('Users');
+    users.children.push(new TreeNode('List'));
+    tree.rootNode.children.push(users);
+    
     return tree;
 };
   

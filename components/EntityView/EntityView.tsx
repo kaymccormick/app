@@ -1,6 +1,6 @@
 import React from 'react';
 import {DragDropContext, DropTarget, DropTargetConnector, DropTargetMonitor} from 'react-dnd'
-import Entity from '../../model/Entity';
+import Entity from '../../model/entity/Entity';
 import EntityContainer from '../containers/EntityContainer';
 
 import * as Components from './';

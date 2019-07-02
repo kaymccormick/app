@@ -1,11 +1,11 @@
 import Entity from './Entity';
-import {Pojo} from './types';
-import BaseModel from './BaseModel';
+import {Pojo} from '../types';
+import BaseModel from '../BaseModel';
 
 export default class EntityElement extends BaseModel {
     public entity?: Entity;
 
-    constructor(objectid?: number, commonName?: string, displayName?: string, entity?: Entity) {
+    public constructor(objectid?: number, commonName?: string, displayName?: string, entity?: Entity) {
         super(objectid, commonName, displayName);
         this.entity = entity;
     }

@@ -30,7 +30,7 @@ export default class BaseModel {
 
     public toJS(): Pojo {
         return {
-        key:this.key,
+            key:this.key,
             isNew:this.isNew,
             objectid: this.objectid,
             commonName: this.commonName,

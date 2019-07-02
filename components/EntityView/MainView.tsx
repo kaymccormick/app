@@ -1,7 +1,7 @@
 import React, {MouseEvent, MouseEventHandler} from 'react';
 import { DragDropContext, DropTarget, DropTargetMonitor } from 'react-dnd'
 import axios from 'axios';
-import Entity from '../../model/Entity';
+import Entity from '../../model/entity/Entity';
 import * as Components from './';
 import EntityAdd from './Command/EntityAdd';
 import { List } from 'immutable'

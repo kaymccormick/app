@@ -1,4 +1,4 @@
-import Entity from './Entity';
+import Entity from './entity/Entity';
 import {List} from 'immutable'
 import {ApplicationState, EntityUIState,ModelState} from "./types";
 export const entityViewUI = {

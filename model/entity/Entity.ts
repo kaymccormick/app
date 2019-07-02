@@ -1,7 +1,7 @@
 import EntityAttribute from './EntityAttribute';
 import EntitySection from './EntitySection';
 import EntityMethod from './EntityMethod';
-import BaseModel from './BaseModel';
+import BaseModel from '../BaseModel';
 
 class Entity extends BaseModel {
     public attributes: EntitySection<EntityAttribute> = new EntitySection<EntityAttribute>();

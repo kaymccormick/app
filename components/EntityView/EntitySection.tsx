@@ -1,5 +1,5 @@
 import React from 'react';
-import Entity from '../../model/Entity';
+import Entity from '../../model/entity/Entity';
 import { EntitySectionProps } from '../types'
 
 /* Used in Components.Entity */

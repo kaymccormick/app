@@ -15,7 +15,7 @@ export interface MainTreeProps {
 
 export default class MainTree extends React.Component<MainTreeProps> {
     state: MainTreeState = {};
-    onExpand: () => void;
+    onExpand: (expandedKeys: {}) => void;
   
     constructor(props: MainTreeProps) {
         super(props);
@@ -25,7 +25,8 @@ export default class MainTree extends React.Component<MainTreeProps> {
         this.onExpand = this._onExpand.bind(this);
     }
 
-    _onExpand() {
+    _onExpand(expandedKeys: {}) {
+        this.setState({expandedKeys, autoExpandParent: false });
     }
 
     render() {
@@ -46,6 +47,11 @@ export default class MainTree extends React.Component<MainTreeProps> {
                 return <TreeNode key={item.key} title={item.title} />;
             });
         };
-        return <Tree onExpand={this.onExpand} expandedKeys={this.state.expandedKeys} autoExpandParent={this.state.autoExpandParent} >{loop(this.state.treeData)}</Tree>;
+        return <Tree
+            onExpand={this.onExpand}
+            expandedKeys={this.state.expandedKeys}
+            autoExpandParent={this.state.autoExpandParent}>
+            {loop(this.state.treeData)}
+        </Tree>;
     }
 }

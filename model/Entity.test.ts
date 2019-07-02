@@ -1,10 +1,10 @@
-import Entity from './Entity';
+import Entity from './entity/Entity';
 
 test('construction', () => {
     const e = new Entity();
     expect(e).toBeDefined();
     expect(e.attributes).toBeDefined();
-    
+
 });
 
 test('toJs', () => {
