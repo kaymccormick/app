@@ -1,7 +1,7 @@
 import {PrimaryGeneratedColumn, Column, ManyToOne} from 'typeorm';
 import User from './User';
 
-export default class UniversalDefault {
+export default class UniversalBase {
     @PrimaryGeneratedColumn()
     public objectid?: number;
 

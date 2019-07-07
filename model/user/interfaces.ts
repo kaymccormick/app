@@ -1,6 +1,6 @@
 export interface User<K> {
-  objectid: K;
-  firstName: string;
-  lastName: string;
-  middleNameOrInitial: string;
+    objectid: K;
+    firstName: string;
+    lastName: string;
+    middleNameOrInitial: string;
 }

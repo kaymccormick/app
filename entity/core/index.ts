@@ -9,14 +9,14 @@ import Organization from "./Organization";
 import Person from "./Person";
 import User from "./User";
 export { AttributeType,
-Document,
-EntityAttribute,
-Entity,
-FileContent,
-FileStore,
-File,
-Organization,
-Person,
-User,
+    Document,
+    EntityAttribute,
+    Entity,
+    FileContent,
+    FileStore,
+    File,
+    Organization,
+    Person,
+    User,
 };
 

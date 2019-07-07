@@ -2,8 +2,14 @@ import {ADD_ATTRIBUTE, ADD_ENTITY, MOVE_ENTITY} from './actions';
 import {List} from "immutable";
 import Entity from "./entity/Entity";
 import * as Model from './';
+import { FactoryInterface } from 'classModel/lib/src/types';
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+
+export type ClassModelFactory = FactoryInterface;
+export interface ClassModelState{
+}
+
 
 export interface ModelFactory {
     createEntity(objectid?: number, commonName?: string, displayName?: string | undefined): Model.Entity;

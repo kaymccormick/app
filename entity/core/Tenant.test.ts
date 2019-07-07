@@ -1,5 +1,5 @@
 import Tenant from './Tenant';
 
 test('construct', () => {
-expect(new Tenant()).toBeDefined();
+    expect(new Tenant()).toBeDefined();
 });

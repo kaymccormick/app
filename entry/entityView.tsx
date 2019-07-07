@@ -7,8 +7,10 @@ import EntityViewRouter from '../components/EntityViewRouter';
 import Site from '../site/Site';
 import rootReducer from '../model/reducers';
 
-const factory = new BasicModelFactory();
-const store = createStore(rootReducer(factory));
+//import ApplicationState from '../model/ApplicationState';
+
+const modelFactory = new BasicModelFactory();
+const store = createStore(rootReducer({modelFactory, classModel: {}}));
 const site = new Site();
 
 window.oncontextmenu = function ()

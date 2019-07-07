@@ -1,4 +1,4 @@
-import Entity from './entity/Entity';
+import Entity from './Entity';
 
 test('construction', () => {
     const e = new Entity();

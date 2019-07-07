@@ -1,8 +1,8 @@
 export default class Action {
-  public displayName: string;
+    public displayName: string;
 
-public constructor(displayName: string) {
-this.displayName = displayName;
-}
+    public constructor(displayName: string) {
+        this.displayName = displayName;
+    }
 
 }

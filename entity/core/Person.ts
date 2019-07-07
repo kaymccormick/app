@@ -22,5 +22,5 @@ export default class Person {
 
     @Column({nullable: true})
     title?: string;
- }
+}
  
