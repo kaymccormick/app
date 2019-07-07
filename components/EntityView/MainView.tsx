@@ -1,18 +1,15 @@
-import React, {MouseEvent, MouseEventHandler} from 'react';
-import { DragDropContext, DropTarget, DropTargetMonitor } from 'react-dnd'
+import React from 'react';
+import { DropTargetMonitor } from 'react-dnd'
 import axios from 'axios';
 import Entity from '../../model/entity/Entity';
-import * as Components from './';
-import EntityAdd from './Command/EntityAdd';
 import { List } from 'immutable'
 import {EntityViewContainer} from '../containers/EntityViewContainer';
-import { EntityPosition } from './types';
-import {ButtonGroup, Toolbar, ToolbarItem,Button} from "@progress/kendo-react-buttons";
-import {Menu,MenuItem} from '@progress/kendo-react-layout';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MainViewState {
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface MainViewProps  {
 }
 

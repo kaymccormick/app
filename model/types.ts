@@ -3,11 +3,13 @@ import {List} from "immutable";
 import Entity from "./entity/Entity";
 import * as Model from './';
 import { FactoryInterface } from 'classModel/lib/src/types';
+import { Pojo } from 'classModel';
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
 export type ClassModelFactory = FactoryInterface;
 export interface ClassModelState{
+  projects: List<Pojo.ProjectPojo>;
 }
 
 
@@ -52,6 +54,7 @@ export interface ModelState {
 export interface ApplicationState {
     model: ModelState;
     entityViewUI: EntityViewUIState;
+    classModel: ClassModelState;
 }
 export interface AddAttributeAction extends Omit<Action, 'type'> {
     type: "ADD_ATTRIBUTE";

@@ -22,5 +22,6 @@
       "declaration" : true,
       "noImplicitAny" : true,
       "jsx" : "react"
-   }
+   },
+    "exclude": ["node_modules/**/*", "lib/**/*", "lib/*", "**/*.test.ts", "**/*.test.tsx"]
 }

@@ -1,6 +1,4 @@
 import React from 'react';
-import HTML5Backend from 'react-dnd-html5-backend'
-import { DragDropContext } from 'react-dnd'
 import MainView from './EntityView/MainView'
 import MainTree from './MainTree';
 import Site from '../model/site/Site';
@@ -25,6 +23,7 @@ super(props);
         return <div className="mainViewLayout"><div className="toolbarContainer"><Toolbar/></div><div className="mainTreeContainer"><MainTree site={this.props.site}/></div><div className="mainViewContainer">{this.props.renderMainView()}</div></div>;
     }
 }
-export default DragDropContext(HTML5Backend)(MainViewLayout)
+export default MainViewLayout;
+
 
 

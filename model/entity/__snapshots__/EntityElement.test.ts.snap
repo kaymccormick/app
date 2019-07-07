@@ -6,12 +6,14 @@ Object {
   "displayName": undefined,
   "entity": Object {
     "attributes": Object {
-      "sectionContents": Immutable.List [],
+      "sectionContents": Array [],
     },
     "commonName": undefined,
     "displayName": undefined,
     "objectid": 1,
   },
+  "isNew": undefined,
+  "key": undefined,
   "objectid": undefined,
   "owner": undefined,
   "tenant": undefined,
@@ -22,6 +24,8 @@ exports[`1 2`] = `
 Object {
   "commonName": undefined,
   "displayName": undefined,
+  "isNew": undefined,
+  "key": undefined,
   "objectid": undefined,
   "owner": undefined,
   "tenant": undefined,
