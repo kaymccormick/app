@@ -11,6 +11,7 @@ import Toolbar from './EntityView/Toolbar';
 
 export interface MainViewLayoutProps {
 site: Site;
+renderMainView: () => any,
 }
 
 class MainViewLayout extends React.Component<MainViewLayoutProps> {
@@ -21,7 +22,7 @@ super(props);
 }
 
     render() {
-        return <div className="mainViewLayout"><div className="toolbarContainer"><Toolbar/></div><div className="mainTreeContainer"><MainTree site={this.props.site}/></div><div className="mainViewContainer"><MainView/></div></div>;
+        return <div className="mainViewLayout"><div className="toolbarContainer"><Toolbar/></div><div className="mainTreeContainer"><MainTree site={this.props.site}/></div><div className="mainViewContainer">{this.props.renderMainView()}</div></div>;
     }
 }
 export default DragDropContext(HTML5Backend)(MainViewLayout)
