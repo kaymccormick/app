@@ -3,6 +3,13 @@ import * as Model from '../model';
 import {List} from "immutable";
 import {DropTargetMonitor} from "react-dnd";
 import {ApplicationState, EntityUIState} from "../model/types";
+import { SiteInterface } from '../src/types';
+import { WebApplication }from '../src/WebApplication'
+
+export interface MainComponentBaseProps {
+site?: SiteInterface;
+app?: WebApplication;
+}
 
 export interface EntityProps {
     entity?: Model.Entity;

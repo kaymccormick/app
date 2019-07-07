@@ -13,5 +13,6 @@ export abstract class ApplicationModule {
     public abstract setup(config: Configuration): void
     public abstract getReducers(): any;
     public abstract getInitialState(): any;
+    public abstract getMainComponent(): any;
 }
 

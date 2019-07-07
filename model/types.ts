@@ -4,6 +4,7 @@ import Entity from "./entity/Entity";
 import * as Model from './';
 import { FactoryInterface } from 'classModel/lib/src/types';
 import { Pojo } from 'classModel';
+export { ApplicationState } from '../src/ApplicationState';
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
@@ -51,11 +52,6 @@ export interface ModelState {
     entities: List<Entity>;
 }
 
-export interface ApplicationState {
-    model: ModelState;
-    entityViewUI: EntityViewUIState;
-    classModel: ClassModelState;
-}
 export interface AddAttributeAction extends Omit<Action, 'type'> {
     type: "ADD_ATTRIBUTE";
     index: number;

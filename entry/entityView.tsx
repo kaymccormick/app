@@ -4,15 +4,16 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import BasicModelFactory from '../model/BasicModelFactory';
-import EntityViewRouter from '../components/EntityViewRouter';
 import Site from '../site/Site';
-//import rootReducer from '../model/reducers';
 import RestClient from '@heptet/rest-client'
-//import ApplicationState from '../model/ApplicationState';
 import {init} from '../src/init'
 import { Configuration } from '../src/Configuration';
 import { combineReducers } from 'redux';
+import MainRouter from "../components/MainRouter";
+import { WebApplication } from '../src/WebApplication';
 
+const app = new WebApplication();
+app.init();
 
 const restClient = new RestClient({baseUri: '/cme',
     logDebug: console.log});
@@ -33,4 +34,4 @@ window.oncontextmenu = function ()
     return false;     // cancel default menu
 }
 const root = document.getElementById('app');
-ReactDOM.hydrate(<Provider store={store}><EntityViewRouter site={site}/></Provider>, root);
+ReactDOM.hydrate(<Provider store={store}><MainRouter app={app} site={site}/></Provider>, root);

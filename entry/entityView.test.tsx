@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import BasicModelFactory from '../model/BasicModelFactory';
-import EntityViewRouter from '../components/EntityViewRouter';
+import MainRouter from '../components/MainRouter';
 import Site from '../site/Site';
 //import rootReducer from '../model/reducers';
 import RestClient from '@heptet/rest-client'
