@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 //import * as Components from './classModel';
-import MainViewLayout from './EntityView/MainViewLayout';
+import MainViewLayout from './MainViewLayout';
 import Site from '../model/site/Site';
 
 interface EntityViewRouterProps {

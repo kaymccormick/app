@@ -1,10 +1,10 @@
 import React from 'react';
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext } from 'react-dnd'
-import MainView from './MainView'
-import MainTree from '../MainTree';
-import Site from '../../model/site/Site';
-import Toolbar from './Toolbar';
+import MainView from './EntityView/MainView'
+import MainTree from './MainTree';
+import Site from '../model/site/Site';
+import Toolbar from './EntityView/Toolbar';
 
 /* what component uses this?
 */
