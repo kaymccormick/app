@@ -21,8 +21,8 @@ class MainView extends React.Component<MainViewProps> {
 
     public constructor(props: MainViewProps) {
         super(props);
-//        this.handleEntityAdd = this._handleEntityAdd.bind(this);
-//        this.handleDrop = this._handleDrop.bind(this);
+        //        this.handleEntityAdd = this._handleEntityAdd.bind(this);
+        //        this.handleDrop = this._handleDrop.bind(this);
     }
 
     public componentDidMount() {
@@ -32,7 +32,7 @@ class MainView extends React.Component<MainViewProps> {
     }
 
     // @ts-ignore
-/*    public _handleEntityAdd(e: any) {
+    /*    public _handleEntityAdd(e: any) {
         this.setState((state: MainViewState, props) => {
         console.log(`number of entities is ${state.entities ? state.entities.size : 'undefined'}`);
         return {entities: state.entities.push(new Entity()) };

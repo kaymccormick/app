@@ -2,7 +2,7 @@ import React from 'react';
 import { addEntity,moveEntity } from '../../model/actions';
 import {connect} from 'react-redux';
 import {EntityView}
-from './../EntityView/EntityView';
+    from './../EntityView/EntityView';
 import { ApplicationState } from '../../model/types';
 import {EntityViewProps,EntityViewContainerProps} from "../types";
 const mapStateToProps = (state: ApplicationState): EntityViewProps => ({

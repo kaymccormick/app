@@ -3,6 +3,6 @@ export interface Resources { [resourceName: string]: any }
 export interface Reducers { [reducerName: string]: any }
 
 export interface SiteInterface {
-  mainMenuTree: Tree;
-  }
+    mainMenuTree: Tree;
+}
   

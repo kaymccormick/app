@@ -5,7 +5,7 @@ import ContentEditable from 'react-contenteditable';
 
 class EntityAttribute extends React.Component<EntityAttributeProps> {
     public displayNameEditable: React.RefObject<any> = React.createRef();
-    public state:{displayNameHtml:string} = { displayNameHtml: this.props.entityAttribute.displayName||'' };
+    public state: {displayNameHtml: string} = { displayNameHtml: this.props.entityAttribute.displayName||'' };
     render() {
         return <div className="entityAttribute"><div className="entityAttribute__displayName">{this.props.entityAttribute.isNew ? <ContentEditable className="editing" innerRef={this.displayNameEditable} html={this.state.displayNameHtml} disabled={false}/> : this.props.entityAttribute.displayName}</div></div>;
     }

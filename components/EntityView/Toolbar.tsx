@@ -10,13 +10,13 @@ const mapStateToProps = (state: ApplicationState) => ({
 });
 
 const mapDispatchToProps = (dispatch: (action: Action) => void): any => ({
-  "addEntity": () => dispatch(addEntity()),
-  });
+    "addEntity": () => dispatch(addEntity()),
+});
 
 // @ts-ignore
 export default connect(mapStateToProps, mapDispatchToProps)((props: { addEntity?: () => void }) => <Toolbar><ToolbarItem><ButtonGroup><Button onClick={(e) => {
-console.log('click');
-if(props.addEntity) {
-props.addEntity();
-}
+    console.log('click');
+    if(props.addEntity) {
+        props.addEntity();
+    }
 }} title="Add Entity"><FontAwesomeIcon style={{color: 'black'}} icon={faProjectDiagram}/></Button><Button title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar>);

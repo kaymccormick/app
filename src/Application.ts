@@ -1,3 +1,4 @@
+/** SERVER APPLICATION */
 import fs from 'fs';
 
 import path from 'path';
@@ -25,7 +26,7 @@ export class Application {
         this.configuration = new ServerConfiguration();
         this.logger = logger;
         if(logger.debug === undefined) {
-        throw new Error('invalid logger');
+            throw new Error('invalid logger');
         }
         this.logger.debug('Application.constructor');
     }
@@ -35,9 +36,9 @@ export class Application {
         fs.readdirSync(moduleRoot).filter(e => !/^\./.test(e) && fs.statSync(path.join(moduleRoot, e)).isDirectory()).forEach(ent => {
             this.logger.info(ent);
             try {
-            const m = require(path.join(relModulePath, ent + '/ServerModule'));
-            const serverModule = new m.ServerModule();
-            this.configuration.addModule(serverModule);
+                const m = require(path.join(relModulePath, ent + '/ServerModule'));
+                const serverModule = new m.ServerModule();
+                this.configuration.addModule(serverModule);
             } catch(error) {
             }
 
@@ -56,7 +57,7 @@ export class Application {
         });
     }
 
-public getModule(name: string) {
-return this.modules.find(m => m.name === name);
-}
+    public getModule(name: string) {
+        return this.modules.find(m => m.name === name);
+    }
 }

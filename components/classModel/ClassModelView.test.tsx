@@ -7,16 +7,16 @@ import {ApplicationState, ClassModelState} from "../../model/types";
 import Project from './Project';
 
 test('1', () => {
-const loadProjects = () => {};
-const project: Pojo.ProjectPojo = {
-id: 1,
-name: 'foo',
-};
+    const loadProjects = () => {};
+    const project: Pojo.ProjectPojo = {
+        id: 1,
+        name: 'foo',
+    };
 
-const classModel: ClassModelState = { projects: List<Pojo.ProjectPojo>([project]) };
-const wrapper = shallow(<ClassModelView loadProjects={loadProjects}
-classModel={classModel}/>);
-const x = wrapper.find(Project);
-console.log(x);
+    const classModel: ClassModelState = { projects: List<Pojo.ProjectPojo>([project]) };
+    const wrapper = shallow(<ClassModelView loadProjects={loadProjects}
+        classModel={classModel}/>);
+    const x = wrapper.find(Project);
+    console.log(x);
 });
 

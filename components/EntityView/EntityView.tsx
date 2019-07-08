@@ -51,10 +51,10 @@ class EntityView extends React.Component<EntityViewProps> {
         this.setState( { x: rect.x, y: rect.y } );
     }
 
-// @ts-ignore
-public componentDidCatch(error: any, info: any) {
-console.log(error);
-}
+    // @ts-ignore
+    public componentDidCatch(error: any, info: any) {
+        console.log(error);
+    }
 
 
     public render() {

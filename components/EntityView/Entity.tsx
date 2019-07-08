@@ -39,7 +39,7 @@ function collect(connect: DragSourceConnector, monitor: DragSourceMonitor) {
 }
 
 class Entity extends React.Component<EntityProps> {
-private target: any;
+    private target: any;
     private myRef: React.RefObject<any>;
     // @ts-ignore
     public handleOnClick: any;
@@ -55,44 +55,44 @@ private target: any;
         console.log(rect);
     }
     public _handleOnClick(e: MouseEvent) {
-      e.preventDefault();
-      console.log('onclick');
-      if(this.props.changeSelection) {
-        this.props.changeSelection(this.props.index);
+        e.preventDefault();
+        console.log('onclick');
+        if(this.props.changeSelection) {
+            this.props.changeSelection(this.props.index);
         }
-        }
+    }
 
-      public render() {
+    public render() {
         const draggableEntityStyle: React.CSSProperties = {
-              position: "absolute",
-              left: (this.props.x || 50),
-              top: (this.props.y || 100),
-              right: ((this.props.x || 50) + (this.props.width || defaultWidth)),
-              bottom: ((this.props.y || 100) + (this.props.height || defaultHeight)),
-              };
+            position: "absolute",
+            left: (this.props.x || 50),
+            top: (this.props.y || 100),
+            right: ((this.props.x || 50) + (this.props.width || defaultWidth)),
+            bottom: ((this.props.y || 100) + (this.props.height || defaultHeight)),
+        };
 
         const {isDragging, connectDragSource} = this.props;
         return connectDragSource(
-         <div className="entity__outerGrid">
-           <div className="entityView__draggableEntity"
-                ref={this.myRef}
-                style={draggableEntityStyle}>
-            <div className="entityView__entityContainer">
-              <div className="entityView__entity" onClick={this.handleOnClick}>
-              <div className="entity__displayName">
-                {this.props.editMode ? <input value={this.props.entity !== undefined ?
-                                     this.props.entity.displayName: ''}/> :
-                  <span>{this.props.entity !== undefined ? this.props.entity.displayName: ''}</span>}
-                </div>
-                <div className="debug">{this.props.entity !== undefined? this.props.entity.key:''}</div>
-                <div className="entity__header">Description</div>
-                <div className="entity__description">hello</div>
-            {Object.keys(Sections).map(section => Sections[section].render(
-            { index: this.props.index,
-            entity: this.props.entity,
-            section }))}
-            <div><a href="#" onClick={(e) => { e.preventDefault(); if(this.props.updateEntity) { this.props.updateEntity(); } }}>Update</a></div>
-            </div></div><div style={{width: '1px'}} ref={(node) => { this.target = node; }}/></div></div>);
+            <div className="entity__outerGrid">
+                <div className="entityView__draggableEntity"
+                    ref={this.myRef}
+                    style={draggableEntityStyle}>
+                    <div className="entityView__entityContainer">
+                        <div className="entityView__entity" onClick={this.handleOnClick}>
+                            <div className="entity__displayName">
+                                {this.props.editMode ? <input value={this.props.entity !== undefined ?
+                                    this.props.entity.displayName: ''}/> :
+                                    <span>{this.props.entity !== undefined ? this.props.entity.displayName: ''}</span>}
+                            </div>
+                            <div className="debug">{this.props.entity !== undefined? this.props.entity.key:''}</div>
+                            <div className="entity__header">Description</div>
+                            <div className="entity__description">hello</div>
+                            {Object.keys(Sections).map(section => Sections[section].render(
+                                { index: this.props.index,
+                                    entity: this.props.entity,
+                                    section }))}
+                            <div><a href="#" onClick={(e) => { e.preventDefault(); if(this.props.updateEntity) { this.props.updateEntity(); } }}>Update</a></div>
+                        </div></div><div style={{width: '1px'}} ref={(node) => { this.target = node; }}/></div></div>);
     }
 }
 

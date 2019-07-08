@@ -7,16 +7,16 @@ import { EntityProps, EntityContainerProps } from '../types';
 import { ApplicationState } from '../../model/types';
 
 const mapStateToProps = (state: ApplicationState, ownProps: EntityContainerProps): EntityProps => ({
-entity: ownProps.index !== undefined ? state.model.entities.get(ownProps.index): undefined,
-index: ownProps.index === undefined ? -1 : ownProps.index,
-modelKey: ownProps.modelKey || '',
+    entity: ownProps.index !== undefined ? state.model.entities.get(ownProps.index): undefined,
+    index: ownProps.index === undefined ? -1 : ownProps.index,
+    modelKey: ownProps.modelKey || '',
 
 });
 
 // @ts-ignore
 const mapDispatchToProps = (dispatch: any) => ({
-updateEntity: (index: number, entityData: Model.Entity) => dispatch(updateEntity(index, entityData)),
-changeSelection: (index: number) => dispatch(changeSelection(index)),
+    updateEntity: (index: number, entityData: Model.Entity) => dispatch(updateEntity(index, entityData)),
+    changeSelection: (index: number) => dispatch(changeSelection(index)),
 });
 
 // @ts-ignore

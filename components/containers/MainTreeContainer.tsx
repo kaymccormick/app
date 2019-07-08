@@ -7,14 +7,14 @@ import {ApplicationModule} from '../../src/ApplicationModule';
 import MainTree,{MainTreeProps} from '../MainTree';
 
 const mapStateToProps = (state: ApplicationState): MainTreeProps => ({
-  entities: state.entities,
+    entities: state.entities,
 });
 
 // @ts-ignore
 const mapDispatchToProps = (dispatch: any, ownProps: MainTreeProps) => {
-return {
-//  "loadProjects": () => dispatch(actions.loadProjects()),
-};
+    return {
+        //  "loadProjects": () => dispatch(actions.loadProjects()),
+    };
 };
 
 //@ts-ignore
