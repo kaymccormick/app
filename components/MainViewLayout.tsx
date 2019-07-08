@@ -1,6 +1,7 @@
 import React from 'react';
 import MainView from './EntityView/MainView'
 import MainTree from './MainTree';
+import {MainTreeContainer} from './containers/MainTreeContainer';
 import Site from '../model/site/Site';
 import Toolbar from './EntityView/Toolbar';
 
@@ -20,7 +21,8 @@ super(props);
 }
 
     render() {
-        return <div className="mainViewLayout"><div className="toolbarContainer"><Toolbar/></div><div className="mainTreeContainer"><MainTree site={this.props.site}/></div><div className="mainViewContainer">{this.props.renderMainView()}</div></div>;
+    //@ts-ignore
+        return <div className="mainViewLayout"><div className="toolbarContainer"><Toolbar/></div><div className="mainTreeContainer"><MainTreeContainer site={this.props.site}/></div><div className="mainViewContainer">{this.props.renderMainView()}</div></div>;
     }
 }
 export default MainViewLayout;

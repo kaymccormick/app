@@ -14,7 +14,9 @@ interface EntityViewRouterProps extends MainComponentBaseProps {
 export default class MainRouter extends React.Component<EntityViewRouterProps> {
     render() {
     // @ts-ignore
-    const routes = this.props.app.modules.map((module: ApplicationModule) => <Route path={`/${module.key}`} render={() => React.createElement(module.getMainComponent(), { ...this.props}) }/>);
+    console.log(this.props.app.modules);
+    // @ts-ignore
+    const routes = this.props.app.modules.map((m: ApplicationModule) => <Route key={m.key} path={`/${m.key}`} render={() => React.createElement(m.getMainComponent(), { ...this.props, module: m }) }/>);
         return <Router basename="/entityView">{routes}</Router>;
     }
 }

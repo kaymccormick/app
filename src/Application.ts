@@ -13,7 +13,8 @@ const relModulePath = '../modules';
 const moduleRoot = path.join(__dirname, relModulePath);
 
 export class Application {
-public entities: any[] = [];
+    /* These are for database entities */
+    public entities: any[] = [];
     public connection?: Connection;
     public get modules(): ServerApplicationModule[] { return this.configuration.modules; }
 
@@ -54,4 +55,8 @@ public entities: any[] = [];
             return true;
         });
     }
+
+public getModule(name: string) {
+return this.modules.find(m => m.name === name);
+}
 }

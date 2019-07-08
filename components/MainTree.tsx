@@ -1,7 +1,8 @@
 import React from 'react';
 import Tree, { TreeNode } from 'rc-tree';
-import Site from '../model/site/Site';
+import {SiteInterface} from '../src/types';
 import RcTreeAdapter from '../model/tree/RcTreeAdapter';
+import {EntitiesState} from '../modules/entities/types';
 
 interface MainTreeState {
     autoExpandParent?: any;
@@ -10,7 +11,8 @@ interface MainTreeState {
 }
 
 export interface MainTreeProps {
-    site: Site;
+    site?: SiteInterface;
+    entities?: EntitiesState,
 }
 
 export default class MainTree extends React.Component<MainTreeProps> {
@@ -19,9 +21,10 @@ export default class MainTree extends React.Component<MainTreeProps> {
   
     constructor(props: MainTreeProps) {
         super(props);
+        if(props.site) {
         const adapter = new RcTreeAdapter(props.site.mainMenuTree);
         this.state = { treeData: adapter.toData() };
-  
+  }
         this.onExpand = this._onExpand.bind(this);
     }
 

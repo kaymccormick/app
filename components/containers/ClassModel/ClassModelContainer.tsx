@@ -17,7 +17,7 @@ throw new Error('');
 }
 const actions = ownProps.module.actions;
 return {
-"fetchEntities": () => dispatch(actions.fetchEntities()),
+//"fetchEntities": () => dispatch(actions.fetchEntities()),
     "loadProjects": () => dispatch(actions.loadProjects()),
 };
 };
