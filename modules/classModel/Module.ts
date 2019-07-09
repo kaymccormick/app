@@ -5,13 +5,14 @@ import reducer from './reducers';
 import * as actions from './actions';
 import { ClassModelContainer } from '../../components/containers/ClassModel/ClassModelContainer';
 import { WebApplication } from '../../src/WebApplication';
+import {ClassModelState} from "../../model/types";
 
 import RestClient from '@heptet/rest-client'
 /*export type Args = {
   restClient:RestClient,
 }*/
 
-export class Module extends ApplicationModule {
+export class Module extends ApplicationModule<ClassModelState> {
     public restClient?: RestClient;
     public name: string = 'classModel';
     public key: string = 'classModel';

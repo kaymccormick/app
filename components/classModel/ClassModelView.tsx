@@ -11,7 +11,7 @@ export interface ClassModelViewProps {
     classModel?: ClassModelState;
     loadProjects?: () => void;
     fetchEntities?: () => void;
-    module?: ApplicationModule;
+    module?: ApplicationModule<ClassModelState>;
 }
 
 /* used in MainView */

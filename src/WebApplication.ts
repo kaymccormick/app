@@ -6,7 +6,7 @@ const modules = [];
 const relModulePath = '../modules';
 
 export class WebApplication {
-    public get modules(): ApplicationModule[] { return this.configuration.modules; }
+    public get modules(): ApplicationModule<any>[] { return this.configuration.modules; }
 
     public configuration: Configuration;
     public constructor() {

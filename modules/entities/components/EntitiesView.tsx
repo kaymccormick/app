@@ -1,18 +1,33 @@
+import { DropTarget,DropTargetMonitor,DropTargetConnector}from 'react-dnd';
 import React from 'react';
 import ReactDataGrid from 'react-data-grid';
 import * as Components from './';
-import { List } from 'immutable'
+import { List,Map } from 'immutable'
 import classNames from 'classnames';
 import {ApplicationState} from "../../../model/types";
-import {EntitiesState,EntityPojo} from '../types';
+import {EntitiesState,EntityPojo,EntityUIState} from '../types';
 import {ApplicationModule} from '../../../src/ApplicationModule';
 import Site from '../../../model/site/Site';
 
 export interface EntitiesViewProps {
     entities?: EntitiesState;
     fetchEntities?: () => void;
-    module?: ApplicationModule;
+    module?: ApplicationModule<any>;
     site?: Site;
+}
+
+const spec = {
+    drop(props: EntitiesViewProps, monitor: DropTargetMonitor, component: React.RefObject<any>) {
+        const item = monitor.getItem();
+        console.log(item);
+    },
+};
+
+function collect(connect: DropTargetConnector, monitor: DropTargetMonitor) {
+    return {
+        connectDropTarget: connect.dropTarget(),
+        canDrop: monitor.canDrop(),
+    }
 }
 
 /* used in MainView */
@@ -33,10 +48,12 @@ class EntitiesView extends React.Component<EntitiesViewProps> {
 
     public render() {
         const model = this.props.entities;
-        const content = model && model.entities ? model.entities.map((entity: EntityPojo) => entity ? <Components.Entity key={entity.name} entity={entity}/> :null ) : null;
+        if(!model || !model.entities || !model.entitiesMap) {
+        return null;
+        }
+        const e = model.ui.entities.map((ui: EntityUIState) => model.entitiesMap!.get(ui.name))
+        const content = e.map((entity: EntityPojo) => entity ? <Components.Entity key={entity.name} entity={entity}/> :null );
         return <div>{content}</div>;
     }
 }
-export { EntitiesView };
-export default EntitiesView;
-
+export default DropTarget('TreeNode', spec, collect)(EntitiesView);

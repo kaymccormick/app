@@ -5,7 +5,7 @@ export interface Actions {
     [actionName: string]: any;
 }
 
-export abstract class ApplicationModule {
+export abstract class ApplicationModule<S> {
     public actions: Actions = {};
     public name: string = '';
     public key: string = '';
@@ -13,7 +13,7 @@ export abstract class ApplicationModule {
     }
     public abstract setup(app: WebApplication, config: Configuration): void
     public abstract getReducers(): any;
-    public abstract getInitialState(): any;
+    public abstract getInitialState(): S;
     public abstract getMainComponent(): any;
 }
 

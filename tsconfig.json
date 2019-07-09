@@ -3,7 +3,8 @@
     "incremental": true,
       "strictBindCallApply" : true,
       "esModuleInterop" : true,
-      "allowSyntheticDefaultImports" : true,
+       "allowSyntheticDefaultImports" : true,
+       "allowJs": true,
       "strictNullChecks" : true,
       "strictFunctionTypes" : true,
       "strict" : true,
@@ -19,7 +20,7 @@
       "experimentalDecorators" : true,
       "outDir" : "lib",
       "strictPropertyInitialization" : true,
-      "declaration" : true,
+      "declaration" : false,
       "noImplicitAny" : true,
       "jsx" : "react"
    },

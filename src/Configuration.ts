@@ -2,8 +2,8 @@ import { ApplicationModule } from './ApplicationModule';
 import { Resources,Reducers }from './types';
 export class Configuration {
     protected resources: Resources = {};
-    public modules: ApplicationModule[] = [];
-    public addModule(module: ApplicationModule) {
+    public modules: ApplicationModule<any>[] = [];
+    public addModule(module: ApplicationModule<any>) {
         this.modules.push(module);
     }
     public addResource(resourceName: string, resource: any): void {

@@ -1,3 +1,5 @@
+import uuidv4 from 'uuid/v4';
+import {List,Map} from 'immutable';
 import {ApplicationModule} from '../../src/ApplicationModule';
 import {Configuration} from '../../src/Configuration';
 import reducer from './reducers';
@@ -5,9 +7,9 @@ import * as actions from './actions';
 import {RestClient} from './RestClient';
 import { EntitiesViewContainer } from './components/containers/EntitiesViewContainer';
 import { WebApplication } from '../../src/WebApplication';
-import uuidv4 from 'uuid/v4';
+import {EntitiesState,EntityPojo} from './types';
 
-export class Module extends ApplicationModule {
+export class Module extends ApplicationModule<EntitiesState> {
     public restClient?: RestClient;
     public name: string = 'entities';
     public key: string = 'entities';
@@ -22,9 +24,11 @@ export class Module extends ApplicationModule {
 //        console.log(`${this.id} ${this.restClient}`);
     }
 
-    public getInitialState(): any {
+    public getInitialState(): EntitiesState {
         return {
             entities: [],
+                entitiesMap: Map<string,EntityPojo>(),
+                    ui: { entities: [] },
         }
     }
 

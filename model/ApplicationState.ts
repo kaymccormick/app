@@ -1,8 +1,9 @@
 import Entity from './entity/Entity';
-import {List} from 'immutable'
+import {List,Map} from 'immutable'
 import {ApplicationState, EntityUIState,ModelState,ClassModelState} from "./types";
 import { Pojo  }from 'classModel';
-import{EntitiesState}from '../modules/entities/types';
+import {EntitiesState, EntityPojo} from '../modules/entities/types';
+//Deprecrate this module
 
 export const entityViewUI = {
     entityUIState: List<EntityUIState>(),
@@ -12,10 +13,12 @@ export const model: ModelState = {
     entities: List<Entity>(),
 };
 export const classModel: ClassModelState = {
-  projects:List<Pojo.ProjectPojo>(),
+    projects:List<Pojo.ProjectPojo>(),
 };
 export const entities: EntitiesState = {
-entities: [],
+    entities: [],
+    entitiesMap: Map<string,EntityPojo>(),
+    ui: { entities: [] },
 }
 
 export const initialState: ApplicationState = {

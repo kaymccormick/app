@@ -1,5 +1,5 @@
 import React from 'react';
-import Tree, { TreeNode } from 'rc-tree';
+import Tree, { TreeNode } from './rc-tree';
 import {SiteInterface} from '../src/types';
 import RcTreeAdapter from '../model/tree/RcTreeAdapter';
 import {EntitiesState,EntityPojo,EntityColumnPojo} from '../modules/entities/types';

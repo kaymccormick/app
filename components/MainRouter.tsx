@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import MainViewLayout, {MainViewLayoutProps} from './MainViewLayout';
-import {MainViewLayoutContainer} from './containers/MainViewLayoutContainer';
 import { MainComponentBaseProps } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
