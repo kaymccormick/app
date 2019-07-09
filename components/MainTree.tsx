@@ -3,23 +3,24 @@ import Tree, { TreeNode } from './rc-tree';
 import {SiteInterface} from '../src/types';
 import RcTreeAdapter from '../model/tree/RcTreeAdapter';
 import {EntitiesState,EntityPojo,EntityColumnPojo} from '../modules/entities/types';
+import {Map} from 'immutable';
 
 interface MainTreeState {
     autoExpandParent?: any;
     expandedKeys?: any;
     treeData?: any;
-    keys: Map<string, any> = new Map<string, any>();
+    keys: Map<string, any>;
 }
 
 export interface MainTreeProps {
     site?: SiteInterface;
     entities?: EntitiesState;
-    addSelectedEntities: (entities: any) => void;
+    addSelectedEntities?: (entities: any) => void;
     
 }
 
 export default class MainTree extends React.Component<MainTreeProps> {
-    state: MainTreeState = {};
+    state: MainTreeState = {keys: Map<string, any>() };
     onExpand: (expandedKeys: {}) => void;
     onSelect = (selectedKeys: any, info: any) => {
         if(this.props.addSelectedEntities) {
