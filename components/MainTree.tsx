@@ -8,27 +8,45 @@ interface MainTreeState {
     autoExpandParent?: any;
     expandedKeys?: any;
     treeData?: any;
+    keys: Map<string, any> = new Map<string, any>();
 }
 
 export interface MainTreeProps {
     site?: SiteInterface;
-    entities?: EntitiesState,
+    entities?: EntitiesState;
+    addSelectedEntities: (entities: any) => void;
+    
 }
 
 export default class MainTree extends React.Component<MainTreeProps> {
     state: MainTreeState = {};
     onExpand: (expandedKeys: {}) => void;
+    onSelect = (selectedKeys: any, info: any) => {
+        if(this.props.addSelectedEntities) {
+        }
+        console.log('onSelect', selectedKeys, info);
+        this.setState({
+            selectedKeys,
+        });
+    }
 
     static getDerivedStateFromProps(props: MainTreeProps, state: MainTreeState) {
         const treeData: { [k: string]: any }[] = [];
         const ec: any[] = [];
         const entities = { key: 'entities', title: 'Entities', children: ec };
         treeData.push(entities);
+        let keys = Map<string,any>();
         if(props.entities && props.entities.entities) {
-        props.entities.entities.forEach((e: EntityPojo) => ec.push({ key: `entities-${e.name}`, title: e.name, children: e.columns ?e.columns.map((c: EntityColumnPojo) => ({ key: `entities-${e.name}-${c.propertyName}`, title: c.propertyName, children: []})) : []}));
+            props.entities.entities.forEach((e: EntityPojo) => {
+                const children = e.columns ?e.columns.map((c: EntityColumnPojo) => ({ key: `entities-${e.name}-${c.propertyName}`, title: c.propertyName, children: []})) : [];
+                const key = `entities-${e.name}`
+                keys = keys.set(key, e.name);
+                ec.push({ key, title: e.name, children });
+            });
         }
-        return { treeData };
-        }
+        return { treeData, keys };
+    }
+
         
     constructor(props: MainTreeProps) {
         super(props);
@@ -58,7 +76,8 @@ export default class MainTree extends React.Component<MainTreeProps> {
             });
         };
         return <Tree
- onExpand={this.onExpand}
+            onExpand={this.onExpand}
+            onSelect={this.onSelect}
             expandedKeys={this.state.expandedKeys}
             autoExpandParent={this.state.autoExpandParent}>
             {loop(this.state.treeData)}
