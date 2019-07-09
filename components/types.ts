@@ -7,8 +7,8 @@ import { SiteInterface } from '../src/types';
 import { WebApplication }from '../src/WebApplication'
 
 export interface MainComponentBaseProps {
-site?: SiteInterface;
-app?: WebApplication;
+    site?: SiteInterface;
+    app?: WebApplication;
 }
 
 export interface EntityProps {

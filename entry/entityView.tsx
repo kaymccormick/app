@@ -9,6 +9,8 @@ import RestClient from '@heptet/rest-client'
 import { Configuration } from '../src/Configuration';
 import MainRouter from "../components/MainRouter";
 import { WebApplication } from '../src/WebApplication';
+import HTML5Backend from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
 
 const restClient = new RestClient({baseUri: '/cme',
     logDebug: console.log});
@@ -18,7 +20,6 @@ app.configuration.addResource('classModelRestClient', restClient);
 app.init();
 
 const reducers = app.configuration.collectReducers();
-console.log(Object.keys(reducers));
 const store = createStore(combineReducers(reducers), applyMiddleware(thunk));
 
 const modelFactory = new BasicModelFactory();
@@ -31,4 +32,4 @@ window.oncontextmenu = function ()
     return false;     // cancel default menu
 }
 const root = document.getElementById('app');
-ReactDOM.hydrate(<Provider store={store}><MainRouter app={app} site={site}/></Provider>, root);
+ReactDOM.hydrate(<Provider store={store}><DndProvider backend={HTML5Backend}><MainRouter app={app} site={site}/></DndProvider></Provider>, root);

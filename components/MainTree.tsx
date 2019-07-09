@@ -2,7 +2,7 @@ import React from 'react';
 import Tree, { TreeNode } from 'rc-tree';
 import {SiteInterface} from '../src/types';
 import RcTreeAdapter from '../model/tree/RcTreeAdapter';
-import {EntitiesState} from '../modules/entities/types';
+import {EntitiesState,EntityPojo,EntityColumnPojo} from '../modules/entities/types';
 
 interface MainTreeState {
     autoExpandParent?: any;
@@ -18,13 +18,20 @@ export interface MainTreeProps {
 export default class MainTree extends React.Component<MainTreeProps> {
     state: MainTreeState = {};
     onExpand: (expandedKeys: {}) => void;
-  
+
+    static getDerivedStateFromProps(props: MainTreeProps, state: MainTreeState) {
+        const treeData: { [k: string]: any }[] = [];
+        const ec: any[] = [];
+        const entities = { key: 'entities', title: 'Entities', children: ec };
+        treeData.push(entities);
+        if(props.entities && props.entities.entities) {
+        props.entities.entities.forEach((e: EntityPojo) => ec.push({ key: `entities-${e.name}`, title: e.name, children: e.columns ?e.columns.map((c: EntityColumnPojo) => ({ key: `entities-${e.name}-${c.propertyName}`, title: c.propertyName, children: []})) : []}));
+        }
+        return { treeData };
+        }
+        
     constructor(props: MainTreeProps) {
         super(props);
-        if(props.site) {
-        const adapter = new RcTreeAdapter(props.site.mainMenuTree);
-        this.state = { treeData: adapter.toData() };
-  }
         this.onExpand = this._onExpand.bind(this);
     }
 
@@ -51,7 +58,7 @@ export default class MainTree extends React.Component<MainTreeProps> {
             });
         };
         return <Tree
-            onExpand={this.onExpand}
+ onExpand={this.onExpand}
             expandedKeys={this.state.expandedKeys}
             autoExpandParent={this.state.autoExpandParent}>
             {loop(this.state.treeData)}

@@ -9,16 +9,16 @@ import Toolbar from './EntityView/Toolbar';
 */
 
 export interface MainViewLayoutProps {
-site: Site;
-renderMainView: () => any,
+    site: Site;
+    renderMainView: () => any;
 }
 
 class MainViewLayout extends React.Component<MainViewLayoutProps> {
     public state: { } = {};
 
-public constructor(props: MainViewLayoutProps) {
-super(props);
-}
+    public constructor(props: MainViewLayoutProps) {
+        super(props);
+    }
 
     render() {
     //@ts-ignore
