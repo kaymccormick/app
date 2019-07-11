@@ -6,7 +6,7 @@ import {Pojo} from 'classModel';
 import React from 'react';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import {EntitiesViewContainer} from './EntitiesViewContainer';
+import EntitiesViewContainer from './EntitiesViewContainer';
 import { shallow,mount } from 'enzyme';
 import {ApplicationState} from "../../../../model/types";
 import { WebApplication } from '../../../../src/WebApplication';
