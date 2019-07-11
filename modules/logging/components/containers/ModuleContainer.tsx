@@ -3,11 +3,12 @@ import {connect} from 'react-redux';
 import { ApplicationState } from '../../../../model/types';
 import { Module } from '../../Module';
 
-export interface MyProps {
+export interface MyProps{
 module?: any;
 }
 
 const mapStateToProps = (state: ApplicationState): MyProps => ({
+
 });
 
 // @ts-ignore

@@ -1,4 +1,4 @@
-import { WebApplication } from '../src/WebApplication';
+import { WebApplication } from './WebApplication';
 
 test('WebApplication.constructor', () => {
 const a = new WebApplication();

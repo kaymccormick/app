@@ -8,8 +8,8 @@ import { WebApplication } from '../../src/WebApplication';
 import {ModuleState} from './types';
 
 export class Module extends ApplicationModule<ModuleState> {
-    public name: string = 'templateChangeMe';
-    public key: string = 'templateChangeMe';
+    public name: string = 'logging';
+    public key: string = 'logging';
     public id: string;
 
     public constructor() {
@@ -24,13 +24,12 @@ export class Module extends ApplicationModule<ModuleState> {
     }
 
     public getReducers(): any {
-    return reducer({module: this});
+        return reducer({module: this});
     }
+
     public setup(app: WebApplication, config: Configuration) {
     }
     public getMainComponent(): Promise<any> {
         return import('./components/MainComponent');
     }
 }
-
-        

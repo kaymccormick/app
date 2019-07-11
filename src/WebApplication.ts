@@ -2,6 +2,7 @@ import {Configuration} from './Configuration';
 import {ApplicationModule} from './ApplicationModule';
 import {Module as ClassModelModule } from '../modules/classModel';
 import {Module as EntitiesModule } from '../modules/entities';
+import {Module as LoggingModule } from '../modules/logging';
 import { Store, applyMiddleware, createStore, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { ApplicationState,Action } from '../model/types';
@@ -29,6 +30,9 @@ export class WebApplication {
         const m2 = new EntitiesModule();
         m2.setup(this, this.configuration);
         this.configuration.addModule(m2);
+        const m3 = new LoggingModule();
+        m3.setup(this, this.configuration);
+        this.configuration.addModule(m3);
 
         const reducers = this.configuration.collectReducers();
         // @ts-ignore
