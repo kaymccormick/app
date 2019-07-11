@@ -1,6 +1,6 @@
 import{List} from 'immutable';
 import { Pojo } from 'classModel';
-import { RestClient } from './RestClient';
+import RestClient from './RestClient';
 import { EntityPojo, REQUEST_ENTITIES, LOAD_ENTITIES, RECEIVE_ENTITIES, ADD_SELECTED_ENTITIES, SELECT_ITEM, EntitiesActionTypes } from './types';
 import GetEntitiesResponse from './rest/response/GetEntitiesResponse';
 

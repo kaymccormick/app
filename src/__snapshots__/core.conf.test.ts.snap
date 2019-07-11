@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`configJs 1`] = `
+Object {
+  "default": Object {
+    "modules": Array [
+      [Function],
+      [Function],
+      [Function],
+      [Function],
+    ],
+  },
+}
+`;

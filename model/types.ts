@@ -1,5 +1,5 @@
 import {ADD_ATTRIBUTE, ADD_ENTITY, MOVE_ENTITY} from './actions';
-import {List} from "immutable";
+import {List,Map} from "immutable";
 import Entity from "./entity/Entity";
 import * as Model from './';
 import {FactoryInterface} from 'classModel/lib/src/types';
@@ -70,7 +70,17 @@ export interface UpdateEntityAction extends Omit<Action, 'type'> {
     entityData: Entity;
 }
 
+export interface MenuState {
+  /** Unique key across all menus and items */
+  id: string;
+  /** Title / label of menu */
+  title: string;
+  subItems: string[]; /* Array of keys for sub items */
+}
 
+export interface MainMenuState {
+  menus: Map<string, MenuState>;
+}
 
 export interface EntityViewState {
     x?: number;

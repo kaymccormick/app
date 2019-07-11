@@ -4,7 +4,7 @@ export interface Args {
     baseUri: string;
 }
 
-export class RestClient {
+export default class RestClient {
     public baseUri: string;
 
     constructor(args: Args) {

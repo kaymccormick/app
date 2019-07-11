@@ -3,9 +3,10 @@ import * as actions from "./actions";
 import { EntityPojo } from "./types";
 import { Module } from "./Module";
 import { RestClient } from "./RestClient";
+import { AppLogger } from '../../src/AppLogger';
 
 test("1", () => {
-  const mod = new Module();
+  const mod = new Module({ logger: new AppLogger() });
   const restClient = new RestClient({ baseUri: "" });
   const reducer = makeReducer({ module: mod, restClient });
   const entities: EntityPojo[] = [{ name: "foo" }];

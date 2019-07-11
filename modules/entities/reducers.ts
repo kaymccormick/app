@@ -4,7 +4,7 @@ import { ApplicationModule } from '../../src/ApplicationModule';
 import { ApplicationModuleType } from '../../src/types';
 import {List,Map} from 'immutable';
 
-import {RestClient} from './RestClient';
+import RestClient from './RestClient';
 
 export interface Args {
  module: ApplicationModuleType;

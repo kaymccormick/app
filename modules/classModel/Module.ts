@@ -1,4 +1,4 @@
-import {ApplicationModule} from '../../src/ApplicationModule';
+import {ApplicationModule, ApplicationModuleArgs} from '../../src/ApplicationModule';
 import {Configuration} from '../../src/Configuration';
 /*import {EntityCore} from 'classModel';*/
 import reducer from './reducers';
@@ -17,8 +17,8 @@ export class Module extends ApplicationModule<ClassModelState> {
     public name: string = 'classModel';
     public key: string = 'classModel';
 
-    public constructor() {
-        super();
+    public constructor(args: ApplicationModuleArgs) {
+        super(args);
         this.actions = actions;
     }
 

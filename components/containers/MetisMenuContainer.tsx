@@ -1,3 +1,6 @@
+/**
+ * @module components/containers/MetisMenuContainer
+ */
 import { withRouter } from "react-router";
 import React from 'react';
 import {connect} from 'react-redux';

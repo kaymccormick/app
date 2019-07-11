@@ -1,10 +1,10 @@
 import uuidv4 from 'uuid/v4';
 import {List,Map} from 'immutable';
-import {ApplicationModule} from '../../src/ApplicationModule';
+import {ApplicationModule, ApplicationModuleArgs} from '../../src/ApplicationModule';
 import {Configuration} from '../../src/Configuration';
 import reducer from './reducers';
 import * as actions from './actions';
-import {RestClient} from './RestClient';
+import RestClient from './RestClient';
 /*import EntitiesViewContainer from './components/containers/EntitiesViewContainer';*/
 import { WebApplication } from '../../src/WebApplication';
 import {EntitiesState,EntityPojo} from './types';
@@ -15,8 +15,8 @@ export class Module extends ApplicationModule<EntitiesState> {
     public key: string = 'entities';
     public id: string;
 
-    public constructor() {
-        super();
+    public constructor(args: ApplicationModuleArgs) {
+        super(args);
         this.id = uuidv4();
         this.actions = actions;
 //        console.log(`${this.id} setting rest client`);

@@ -11,8 +11,9 @@ import { WebApplication } from '../src/WebApplication';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
 
-const configJs = require('../core.conf');
-const app = new WebApplication();
+const configJs = require('../core.conf').default;
+console.log(configJs);
+const app = new WebApplication({ config: configJs });
 app.init();
 
 const site = new Site();

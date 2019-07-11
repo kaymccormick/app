@@ -1,3 +1,7 @@
+/**
+ * Applicaton state shape
+ */
+
 import {ModelState,EntityViewUIState,ClassModelState} from '../model/types';
 import {EntitiesState} from '../modules/entities/types';
 
