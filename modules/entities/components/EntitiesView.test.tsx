@@ -5,5 +5,4 @@ import EntitiesView from './EntitiesView';
 import { shallow } from 'enzyme';
 import {ApplicationState} from "../../../model/types";
 
-test.todo('1', () => {
-});
+test.todo('1');

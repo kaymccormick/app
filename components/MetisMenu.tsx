@@ -3,8 +3,6 @@ import {SiteInterface} from '../src/types';
 import {EntitiesState,EntityPojo,EntityColumnPojo} from '../modules/entities/types';
 // @ts-ignore
 import TheMetisMenu from 'react-metismenu';
-// @ts-ignore
-/*import RouterLink from 'react-metismenu-router-link';*/
 import LinkComponent from './LinkComponent';
 
 interface MetisMenuState {

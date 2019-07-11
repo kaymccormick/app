@@ -8,7 +8,8 @@ export const ADD_SELECTED_ENTITIES = 'ADD_SELECTED_ENTITIES';
 export const SELECT_ITEM = 'SELECT_ITEM';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export type EntitiesModule = ApplicationModule<EntitiesState>;
+export interface EntitiesModule extends ApplicationModule<EntitiesState> {
+}
 
 export interface ReceiveEntitiesAction {
     type: typeof RECEIVE_ENTITIES;

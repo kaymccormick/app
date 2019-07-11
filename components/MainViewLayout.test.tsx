@@ -6,3 +6,5 @@ test('MainViewLayout', () =>{
 const wrap = mount(<MainViewLayout/>);
 });
 */
+
+test.todo('ManViewLayout test')

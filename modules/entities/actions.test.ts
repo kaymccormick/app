@@ -1,4 +1,6 @@
-import {fetchEntities, REQUEST_ENTITIES} from './actions';
+import {fetchEntities} from './actions';
+import {REQUEST_ENTITIES} from './types';
+
 import RestClient from './RestClient';
 jest.mock('./RestClient');/*, () => {
 return jest.fn().mockImplementation(() => {
