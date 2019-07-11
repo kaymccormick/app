@@ -8,7 +8,7 @@ export default () => {
     users.children.push(new TreeNode('List'));
     tree.rootNode.children.push(projects, users);
 
-//    tree.rootNode.children.push(...connection.entityMetadatas.map(m => m.targetName).map(name =>new TreeNode(name)))
+    //    tree.rootNode.children.push(...connection.entityMetadatas.map(m => m.targetName).map(name =>new TreeNode(name)))
     
     return tree;
 };

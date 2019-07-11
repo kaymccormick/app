@@ -19,16 +19,16 @@ export class Module extends ApplicationModule<EntitiesState> {
         super(args);
         this.id = uuidv4();
         this.actions = actions;
-//        console.log(`${this.id} setting rest client`);
+        //        console.log(`${this.id} setting rest client`);
         this.restClient = new RestClient({ baseUri: '/cme'});
-//        console.log(`${this.id} ${this.restClient}`);
+        //        console.log(`${this.id} ${this.restClient}`);
     }
 
     public getInitialState(): EntitiesState {
         return {
             entities: [],
-                entitiesMap: Map<string,EntityPojo>(),
-                    ui: { entities: [] },
+            entitiesMap: Map<string,EntityPojo>(),
+            ui: { entities: [] },
         }
     }
 

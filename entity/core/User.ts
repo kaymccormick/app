@@ -21,5 +21,5 @@ export default class User {
     public permissions?: number;
 
   @Column()
-  public userEncryptedPassword?: string;
+    public userEncryptedPassword?: string;
 }

@@ -16,7 +16,7 @@ export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
 export type ClassModelFactory = FactoryInterface;
 export interface ClassModelState{
-  projects: List<Pojo.ProjectPojo>;
+    projects: List<Pojo.ProjectPojo>;
 }
 
 
@@ -71,15 +71,15 @@ export interface UpdateEntityAction extends Omit<Action, 'type'> {
 }
 
 export interface MenuState {
-  /** Unique key across all menus and items */
-  id: string;
-  /** Title / label of menu */
-  title: string;
-  subItems: string[]; /* Array of keys for sub items */
+    /** Unique key across all menus and items */
+    id: string;
+    /** Title / label of menu */
+    title: string;
+    subItems: string[]; /* Array of keys for sub items */
 }
 
 export interface MainMenuState {
-  menus: Map<string, MenuState>;
+    menus: Map<string, MenuState>;
 }
 
 export interface EntityViewState {

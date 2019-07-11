@@ -14,7 +14,7 @@ const mapStateToProps = (state: ApplicationState): MainTreeProps => ({
 // @ts-ignore
 const mapDispatchToProps = (dispatch: any, ownProps: MainTreeProps) => {
     return {
-    "addSelectedEntities": (entities: any) => dispatch(actions.addSelectedEntities(entities)),
+        "addSelectedEntities": (entities: any) => dispatch(actions.addSelectedEntities(entities)),
         //  "loadProjects": () => dispatch(actions.loadProjects()),
     };
 };

@@ -5,7 +5,7 @@ import UniversalBase from '../core/UniversalBase';
 @Entity()
 export class LogEntry extends UniversalBase {
   @Column()
-  public componentId?: number;
+    public componentId?: number;
 
   @ManyToOne(type => Component)
   public component?: Component;

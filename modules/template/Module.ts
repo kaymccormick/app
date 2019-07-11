@@ -24,7 +24,7 @@ export class Module extends ApplicationModule<ModuleState> {
     }
 
     public getReducers(): any {
-    return reducer({module: this});
+        return reducer({module: this});
     }
     public setup(app: WebApplication, config: Configuration) {
     }

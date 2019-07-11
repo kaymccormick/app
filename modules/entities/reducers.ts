@@ -7,25 +7,25 @@ import {List,Map} from 'immutable';
 import RestClient from './RestClient';
 
 export interface Args {
- module: ApplicationModuleType;
- restClient: RestClient
- }
+    module: ApplicationModuleType;
+    restClient: RestClient;
+}
  
 export default (args: Args) => (
-  state: EntitiesState = args.module.getInitialState(),
-  action: EntitiesActionTypes): EntitiesState | undefined => {
-  console.log(action.type);
+    state: EntitiesState = args.module.getInitialState(),
+    action: EntitiesActionTypes): EntitiesState | undefined => {
+    console.log(action.type);
     switch(action.type) {
         case RECEIVE_ENTITIES:
             const a = action;
             const entitiesMap = Map<string, EntityPojo>(List<EntityPojo>(a.entities).filter(e => e != null).map((entity) => [entity!.name, entity]));
             return Object.assign({}, state, { entitiesMap, entities: a.entities });
-            case SELECT_ITEM:
+        case SELECT_ITEM:
             const id = action.item.id;
-console.log(id);
+            console.log(id);
             const match = /entities-([^-]*)/.exec(id);
             if(match) {
-            return Object.assign({}, state, { ui: Object.assign({}, state.ui, { entities: [...state.ui.entities, { name: match[1] }] }) });
+                return Object.assign({}, state, { ui: Object.assign({}, state.ui, { entities: [...state.ui.entities, { name: match[1] }] }) });
             }
             return state;
         default:

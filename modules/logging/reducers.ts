@@ -5,16 +5,16 @@ import {List,Map} from 'immutable';
 
 export interface Args {
 /* Args */
- module: ApplicationModuleType;
+    module: ApplicationModuleType;
 }
  
 export default (args: Args) => (
-  state: ModuleState = args.module.getInitialState(),
-  action: ActionTypes): ModuleState | undefined => {
-  console.log(action.type);
+    state: ModuleState = args.module.getInitialState(),
+    action: ActionTypes): ModuleState | undefined => {
+    console.log(action.type);
     switch(action.type) {
         case ACTION_TYPE:
-           /* do stuff and return updated state */
+            /* do stuff and return updated state */
             return state;
         default:
             return state;

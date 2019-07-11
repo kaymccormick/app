@@ -6,7 +6,7 @@ import { EntitiesState,EntityPojo,EntityColumnPojo } from '../modules/entities/t
 const entitiesState:  EntitiesState = { ui: { entities: [] }, entities: [{name:' test'}] };
 
 test('1', () => {
-const wrapper = mount(<MetisMenu entities={entitiesState}/>);
+    const wrapper = mount(<MetisMenu entities={entitiesState}/>);
 });
 
 

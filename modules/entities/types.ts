@@ -23,13 +23,13 @@ export interface LoadEntitiesAction {
 }
 
 export interface SelectItemAction {
-type: typeof SELECT_ITEM;
-item: any;
+    type: typeof SELECT_ITEM;
+    item: any;
 }
 
 export interface AddSelectedEntitiesAction {
-  type: typeof ADD_SELECTED_ENTITIES,
-  selectedEntities: any;
+    type: typeof ADD_SELECTED_ENTITIES;
+    selectedEntities: any;
 };
 
 

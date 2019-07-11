@@ -6,11 +6,11 @@ import GetEntitiesResponse from './rest/response/GetEntitiesResponse';
 
 
 export function selectItem(item: any): EntitiesActionTypes {
-return { type: SELECT_ITEM, item };
+    return { type: SELECT_ITEM, item };
 }
 
 export function addSelectedEntities(selectedEntities: any): EntitiesActionTypes {
-return { type: ADD_SELECTED_ENTITIES, selectedEntities };
+    return { type: ADD_SELECTED_ENTITIES, selectedEntities };
 }
 
 export function requestEntities(): EntitiesActionTypes {
