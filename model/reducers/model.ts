@@ -1,10 +1,10 @@
-import { Action } from '../types'
 import { ADD_ENTITY, UPDATE_ENTITY, ADD_ATTRIBUTE } from '../actions';
 import {ModelFactory,ModelState, UpdateEntityAction, AddAttributeAction} from "../types";
 import Entity from '../entity/Entity';
 import EntityAttribute from '../entity/EntityAttribute';
 import { model as initialModelState } from '../ApplicationState';
 import {List} from 'immutable';
+import {Action} from "../../src/types";
 
 const model = (factory: ModelFactory) => (state: ModelState = initialModelState, action: Action): ModelState|undefined => {
     switch(action.type) {

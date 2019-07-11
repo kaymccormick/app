@@ -1,8 +1,6 @@
 import{List} from 'immutable';
 import { Pojo } from 'classModel';
-export const REQUEST_PROJECTS = 'REQUEST_PROJECTS';
-export const LOAD_PROJECTS= 'LOAD_PROJECTS';
-export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
+import { RECEIVE_PROJECTS, REQUEST_PROJECTS, LOAD_PROJECTS } from './types';
 
 export function requestProjects() {
     return { type: REQUEST_PROJECTS };

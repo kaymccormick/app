@@ -2,9 +2,15 @@ import {ADD_ATTRIBUTE, ADD_ENTITY, MOVE_ENTITY} from './actions';
 import {List} from "immutable";
 import Entity from "./entity/Entity";
 import * as Model from './';
-import { FactoryInterface } from 'classModel/lib/src/types';
-import { Pojo } from 'classModel';
+import {FactoryInterface} from 'classModel/lib/src/types';
+import {Pojo} from 'classModel';
+import {Action} from "../src/types";
+
 export { ApplicationState } from '../src/ApplicationState';
+
+export interface Action {
+    type: string;
+}
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
@@ -21,9 +27,6 @@ export interface ModelFactory {
 }
 
 export interface Pojo {[propName: string]: any}
-export interface Action {
-    type: string;
-}
 export interface MoveEntityAction extends Omit<Action, 'type'> {
     type: "MOVE_ENTITY";
     index: number;

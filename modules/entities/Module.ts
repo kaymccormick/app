@@ -5,7 +5,7 @@ import {Configuration} from '../../src/Configuration';
 import reducer from './reducers';
 import * as actions from './actions';
 import {RestClient} from './RestClient';
-import { EntitiesViewContainer } from './components/containers/EntitiesViewContainer';
+/*import EntitiesViewContainer from './components/containers/EntitiesViewContainer';*/
 import { WebApplication } from '../../src/WebApplication';
 import {EntitiesState,EntityPojo} from './types';
 
@@ -45,10 +45,11 @@ export class Module extends ApplicationModule<EntitiesState> {
         //const restClient = config.getResource('restClient');
         //this.restClient = restClient;
     }
-
-    public getMainComponent(): any {
-        return EntitiesViewContainer;
+    public getMainComponent(): Promise<any> {
+        return import('./components/MainComponent');
     }
-
+/*    public getMenuTree(): Tree {
+    }*/
 }
 
+        

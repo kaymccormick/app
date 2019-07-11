@@ -1,11 +1,10 @@
 import makeReducer from "./reducers";
 import * as actions from "./actions";
-import { Module } from "./Module";
-import { EntityPojo } from "./types";
+import { EntitiesModule, EntityPojo } from "./types";
 import { RestClient } from "./RestClient";
 
 test("1", () => {
-    const mod = new Module();
+    const mod = new EntitiesModule();
     const restClient = new RestClient({ baseUri: "" });
     const reducer = makeReducer({ module: mod, restClient });
     const entities: EntityPojo[] = [{ name: "foo" }];

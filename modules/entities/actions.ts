@@ -1,17 +1,22 @@
 import{List} from 'immutable';
 import { Pojo } from 'classModel';
 import { RestClient } from './RestClient';
-import { EntityPojo } from './types';
+import { EntityPojo, REQUEST_ENTITIES, LOAD_ENTITIES, RECEIVE_ENTITIES, ADD_SELECTED_ENTITIES, SELECT_ITEM, EntitiesActionTypes } from './types';
 import GetEntitiesResponse from './rest/response/GetEntitiesResponse';
 
-export const REQUEST_ENTITIES = 'REQUEST_ENTITIES';
-export const LOAD_ENTITIES = 'LOAD_ENTITIES';
-export const RECEIVE_ENTITIES = 'RECEIVE_ENTITIES';
 
-export function requestEntities() {
+export function selectItem(item: any): EntitiesActionTypes {
+return { type: SELECT_ITEM, item };
+}
+
+export function addSelectedEntities(selectedEntities: any): EntitiesActionTypes {
+return { type: ADD_SELECTED_ENTITIES, selectedEntities };
+}
+
+export function requestEntities(): EntitiesActionTypes {
     return { type: REQUEST_ENTITIES };
 }
-export function receiveEntities(entities: EntityPojo[]) {
+export function receiveEntities(entities: EntityPojo[]): EntitiesActionTypes {
     return { type: RECEIVE_ENTITIES, entities };
 }
 
@@ -32,7 +37,7 @@ export function fetchEntities(restClient: RestClient) {
     }
 
 }
-export function loadEntities() {
+export function loadEntities(): EntitiesActionTypes {
     console.log('load');
     return {type: LOAD_ENTITIES};
 }

@@ -39,8 +39,8 @@ throw new Error('');
         this.restClient = restClient;
     }
 
-    public getMainComponent() {
-        return ClassModelContainer;
+    public getMainComponent(): Promise<any> {
+        return import('./components/MainComponent');
     }
 }
 

@@ -5,6 +5,7 @@ module.exports = {
     entry: { entityView: './lib/entry/entityView.js', },
     output: {
 	filename: '[name]Bundle.js',
+        chunkFilename: '[name]Bundle.js',
 	path: __dirname + '/dist',
     },
 };

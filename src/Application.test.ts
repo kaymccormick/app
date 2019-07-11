@@ -14,7 +14,7 @@ test('construct & init', () => {
     return a.init().then((x) => {
         expect(x).toBe(true);
         a.modules.forEach((m: ServerApplicationModule) => {
-            console.log(m);
+//            console.log(m);
         });
         if(!a.connection){
             return;

@@ -5,6 +5,7 @@ import { MainComponentBaseProps } from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface MainRouterProps extends MainComponentBaseProps {
+store: any;
 }
 
 
@@ -18,7 +19,6 @@ export default class MainRouter extends React.Component<MainRouterProps> {
         // @ts-ignore
         const routes = this.props.app.modules.map((m: ApplicationModule) => <Route key={m.key} path={`/${m.key}`} render={() => React.createElement(React.lazy(() => m.getMainComponent()), { module: m })}/>);
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        return <MainViewLayout site={this.props.site} renderMainView={() =>
-            <Router basename="/entityView"><React.Suspense fallback={<div>loading</div>}>{routes}</React.Suspense></Router>}/>;
+        return <Router basename="/entityView"><MainViewLayout store={this.props.store} site={this.props.site} renderMainView={() => <React.Suspense fallback={<div>loading</div>}>{routes}</React.Suspense>}/></Router>;
     }
 }

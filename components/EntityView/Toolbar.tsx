@@ -4,7 +4,8 @@ import {ButtonGroup, Toolbar, ToolbarItem,Button} from "@progress/kendo-react-bu
 import React from 'react';
 import { connect } from 'react-redux';
 import { addEntity } from '../../model/actions';
-import {Action, ApplicationState} from '../../model/types';
+import {ApplicationState} from '../../model/types';
+import {Action} from "../../src/types";
 
 const mapStateToProps = (state: ApplicationState) => ({
 });

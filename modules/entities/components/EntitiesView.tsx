@@ -31,7 +31,7 @@ function collect(connect: DropTargetConnector, monitor: DropTargetMonitor) {
 }
 
 /* used in MainView */
-class EntitiesView extends React.Component<EntitiesViewProps> {
+export default DropTarget('TreeNode', spec, collect)(class extends React.Component<EntitiesViewProps> {
 
     state: any = { };
     public constructor(props: EntitiesViewProps) {
@@ -56,4 +56,5 @@ class EntitiesView extends React.Component<EntitiesViewProps> {
         return <div>{content}</div>;
     }
 }
-export default DropTarget('TreeNode', spec, collect)(EntitiesView);
+
+);

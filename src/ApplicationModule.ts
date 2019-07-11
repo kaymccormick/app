@@ -14,6 +14,7 @@ export abstract class ApplicationModule<S> {
     public abstract setup(app: WebApplication, config: Configuration): void
     public abstract getReducers(): any;
     public abstract getInitialState(): S;
-    public abstract getMainComponent(): any;
+    public abstract getMainComponent(): Promise<any>;
+    
 }
 

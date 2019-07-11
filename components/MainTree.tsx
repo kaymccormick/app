@@ -3,7 +3,7 @@ import Tree, { TreeNode } from './rc-tree';
 import {SiteInterface} from '../src/types';
 import RcTreeAdapter from '../model/tree/RcTreeAdapter';
 import {EntitiesState,EntityPojo,EntityColumnPojo} from '../modules/entities/types';
-import {Map} from 'immutable';
+import {List,Map} from 'immutable'
 
 interface MainTreeState {
     autoExpandParent?: any;
@@ -16,11 +16,10 @@ export interface MainTreeProps {
     site?: SiteInterface;
     entities?: EntitiesState;
     addSelectedEntities?: (entities: any) => void;
-    
 }
 
 export default class MainTree extends React.Component<MainTreeProps> {
-    state: MainTreeState = {keys: Map<string, any>() };
+    state: MainTreeState = { keys: Map<string, any>() };
     onExpand: (expandedKeys: {}) => void;
     onSelect = (selectedKeys: any, info: any) => {
         if(this.props.addSelectedEntities) {
@@ -48,7 +47,7 @@ export default class MainTree extends React.Component<MainTreeProps> {
         return { treeData, keys };
     }
 
-        
+
     constructor(props: MainTreeProps) {
         super(props);
         this.onExpand = this._onExpand.bind(this);

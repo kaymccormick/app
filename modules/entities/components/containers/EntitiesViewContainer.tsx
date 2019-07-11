@@ -30,5 +30,5 @@ const mapDispatchToProps = (dispatch: any, ownProps: EntitiesViewProps) => {
 };
 
 //@ts-ignore
-const EntitiesViewContainer = connect(mapStateToProps, mapDispatchToProps)(EntitiesView);
-export { EntitiesViewContainer };
+export default connect(mapStateToProps, mapDispatchToProps)(EntitiesView);
+

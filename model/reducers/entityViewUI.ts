@@ -1,6 +1,7 @@
-import {Action, EntityViewUIState} from '../types';
+import {EntityViewUIState} from '../types';
 import { ADD_ENTITY, ADD_ATTRIBUTE } from '../actions';
 import {entityViewUI as initialState} from '../ApplicationState';
+import {Action} from "../../src/types";
 
 const entityViewUI = (state: EntityViewUIState = initialState, action: Action): EntityViewUIState|undefined => {
     switch(action.type) {

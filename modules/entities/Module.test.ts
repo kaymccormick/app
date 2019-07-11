@@ -37,9 +37,10 @@ const config = new Configuration();
 const m = new Module();
 m.setup(app, config);
 });
-test('Module.getMainComponent',() => {
+
+/*test('Module.getMainComponent',() => {
 const m = new Module();
 const component = m.getMainComponent();
 expect(component).toBeDefined();
-});
+});*/
 

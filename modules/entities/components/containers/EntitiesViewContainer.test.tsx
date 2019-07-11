@@ -33,7 +33,7 @@ store = createStore(combineReducers(reducers), applyMiddleware(thunk));
 const site = new Site();
 });
 
-test('1', () => {
+test.skip('1', () => {
 const m = new Module();
     const wrapper = mount(<Provider store={store}><EntitiesViewContainer module={m}/></Provider>);
     expect(wrapper.props().store).toBe(store);
