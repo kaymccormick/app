@@ -1,5 +1,5 @@
-const configJs = require('../core.conf');
+import configJs from '../core.conf';
 
-test('configJs', () => {
+test('configJs', (): void => {
     expect(configJs).toMatchSnapshot();
 });

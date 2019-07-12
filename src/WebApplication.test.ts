@@ -1,11 +1,11 @@
 import { WebApplication } from './WebApplication';
 
-test('WebApplication.constructor', () => {
+test('WebApplication.constructor', (): void => {
     const a = new WebApplication();
     expect(a).toBeDefined();
 });
 
-test('WebApplication.modules', () => {
+test('WebApplication.modules', (): void => {
     const a = new WebApplication();
     expect(a).toBeDefined();
     const modules = a.modules;

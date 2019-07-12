@@ -39,7 +39,7 @@ const fetchEntities = (restClient: RestClient) => {
         return restClient.getEntities().then((response: GetEntitiesResponse) => {
             if(response.success) {
                 if(response.result) {
-                    dispatch(receiveEntities(response.result));
+                    dispatch(intermediateReceiveEntities(response.result));
                 }
             }
         });

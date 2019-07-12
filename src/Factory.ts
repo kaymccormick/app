@@ -1,11 +1,6 @@
-import { Project,Class,Export,Import,Method,Parameter,Module,Name,Interface,InterfaceMethod,TSType,TSUnionType,Type,Property,InterfaceProperty,TSTypeReference } from
-    "classModel/lib/src/entity/core";
-import Entity from '../entity/core/Entity';
-import EntityAttribute from '../entity/core/EntityAttribute';
-import * as CoreEntityCore from '../entity/core';
-import * as CoreEntityLogging from '../entity/logging';
 import {Connection, createConnection} from "typeorm";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function myCreateConnection(entities: any[]): Promise<Connection> {
     return createConnection({
         "type": "postgres",

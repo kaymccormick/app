@@ -1,5 +1,6 @@
 export class AppLogger {
-    debug(message: string, meta?: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+    public debug(message: string, meta?: any): void {
         let meta2;
         if(meta !== undefined) {
             meta2 = Object.assign({}, meta);

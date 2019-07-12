@@ -42,7 +42,7 @@ this.ref = React.createRef();
         return <div ref={this.ref} style={outerStyles}>
             <div style={nameStyles}>{name}</div>
             {this.props.entity && this.props.entity.columns
-            ? this.props.entity.columns.map((column: any) => column ? <Components.EntityColumn column={column}/> :null) : null}
+            ? this.props.entity.columns.map((column: any) => column ? <Components.EntityColumn key={column.propertyPath} column={column}/> :null) : null}
         </div>;
     }
 }

@@ -11,5 +11,6 @@ export interface ApplicationState {
     classModel: ClassModelState;
     entities: EntitiesState;
     mainMenu: MainMenuState;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [moduleName: string]: any;
 }

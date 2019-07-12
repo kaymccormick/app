@@ -1,11 +1,11 @@
 import { Configuration } from './Configuration';
 
-test('1', () => {
+test('1', (): void => {
     const c = new Configuration();
     expect(c).toBeDefined();
 });
 
-test('2', () => {
+test('2', (): void => {
     const c = new Configuration();
     expect(c).toBeDefined();
     const r1 = {};

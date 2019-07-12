@@ -2,13 +2,12 @@
 
 exports[`configJs 1`] = `
 Object {
-  "default": Object {
-    "modules": Array [
-      [Function],
-      [Function],
-      [Function],
-      [Function],
-    ],
-  },
+  "modules": Array [
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+    [Function],
+  ],
 }
 `;
