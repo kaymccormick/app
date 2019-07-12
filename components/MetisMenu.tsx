@@ -11,11 +11,11 @@ import { WebApplication } from '../src/WebApplication';
 
 
 interface MetisMenuItem {
-   label: string;
-   id: string;
-   content?: MetisMenuItem[];
-   to?: string;
-   }
+    label: string;
+    id: string;
+    content?: MetisMenuItem[];
+    to?: string;
+}
 
 interface MetisMenuState {
     autoExpandParent?: any;
@@ -38,33 +38,33 @@ export default class MetisMenu extends React.Component<MetisMenuProps> {
     state: MetisMenuState = { content: []};
 
     static getDerivedStateFromProps(props: MetisMenuProps, state: MetisMenuState) {
-    const menus = props.menus;
-    if(!menus || !menus.menuItems) { 
-    return { content: [] };
-    }
-    const menuItems = menus.menuItems;
-    const root = menuItems.get('');
-    if(!root) {
-    return { content: [] };
-    }
+        const menus = props.menus;
+        if(!menus || !menus.menuItems) { 
+            return { content: [] };
+        }
+        const menuItems = menus.menuItems;
+        const root = menuItems.get('');
+        if(!root) {
+            return { content: [] };
+        }
     
-    const processMenu = (menu: MenuItemPojo): MetisMenuItem => {
-    if(menu.subItems && menu.subItems.count()) {
-      return { label: menu.title, to: menu.key, id: menu.key,
-        content: menu.subItems.filter((key): boolean => key !== undefined).map((key) => menuItems.get(key!)).filter((item: MenuItemPojo|undefined): boolean => item != null).map((item: MenuItemPojo|undefined): MetisMenuItem => processMenu(item!)).toJS(),
+        const processMenu = (menu: MenuItemPojo): MetisMenuItem => {
+            if(menu.subItems && menu.subItems.count()) {
+                return { label: menu.title, to: menu.key, id: menu.key,
+                    content: menu.subItems.filter((key): boolean => key !== undefined).map((key) => menuItems.get(key!)).filter((item: MenuItemPojo|undefined): boolean => item != null).map((item: MenuItemPojo|undefined): MetisMenuItem => processMenu(item!)).toJS(),
+                };
+            } else {
+                return { label: menu.title, to: menu.key, id: menu.key };
+            }
         };
-        } else {
-              return { label: menu.title, to: menu.key, id: menu.key };
-              }
-              };
 
-const rootItem = processMenu(root);
-if(rootItem && rootItem.content) {
-       return { content: rootItem.content };
-       }
-       else {
-       return { content: [] };
-       }
+        const rootItem = processMenu(root);
+        if(rootItem && rootItem.content) {
+            return { content: rootItem.content };
+        }
+        else {
+            return { content: [] };
+        }
     }
 
 

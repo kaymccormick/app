@@ -8,7 +8,7 @@ import { ModuleContextConsumer } from './ModuleContext';
 import { WebApplication } from '../src/WebApplication';
 
 export interface MainViewLayoutProps {
-    app: WebApplication,
+    app: WebApplication;
     site: Site;
     renderMainView: () => any;
     store: any;

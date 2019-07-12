@@ -21,8 +21,8 @@ export class Module extends ApplicationModule<ModuleState> {
     public getInitialState(): ModuleState {
         return {
             menuItems: Map<string, MenuItemPojo>({'': { key: '', title: 'root',
-            subItems: Set<string>(),
-}}),
+                subItems: Set<string>(),
+            }}),
         }
     }
 

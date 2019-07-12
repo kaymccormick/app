@@ -49,7 +49,7 @@ export default DropTarget('TreeNode', spec, collect)(class extends React.Compone
     public render() {
         const model = this.props.entities;
         if(!model || !model.entities || !model.entitiesMap) {
-        return null;
+            return null;
         }
         const e = model.ui.entities.map((ui: EntityUIState) => model.entitiesMap!.get(ui.name))
         const content = e.map((entity: EntityPojo) => entity ? <Components.Entity key={entity.name} entity={entity}/> :null );

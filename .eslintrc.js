@@ -16,4 +16,5 @@ module.exports = {
     "parser": "@typescript-eslint/parser",
   rules: {
   },
+//    overrides: [{excludedFiles: ["modules/template/*.ts"]}],
 };

@@ -4,7 +4,7 @@ import { ApplicationState } from '../../../../model/types';
 import { Module } from '../../Module';
 
 export interface MyProps{
-module?: any;
+    module?: any;
 }        
 
 const mapStateToProps = (state: ApplicationState): MyProps => ({
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch: any, ownProps: MyProps) => {
     }
     const actions = m.actions;
     return {
-//        "fetchEntities": () => dispatch(actions.fetchEntities(restClient)),
+        //        "fetchEntities": () => dispatch(actions.fetchEntities(restClient)),
     };
 };
 

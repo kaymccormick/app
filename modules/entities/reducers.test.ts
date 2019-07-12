@@ -9,7 +9,7 @@ const actions = actionFn();
 
 beforeEach((): void => {
 // @ts-ignore
-RestClient.mockClear();
+    RestClient.mockClear();
 });
 
 test("1", () => {

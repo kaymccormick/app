@@ -12,7 +12,7 @@ test('construct', (): void  => {
 test('construct & init', (): Promise<any> => {
     const a = new Application(logger);
     expect(a).toBeDefined();
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return a.init().then((x): Promise<any> => {
         expect(x).toBe(true);
         /*        a.modules.forEach((m: ServerApplicationModule): void => {

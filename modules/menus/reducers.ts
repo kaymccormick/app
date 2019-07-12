@@ -20,10 +20,10 @@ export default (args: Args) => (
             }
             const parentMenuItem = menuItems.get(item.parentKey!);
             if(!parentMenuItem) {
-            return state;
+                return state;
             }
             if(!parentMenuItem.subItems) {
-            parentMenuItem.subItems = Set<string>();
+                parentMenuItem.subItems = Set<string>();
             }
             parentMenuItem.subItems! = parentMenuItem.subItems.add(item.key);
             menuItems = menuItems.set(parentMenuItem.key, parentMenuItem);

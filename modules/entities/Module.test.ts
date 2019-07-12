@@ -7,8 +7,8 @@ jest.mock('../../src/Configuration');
 
 let appLogger: AppLogger;
 beforeEach(() => {
-   appLogger = new AppLogger();
-// @ts-ignore
+    appLogger = new AppLogger();
+    // @ts-ignore
     WebApplication.mockClear();
     // @ts-ignore
     Configuration.mockClear();
