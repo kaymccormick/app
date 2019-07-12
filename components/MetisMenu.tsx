@@ -4,6 +4,7 @@ import {EntitiesState,EntityPojo,EntityColumnPojo} from '../modules/entities/typ
 // @ts-ignore
 import TheMetisMenu from 'react-metismenu';
 import LinkComponent from './LinkComponent';
+import { WebApplication } from '../src/WebApplication';
 
 interface MetisMenuState {
     autoExpandParent?: any;
@@ -13,12 +14,12 @@ interface MetisMenuState {
 }
 
 export interface MetisMenuProps {
+    app?: WebApplication;
     site?: SiteInterface;
     entities?: EntitiesState;
     addSelectedEntities?: (entities: any) => void;
     //    store?: any;
     selectItem?: (item: any) => void;
-
 }
 
 export default class MetisMenu extends React.Component<MetisMenuProps> {

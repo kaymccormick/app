@@ -5,7 +5,7 @@ import { Module } from '../../Module';
 
 export interface MyProps{
 module?: any;
-}
+}        
 
 const mapStateToProps = (state: ApplicationState): MyProps => ({
 

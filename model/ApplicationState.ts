@@ -20,10 +20,11 @@ export const entities: EntitiesState = {
     entitiesMap: Map<string,EntityPojo>(),
     ui: { entities: [] },
 }
-
+/*
 export const initialState: ApplicationState = {
     model,
     entityViewUI,
     classModel,
     entities,
 }
+*/

@@ -6,9 +6,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { ApplicationState } from '../../model/types';
 import {ApplicationModule} from '../../src/ApplicationModule';
-import * as actions from '../../modules/entities/actions';
-
-//import { loadProjects } from '../..//actions/classModel';
+import * as actions from '../../modules/menus/actions';
 import MainTree,{MainTreeProps} from '../MainTree';
 import MetisMenu,{MetisMenuProps} from "../MetisMenu";
 
@@ -20,7 +18,7 @@ const mapStateToProps = (state: ApplicationState): MetisMenuProps => ({
 const mapDispatchToProps = (dispatch: any, ownProps: MetisMenuProps) => {
     return {
         "selectItem": (item: any) => dispatch(actions.selectItem(item)),
-        "addSelectedEntities": (entities: any) => dispatch(actions.addSelectedEntities(entities)),
+/*        "addSelectedEntities": (entities: any) => dispatch(actions.addSelectedEntities(entities)),*/
         //  "loadProjects": () => dispatch(actions.loadProjects()),
     };
 };

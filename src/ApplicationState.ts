@@ -2,7 +2,7 @@
  * Applicaton state shape
  */
 
-import {ModelState,EntityViewUIState,ClassModelState} from '../model/types';
+import {MainMenuState,ModelState,EntityViewUIState,ClassModelState} from '../model/types';
 import {EntitiesState} from '../modules/entities/types';
 
 export interface ApplicationState {
@@ -10,5 +10,6 @@ export interface ApplicationState {
     entityViewUI: EntityViewUIState;
     classModel: ClassModelState;
     entities: EntitiesState;
+    mainMenu: MainMenuState;
     [moduleName: string]: any;
 }

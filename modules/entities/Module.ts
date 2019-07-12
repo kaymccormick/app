@@ -3,7 +3,7 @@ import {List,Map} from 'immutable';
 import {ApplicationModule, ApplicationModuleArgs} from '../../src/ApplicationModule';
 import {Configuration} from '../../src/Configuration';
 import reducer from './reducers';
-import * as actions from './actions';
+import actions from './actions';
 import RestClient from './RestClient';
 /*import EntitiesViewContainer from './components/containers/EntitiesViewContainer';*/
 import { WebApplication } from '../../src/WebApplication';
@@ -18,7 +18,7 @@ export class Module extends ApplicationModule<EntitiesState> {
     public constructor(args: ApplicationModuleArgs) {
         super(args);
         this.id = uuidv4();
-        this.actions = actions;
+        this.actions = actions();
         //        console.log(`${this.id} setting rest client`);
         this.restClient = new RestClient({ baseUri: '/cme'});
         //        console.log(`${this.id} ${this.restClient}`);

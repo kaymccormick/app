@@ -3,24 +3,33 @@ import { Pojo } from 'classModel';
 import RestClient from './RestClient';
 import { EntityPojo, REQUEST_ENTITIES, LOAD_ENTITIES, RECEIVE_ENTITIES, ADD_SELECTED_ENTITIES, SELECT_ITEM, EntitiesActionTypes } from './types';
 import GetEntitiesResponse from './rest/response/GetEntitiesResponse';
+import { addMenuItem } from '../../modules/menus/actions';
 
-
-export function selectItem(item: any): EntitiesActionTypes {
+export default () => {
+const selectItem = (item: any): EntitiesActionTypes => {
     return { type: SELECT_ITEM, item };
-}
+};
 
-export function addSelectedEntities(selectedEntities: any): EntitiesActionTypes {
+const addSelectedEntities = (selectedEntities: any): EntitiesActionTypes => {
     return { type: ADD_SELECTED_ENTITIES, selectedEntities };
-}
+};
 
-export function requestEntities(): EntitiesActionTypes {
+const requestEntities = (): EntitiesActionTypes => {
     return { type: REQUEST_ENTITIES };
 }
-export function receiveEntities(entities: EntityPojo[]): EntitiesActionTypes {
+const receiveEntities = (entities: EntityPojo[]): EntitiesActionTypes => {
     return { type: RECEIVE_ENTITIES, entities };
-}
+};
+const intermediateReceiveEntities = (entities: EntityPojo[]): (dispatch: any) => void => {
+return (dispatch: any) => {
+  dispatch(receiveEntities(entities));
+  dispatch(addMenuItem({title: 'Entities', parentKey: '', key: 'entities'}));
+    entities.forEach((entity) => {
+  });
+  };
+};
 
-export function fetchEntities(restClient: RestClient) {
+const fetchEntities = (restClient: RestClient) => {
     if(!restClient || !restClient.getEntities) {
         console.log(restClient);
         return { type: 'NOOP'};
@@ -36,10 +45,19 @@ export function fetchEntities(restClient: RestClient) {
         });
     }
 
-}
-export function loadEntities(): EntitiesActionTypes {
+};
+
+const loadEntities = (): EntitiesActionTypes => {
     console.log('load');
     return {type: LOAD_ENTITIES};
-}
+};
 
-
+return { selectItem,
+addSelectedEntities,
+requestEntities,
+receiveEntities,
+intermediateReceiveEntities,
+fetchEntities,
+loadEntities,
+};
+};
