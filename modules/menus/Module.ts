@@ -1,5 +1,5 @@
 import uuidv4 from 'uuid/v4';
-import {List,Map} from 'immutable';
+import {List,Map,Set} from 'immutable';
 import {ApplicationModule,ApplicationModuleArgs} from '../../src/ApplicationModule';
 import {Configuration} from '../../src/Configuration';
 import reducer from './reducers';
@@ -20,7 +20,9 @@ export class Module extends ApplicationModule<ModuleState> {
 
     public getInitialState(): ModuleState {
         return {
-            menuItems: Map<string, MenuItemPojo>(),
+            menuItems: Map<string, MenuItemPojo>({'': { key: '', title: 'root',
+            subItems: Set<string>(),
+}}),
         }
     }
 

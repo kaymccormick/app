@@ -23,9 +23,12 @@ export default () => {
     const intermediateReceiveEntities = (entities: EntityPojo[]): (dispatch: any) => void => {
         return (dispatch: any) => {
             dispatch(receiveEntities(entities));
-            dispatch(addMenuItem({title: 'Entities', parentKey: '', key: 'entities'}));
+            const entitiesKey = 'entities';
+            dispatch(addMenuItem({title: 'Entities', parentKey: '', key: entitiesKey}));
             entities.forEach((entity) => {
-            });
+            dispatch(addMenuItem({title: entity.name!, parentKey: entitiesKey,
+              key: `${entitiesKey}-${entity.name}`}));
+              });
         };
     };
 

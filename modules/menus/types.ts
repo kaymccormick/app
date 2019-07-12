@@ -1,4 +1,4 @@
-import { Map, List } from 'immutable';
+import { Map, List, Set } from 'immutable';
 import { ApplicationModule } from '../../src/ApplicationModule';
 
 export const POPULATE_MENUS = 'POPULATE_MENUS';
