@@ -35,7 +35,7 @@ export class Application {
     public init(): Promise<any> {
         this.logger.info('Application.init');
         fs.readdirSync(moduleRoot).filter((e): boolean => !/^\./.test(e) && fs.statSync(path.join(moduleRoot, e)).isDirectory()).forEach((ent): void => {
-            this.logger.info(`got entry ${ent.name}`, { ent });
+            this.logger.info(`got entry ${ent}`, { ent });
             try {
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
                 const m = require(path.join(relModulePath, ent + '/ServerModule'));
@@ -59,7 +59,7 @@ export class Application {
         });
     }
 
-    public getModule(name: string): ServerApplicationModule {
+    public getModule(name: string): ServerApplicationModule|undefined {
         return this.modules.find((m): boolean => m.name === name);
     }
 }

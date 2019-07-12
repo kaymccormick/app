@@ -5,6 +5,8 @@ export interface Resources { [resourceName: string]: any }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface Reducers { [reducerName: string]: any }
 
+export 
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ApplicationModuleType = ApplicationModule<any>;
 

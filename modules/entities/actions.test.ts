@@ -1,5 +1,8 @@
-import {fetchEntities} from './actions';
+import actionsFn from './actions';
 import {REQUEST_ENTITIES} from './types';
+
+const actions = actionsFn();
+const { fetchEntities } = actions;
 
 import RestClient from './RestClient';
 jest.mock('./RestClient');/*, () => {

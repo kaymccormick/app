@@ -12,13 +12,14 @@ test('construct', (): void  => {
 test('construct & init', (): Promise<any> => {
     const a = new Application(logger);
     expect(a).toBeDefined();
-    return a.init().then((x): void => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return a.init().then((x): Promise<any> => {
         expect(x).toBe(true);
         /*        a.modules.forEach((m: ServerApplicationModule): void => {
             //            console.log(m);
         });*/
         if(!a.connection){
-            return;
+            return Promise.reject('no connection');
         }
         const c = a.connection;
         const rp = c.getRepository(EntityCore.Project);

@@ -1,9 +1,16 @@
 import makeReducer from "./reducers";
-import * as actions from "./actions";
+import actionFn from "./actions";
 import { EntityPojo } from "./types";
 import { Module } from "./Module";
-import { RestClient } from "./RestClient";
+import RestClient from "./RestClient";
+jest.mock('./RestClient');
 import { AppLogger } from '../../src/AppLogger';
+const actions = actionFn();
+
+beforeEach((): void => {
+// @ts-ignore
+RestClient.mockClear();
+});
 
 test("1", () => {
     const mod = new Module({ logger: new AppLogger() });

@@ -10,16 +10,16 @@ export interface Module extends ApplicationModule<ModuleState> {
 }
 
 export interface PopulateMenusAction {
-  type: typeof POPULATE_MENUS;
+    type: typeof POPULATE_MENUS;
 }
 
 export interface AddMenuItemAction {
-  type: typeof ADD_MENU_ITEM;
-  item: MenuItemPojo;
+    type: typeof ADD_MENU_ITEM;
+    item: MenuItemPojo;
 }
 export interface SelectItemAction {
-  type: typeof SELECT_ITEM;
-  item: MenuItemPojo;
+    type: typeof SELECT_ITEM;
+    item: MenuItemPojo;
 }
 
 export type ActionTypes = PopulateMenusAction  | AddMenuItemAction | SelectItemAction /* | other types */

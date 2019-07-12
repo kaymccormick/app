@@ -33,7 +33,7 @@ export class WebApplication {
         /* This is totaly gross! */
         const args: ApplicationModuleArgs = { logger: this.logger };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const modules = this.configJs.modules.map((Module: any): Module => new Module(args));
+        const modules = this.configJs.modules.map((Module: any): any => new Module(args));
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         modules.forEach((m: any): void => m.setup(this, this.configuration));
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
