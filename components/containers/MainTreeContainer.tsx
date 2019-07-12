@@ -2,10 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { ApplicationState } from '../../model/types';
 import {ApplicationModule} from '../../src/ApplicationModule';
-import * as actions from '../../modules/entities/actions';
 import {MainTreeProps} from "../MainTree";
-
-//import { loadProjects } from '../..//actions/classModel';
+import {ModuleContextConsumer} from '../../components/ModuleContext';
 
 const mapStateToProps = (state: ApplicationState): MainTreeProps => ({
     entities: state.entities,
@@ -20,5 +18,5 @@ const mapDispatchToProps = (dispatch: any, ownProps: MainTreeProps) => {
 };
 
 //@ts-ignore
-const MainTreeContainer = connect(mapStateToProps, mapDispatchToProps)((props) => <MainTree {...props}/>);
+const MainTreeContainer = connect(mapStateToProps, mapDispatchToProps)((props) => (<ModuleContextConsumer>{modContext => (modContext && (<MainTree {...props}/>))}</ModuleContextConsumer>));
 export { MainTreeContainer };
