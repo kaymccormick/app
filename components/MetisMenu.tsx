@@ -65,24 +65,6 @@ if(rootItem && rootItem.content) {
        else {
        return { content: [] };
        }
-
-/*        const entitiesContent: any[] = [];
-        if(props.entities && props.entities.entities) {
-            props.entities.entities.forEach((e: EntityPojo) => {
-                if(e.columns && e.columns.length) {
-                    console.log('got columns');
-                    const entityContent = { label: e.name, to: `entities-${e.name}`, id: `entities-${e.name}`, content: e.columns ? e.columns.map((c: EntityColumnPojo) => ({ id: `entities-${e.name}-${c.propertyName}`, label: c.propertyName, to: `entities-${e.name}-${c.propertyName}`})) : [] };
-                    entitiesContent.push(entityContent);
-                }
-            });
-        }
-        if(entitiesContent.length) {
-            const entitiesMenu = { content: entitiesContent, label: 'Entities' };
-            const content = [entitiesMenu];
-            return { content };
-        }
-        return { content: [] }
-        */
     }
 
 
