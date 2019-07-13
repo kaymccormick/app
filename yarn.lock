@@ -1048,6 +1048,11 @@ add-dom-event-listener@^1.1.0:
   dependencies:
     object-assign "4.x"
 
+ag-grid-community@^21.0.1:
+  version "21.0.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-21.0.1.tgz#8cf6096de7e9ae6144bf5aced89b03814ea7b034"
+  integrity sha512-wqm6W39kImPonjRxHvnt/L6roJLxPXSopXF4pvcE1paxN7S25HNsBgTOB1uaLlQ4/xt3xSpccPbTDqVUnSxrmQ==
+
 airbnb-prop-types@^2.13.2:
   version "2.13.2"
   resolved "https://registry.yarnpkg.com/airbnb-prop-types/-/airbnb-prop-types-2.13.2.tgz#43147a5062dd2a4a5600e748a47b64004cc5f7fc"
