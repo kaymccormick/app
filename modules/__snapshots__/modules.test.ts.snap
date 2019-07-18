@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ApplicationModule classModel/>.getMainComponent 1`] = `"<div></div>"`;
+
+exports[`<ApplicationModule jsontree/>.getMainComponent 1`] = `"<div></div>"`;
+
+exports[`<ApplicationModule logging/>.getMainComponent 1`] = `"<div></div>"`;
+
+exports[`<ApplicationModule menus/>.getMainComponent 1`] = `"<div></div>"`;

@@ -23,7 +23,17 @@ class MainViewLayout extends React.Component<MainViewLayoutProps> {
 
     render() {
     //@ts-ignore
-        return <div className="mainViewLayout"><div className="toolbarContainer"><Toolbar/></div><div className="mainTreeContainer"><MetisMenuContainer app={this.props.app} site={this.props.site}/></div><div className="mainViewContainer">{this.props.renderMainView()}</div></div>;
+        return <div className="mainViewLayout">
+	<div className="toolbarContainer">
+	<Toolbar/>
+	</div>
+	<div className="mainTreeContainer">
+	<MetisMenuContainer app={this.props.app} site={this.props.site}/>
+	</div>
+	<div className="mainViewContainer">
+	{this.props.renderMainView()}
+	</div>
+	</div>;
     }
 }
 export default MainViewLayout;

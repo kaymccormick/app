@@ -1,3 +1,38 @@
+function _getCallerFile() {
+    const originalFunc = Error.prepareStackTrace;
+
+    let callerfile;
+    let callerlineno;
+    try {
+        const err = new Error();
+
+        Error.prepareStackTrace = (myErr, stack) => stack;
+
+// @ts-ignore
+const x = err.stack.shift();
+        const currentfile = x.getFileName();
+//        const currentlineno = x.getLineNumber();
+        //      process.stderr.write(`${currentfile} ${currentlineno}\n`);
+
+// @ts-ignore
+while (err.stack.length) {
+// @ts-ignore
+const x2 = err.stack.shift();
+            callerfile = x2.getFileName();
+            callerlineno = x2.getLineNumber();
+
+            if (currentfile !== callerfile) break;
+        }
+    } catch (e) {
+        console.log(e);
+    }
+
+    Error.prepareStackTrace = originalFunc;
+
+    return [callerfile, callerlineno];
+}
+
+
 export class AppLogger {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public debug(message: string, meta?: any): void {
@@ -12,6 +47,7 @@ export class AppLogger {
         if(meta && meta.msg) {
             myMsg += meta.msg;
         }
-        console.log(myMsg);
+	const [ file, line ] = _getCallerFile();
+        console.log(`${file}:${line}: ${myMsg}`);
     }
 }

@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faProjectDiagram} from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faProjectDiagram} from "@fortawesome/free-solid-svg-icons";
 import {ButtonGroup, Toolbar, ToolbarItem,Button} from "@progress/kendo-react-buttons";
 import React from 'react';
 import { connect } from 'react-redux';
@@ -20,4 +20,4 @@ export default connect(mapStateToProps, mapDispatchToProps)((props: { addEntity?
     if(props.addEntity) {
         props.addEntity();
     }
-}} title="Add Entity"><FontAwesomeIcon style={{color: 'black'}} icon={faProjectDiagram}/></Button><Button title="Add Entity"><FontAwesomeIcon icon={faProjectDiagram}/></Button></ButtonGroup></ToolbarItem></Toolbar>);
+}} title="Add Entity">+</Button></ButtonGroup></ToolbarItem></Toolbar>);

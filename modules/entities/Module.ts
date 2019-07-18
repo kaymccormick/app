@@ -37,7 +37,6 @@ export class Module extends ApplicationModule<EntitiesState> {
             throw new Error(`${this.id} No rest client`);
         }
         const r = reducer({module: this,restClient:this.restClient});
-        console.log(r);
         return r;
 
     }

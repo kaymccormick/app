@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import React from 'react';
 import Entity from '../../model/entity/Entity';
 import {addAttribute} from '../../model/actions';
@@ -28,7 +28,7 @@ export default connect(mapStateToProps, mapDispatchToProps)((props: EntityAttrib
         <div style={{gridColumn: '1 / 3'}}
             className="entitySection__sectionTitle">{props.sectionTitle || props.section}</div>
         <div style={{gridColumn: '3'}}>{
-        }<a className="addAttributeLink" href="#" onClick={(e) => { if(props.addAttribute) { props.addAttribute(props.index); } e.preventDefault(); }}><FontAwesomeIcon style={{color: 'black'}} icon={faPlusSquare}/></a>{
+        }<a className="addAttributeLink" href="#" onClick={(e) => { if(props.addAttribute) { props.addAttribute(props.index); } e.preventDefault(); }}>+</a>{
         }</div>
         {props.entity && props.entity.attributes && props.entity.attributes.sectionContents ? props.entity.attributes.sectionContents.map((attr, index) => <div key={(index || -1).toString()} className="entityAttributes__attribute" style={{gridColumn: '1 / 4'}}>{attr !== undefined ? <EntityAttribute key={(index || -1).toString()} entityAttribute={attr}/> : null}</div>) : null}
     </React.Fragment>);

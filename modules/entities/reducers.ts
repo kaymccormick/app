@@ -1,4 +1,4 @@
-import { ClassModelState, Action} from '../../model/types';
+import { Action} from '../../model/types';
 import { EntitiesState, EntitiesActionTypes, EntityPojo,LOAD_ENTITIES,RECEIVE_ENTITIES,SELECT_ITEM } from './types';
 import { ApplicationModule } from '../../src/ApplicationModule';
 import { ApplicationModuleType } from '../../src/types';
@@ -14,7 +14,6 @@ export interface Args {
 export default (args: Args) => (
     state: EntitiesState = args.module.getInitialState(),
     action: EntitiesActionTypes): EntitiesState | undefined => {
-    console.log(action.type);
     switch(action.type) {
         case RECEIVE_ENTITIES:
             const a = action;

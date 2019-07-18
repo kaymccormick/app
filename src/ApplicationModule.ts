@@ -1,3 +1,4 @@
+import RestClient from '@heptet/rest-client'
 import { Configuration } from './Configuration';
 import{ WebApplication } from './WebApplication';
 import { AppLogger } from './AppLogger';
@@ -5,6 +6,7 @@ import { ApplicationModuleInterface,Actions } from './types';
 
 export interface ApplicationModuleArgs {
     logger: AppLogger;
+    restClient: RestClient;
 }
 
 export abstract class ApplicationModule<S> implements ApplicationModuleInterface<S> {
@@ -21,6 +23,9 @@ export abstract class ApplicationModule<S> implements ApplicationModuleInterface
     public abstract getInitialState(): S;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public abstract getMainComponent(): Promise<any>;
-    
+
+public toString(): string {
+return `<ApplicationModule ${this.key}/>`;
+}
 }
 

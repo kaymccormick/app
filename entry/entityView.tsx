@@ -11,9 +11,10 @@ import { WebApplication } from '../src/WebApplication';
 import HTML5Backend from 'react-dnd-html5-backend';
 import { DndProvider } from 'react-dnd';
 
+const restClient = new RestClient({baseUri: '/cme', logDebug: (arg) => {}});
 const configJs = require('../core.conf').default;
 console.log(configJs);
-const app = new WebApplication({ config: configJs });
+const app = new WebApplication({ config: configJs, restClient });
 app.init();
 
 const site = new Site();

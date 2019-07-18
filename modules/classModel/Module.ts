@@ -1,42 +1,41 @@
 import {ApplicationModule, ApplicationModuleArgs} from '../../src/ApplicationModule';
 import {Configuration} from '../../src/Configuration';
-/*import {EntityCore} from 'classModel';*/
+import {Pojo} from 'classModel';
 import reducer from './reducers';
-import * as actions from './actions';
-import { ClassModelContainer } from '../../components/containers/ClassModel/ClassModelContainer';
+import actions from './actions';
 import { WebApplication } from '../../src/WebApplication';
-import {ClassModelState} from "../../model/types";
+import {ModuleState, EntitiesType} from './types';
+
+import {Map,List,Set} from 'immutable';
 
 import RestClient from '@heptet/rest-client'
 /*export type Args = {
   restClient:RestClient,
 }*/
 
-export class Module extends ApplicationModule<ClassModelState> {
+export class Module extends ApplicationModule<ModuleState> {
     public restClient?: RestClient;
     public name: string = 'classModel';
     public key: string = 'classModel';
 
     public constructor(args: ApplicationModuleArgs) {
         super(args);
-        this.actions = actions;
+        this.actions = actions(args.restClient);
+        this.restClient = args.restClient;
     }
 
-    public getInitialState(): any {
+    public getInitialState(): ModuleState {
+        return {
+            entities: Map<string, Map<number, Pojo.BasePojo>>(),
+        }
     }
+    
 
     public getReducers(): any {
-        /*KM1 if(!this.restClient) {
-throw new Error('');
-}*/
-        const r = reducer({restClient:this.restClient!});
-        console.log(r);
-        return r;
+        return reducer({restClient:this.restClient!});
 
     }
     public setup(app: WebApplication, config: Configuration) {
-        const restClient = config.getResource('classModelRestClient');
-        this.restClient = restClient;
     }
 
     public getMainComponent(): Promise<any> {

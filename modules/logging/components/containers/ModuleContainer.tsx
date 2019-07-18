@@ -27,4 +27,4 @@ const mapDispatchToProps = (dispatch: any, ownProps: MyProps) => {
 };
 
 //@ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(EntitiesView);
+export default connect(mapStateToProps, mapDispatchToProps)(() => <div/>);

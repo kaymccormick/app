@@ -1,5 +1,3 @@
-import{List} from 'immutable';
-import { Pojo } from 'classModel';
 import RestClient from './RestClient';
 import { EntityPojo, REQUEST_ENTITIES, LOAD_ENTITIES, RECEIVE_ENTITIES, ADD_SELECTED_ENTITIES, SELECT_ITEM, EntitiesActionTypes } from './types';
 import GetEntitiesResponse from './rest/response/GetEntitiesResponse';
@@ -26,6 +24,7 @@ export default () => {
             const entitiesKey = 'entities';
             dispatch(addMenuItem({title: 'Entities', parentKey: '', key: entitiesKey}));
             entities.forEach((entity) => {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 dispatch(addMenuItem({title: entity.name!, parentKey: entitiesKey,
                     key: `${entitiesKey}-${entity.name}`}));
             });

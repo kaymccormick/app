@@ -6,6 +6,7 @@ import reducer from './reducers';
 import * as actions from './actions';
 import { WebApplication } from '../../src/WebApplication';
 import {MenuItemPojo, ModuleState} from './types';
+import ModuleContainer from './components/containers/ModuleContainer';
 
 export class Module extends ApplicationModule<ModuleState> {
     public name: string = 'menus';

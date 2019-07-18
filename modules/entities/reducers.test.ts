@@ -2,8 +2,8 @@ import makeReducer from "./reducers";
 import actionFn from "./actions";
 import { EntityPojo } from "./types";
 import { Module } from "./Module";
-import RestClient from "./RestClient";
-jest.mock('./RestClient');
+import RestClient from "@heptet/rest-client";
+jest.mock('@heptet/rest-client');
 import { AppLogger } from '../../src/AppLogger';
 const actions = actionFn();
 

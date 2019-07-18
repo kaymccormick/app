@@ -11,7 +11,6 @@ export interface Args {
 export default (args: Args) => (
     state: ModuleState = args.module.getInitialState(),
     action: ActionTypes): ModuleState | undefined => {
-    console.log(action.type);
     switch(action.type) {
         case ACTION_TYPE:
             /* do stuff and return updated state */

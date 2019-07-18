@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import { ApplicationState } from '../../../../model/types';
 import { Module } from '../../Module';
 
-//import { loadProjects } from '../../../actions/entities';
 import EntitiesView,{EntitiesViewProps} from '../EntitiesView';
 
 const mapStateToProps = (state: ApplicationState): EntitiesViewProps => ({

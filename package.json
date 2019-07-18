@@ -10,9 +10,6 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
-    "@fortawesome/free-solid-svg-icons": "^5.9.0",
-    "@fortawesome/react-fontawesome": "^0.1.4",
     "@progress/kendo-data-query": "^1.5.1",
     "@progress/kendo-react-buttons": "^3.2.2",
     "@progress/kendo-react-dateinputs": "^3.2.2",
@@ -32,6 +29,7 @@
     "@types/react": "^16.8.22",
     "@types/react-data-grid": "^4.0.2",
     "@types/react-dom": "^16.8.4",
+    "@types/react-popover": "^0.5.3",
     "@types/react-redux": "^7.1.1",
     "@types/react-router-dom": "^4.3.4",
     "@types/uuid": "^3.4.5",
@@ -51,7 +49,6 @@
     "jest-environment-enzyme": "^7.0.2",
     "mongodb": "^3.2.7",
     "pg": "^7.11.0",
-    "rc-tree": "^2.1.0",
     "react": "^16.8.6",
     "react-burger-menu": "^2.6.10",
     "react-contenteditable": "^3.2.6",
@@ -61,6 +58,7 @@
     "react-dom": "^16.8.6",
     "react-json-tree": "^0.11.2",
     "react-metismenu": "^1.4.0",
+    "react-popover": "^0.5.10",
     "react-redux": "^7.1.0",
     "react-router-dom": "^5.0.1",
     "react-simple-popover": "^0.2.4",
@@ -90,6 +88,7 @@
     "sinon": "^7.3.2",
     "ts-node": "^8.3.0",
     "webpack": "^4.35.0",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.5"
   },
   "jest": {

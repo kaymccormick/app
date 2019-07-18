@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
 import { ApplicationModule } from '../../src/ApplicationModule';
+import {PopoverPlace} from "react-popover";
 
 export const REQUEST_ENTITIES = 'REQUEST_ENTITIES';
 export const LOAD_ENTITIES = 'LOAD_ENTITIES';
@@ -35,12 +36,19 @@ export interface AddSelectedEntitiesAction {
 
 export type EntitiesActionTypes = ReceiveEntitiesAction | SelectItemAction | AddSelectedEntitiesAction | LoadEntitiesAction | RequestEntitiesAction;
 
+export interface PopoverState {
+    isOpen: boolean;
+    preferPlace: PopoverPlace;
+}
+
 export interface EntityUIState {
     name: string;
+    popover: PopoverState;
 }
 
 export interface EntitiesUIState {
     entities: EntityUIState[];
+    
 }
 
 export interface EntitiesState {
