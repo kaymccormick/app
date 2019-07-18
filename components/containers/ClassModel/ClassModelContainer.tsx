@@ -12,14 +12,14 @@ const mapStateToProps = (state: ApplicationState): ClassModelViewProps => ({
 
 // @ts-ignore
 const mapDispatchToProps = (dispatch: any, ownProps: ClassModelViewProps) => {
-if(!ownProps.module) {
-throw new Error('');
-}
-const actions = ownProps.module.actions;
-return {
-//"fetchEntities": () => dispatch(actions.fetchEntities()),
-    "loadProjects": () => dispatch(actions.loadProjects()),
-};
+    if(!ownProps.module) {
+        throw new Error('');
+    }
+    const actions = ownProps.module.actions;
+    return {
+        //"fetchEntities": () => dispatch(actions.fetchEntities()),
+        "loadProjects": () => dispatch(actions.loadProjects()),
+    };
 };
 
 //@ts-ignore

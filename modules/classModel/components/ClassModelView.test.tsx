@@ -6,6 +6,6 @@ import { shallow } from 'enzyme';
 import {ApplicationState} from "../../../model/types";
 
 test('1', () => {
-const wrapper = shallow(<ClassModelView/>);
-expect(wrapper.html()).toMatchSnapshot();
+    const wrapper = shallow(<ClassModelView/>);
+    expect(wrapper.html()).toMatchSnapshot();
 });

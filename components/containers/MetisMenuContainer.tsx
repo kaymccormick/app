@@ -26,7 +26,7 @@ const mapStateToProps = (state: ApplicationState): MappedProps => ({
 const mapDispatchToProps = (dispatch: any, ownProps: MetisMenuContainerProps) => {
     return {
         "selectItem": (item: any) => dispatch(actions.selectItem(item)),
-/*        "addSelectedEntities": (entities: any) => dispatch(actions.addSelectedEntities(entities)),*/
+        /*        "addSelectedEntities": (entities: any) => dispatch(actions.addSelectedEntities(entities)),*/
         //  "loadProjects": () => dispatch(actions.loadProjects()),
     };
 };

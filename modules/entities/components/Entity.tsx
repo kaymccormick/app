@@ -38,8 +38,8 @@ export class Entity extends React.Component<EntityProps> {
             borderBottom: '1px solid black',
             gridColumn:'span 2'};
 
-            const popoverProps = {};
-//                <Popover {...popoverProps}/>
+        const popoverProps = {};
+        //                <Popover {...popoverProps}/>
 
         const name = this.props.entity ? this.props.entity.name : '';
         return <div ref={this.ref} style={outerStyles}>
