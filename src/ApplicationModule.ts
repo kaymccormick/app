@@ -25,7 +25,7 @@ export abstract class ApplicationModule<S> implements ApplicationModuleInterface
     public abstract getMainComponent(): Promise<any>;
 
     public toString(): string {
-        return `<ApplicationModule ${this.key}/>`;
+        return this.key;
     }
 }
 

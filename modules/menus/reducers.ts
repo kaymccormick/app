@@ -19,16 +19,23 @@ export default (args: Args) => (
         {
             logger.debug('ADD_MENU_ITEMS');
 	    let menuItems = state.menuItems;
-	    let root = menuItems.get('root')!;
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+	    let root = menuItems.get('')!;
 	    if(!root) {
 	    logger.error('no root menuitem');
 	      return state;
 	      }
 	    const x = Map<string, MenuItemPojo>(action.items.toSeq()
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 	    .map((item: MenuItemPojo|undefined) => [item!.key, item!]));
 	    console.log(x.toJS());
 	    menuItems = menuItems.merge(x);
-	    root.subItems = root.subItems!.merge(x.filter((item: MenuItemPojo|undefined): boolean => item!.parentKey === '').map((item) => item!.key));
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            let f = x.filter((item: MenuItemPojo|undefined): boolean => item!.parentKey === '');
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            let keys = f.map((item) => item!.key);
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            root.subItems = root.subItems!.merge(keys.valueSeq());
 	    menuItems = menuItems.set('', root);
             return Object.assign({}, state, { menuItems });
 	    }
