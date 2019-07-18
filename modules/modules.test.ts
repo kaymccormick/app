@@ -33,19 +33,19 @@ test.each(app.modules)('%s.getReducers', (mod) => {
     expect(state).toBeDefined();
 });
 test('unique module keys', () => {
-  const keys = app.modules.map((mod) => mod.key);
-  expect(app.modules.filter((mod: ApplicationModule<any>, index: number) => keys.indexOf(mod.key, index + 1) !== -1)).toHaveLength(0);
+    const keys = app.modules.map((mod) => mod.key);
+    expect(app.modules.filter((mod: ApplicationModule<any>, index: number) => keys.indexOf(mod.key, index + 1) !== -1)).toHaveLength(0);
 });
 test.each(app.modules)('%s.actions', (mod) => {
     const actions = mod.actions;
     Object.keys(actions).forEach((k) => {
-      const action = actions[k];
-      expect(typeof action).toBe('function');
-      });
+        const action = actions[k];
+        expect(typeof action).toBe('function');
+    });
 });
 test.each(app.modules)('%s.getMainComponent', (mod) => {
-   return mod.getMainComponent().then((MainComponent) => {
-      const wrapper = shallow(React.createElement(Provider, { store: app.store! }, React.createElement(MainComponent.default, { module: mod })));
-      expect(wrapper.html()).toMatchSnapshot();
-      });
+    return mod.getMainComponent().then((MainComponent) => {
+        const wrapper = shallow(React.createElement(Provider, { store: app.store! }, React.createElement(MainComponent.default, { module: mod })));
+        expect(wrapper.html()).toMatchSnapshot();
+    });
 });

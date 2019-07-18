@@ -24,8 +24,8 @@ export abstract class ApplicationModule<S> implements ApplicationModuleInterface
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public abstract getMainComponent(): Promise<any>;
 
-public toString(): string {
-return `<ApplicationModule ${this.key}/>`;
-}
+    public toString(): string {
+        return `<ApplicationModule ${this.key}/>`;
+    }
 }
 

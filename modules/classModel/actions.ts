@@ -28,23 +28,23 @@ export default (restClient: RestClient) => {
 
     const intermediateReceiveInitialData = (result: EntitiesType) => {
         return (dispatch: any) => {
-	let items = List<MenuItemPojo>();
-        const projectsKey = 'projects';
-	const projectItem = {title: 'Projects', parentKey: '', key: projectsKey, subItems: Set<string>() };
-       result.get('Project').forEach((project: Pojo.ProjectPojo|undefined) => {
+            let items = List<MenuItemPojo>();
+            const projectsKey = 'projects';
+            const projectItem = {title: 'Projects', parentKey: '', key: projectsKey, subItems: Set<string>() };
+            result.get('Project').forEach((project: Pojo.ProjectPojo|undefined) => {
                 if(!project) {
                     return;
                 }
-		const childKey = `${projectsKey}-${project.id}`;
+                const childKey = `${projectsKey}-${project.id}`;
                 const item = {title: project.name!,
 		  parentKey: projectsKey, key: childKey,
 		  };
 		  projectItem.subItems = projectItem.subItems.add(childKey);
 		  items = items.push(item);
-});
-          items = items.push(projectItem);
+            });
+            items = items.push(projectItem);
 	  dispatch(addMenuItems(items));
-/*            result.get('Module').forEach((module: Pojo.ModulePojo|undefined) => {
+            /*            result.get('Module').forEach((module: Pojo.ModulePojo|undefined) => {
                 if(!module) {
                     return;
                 }
@@ -108,9 +108,9 @@ export default (restClient: RestClient) => {
                     container = container.set(key, map);
                 });
                 return new Promise((resolve, reject) => {
-                  dispatch(intermediateReceiveInitialData(container));
-                  resolve();
-                  });
+                    dispatch(intermediateReceiveInitialData(container));
+                    resolve();
+                });
             });
         };
     };

@@ -2,10 +2,10 @@ import { Map } from 'immutable';
 import {Pojo} from 'classModel';
 
 jest.mock('@heptet/rest-client', () => {
-return function() {
-return {getAll: () => Promise.resolve({}),
-};
-};
+    return function() {
+        return {getAll: () => Promise.resolve({}),
+        };
+    };
 });
 
 import RestClient from '@heptet/rest-client';
@@ -38,12 +38,12 @@ test('intermediateReceiveInitialData', () => {
     const fn: (arg: any) => any = intermediateReceiveInitialData(result);
     const r = fn (dispatch);
     if(r && typeof r.then === 'function'){
-      return r.then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(2);
-        expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_INITIAL_DATA});
-  });
-  }
-  });
+        return r.then(() => {
+            expect(dispatch).toHaveBeenCalledTimes(2);
+            expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_INITIAL_DATA});
+        });
+    }
+});
   
 
 test('receiveInitialData', () => {
@@ -54,10 +54,10 @@ test('receiveInitialData', () => {
     const fn: (arg: any) => any = receiveInitialData(result);
     const r = fn (dispatch);
     if(r && typeof r.then === 'function'){
-      return r.then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(2);
-        expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_INITIAL_DATA});
-  });
-  }
-  });
+        return r.then(() => {
+            expect(dispatch).toHaveBeenCalledTimes(2);
+            expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_INITIAL_DATA});
+        });
+    }
+});
   

@@ -5,8 +5,8 @@ import { Configuration } from './Configuration';
 import { WebApplication } from './WebApplication';
 
 export interface BasicLogger {
-debug: LeveledLogMethod;
-error: LeveledLogMethod;
+    debug: LeveledLogMethod;
+    error: LeveledLogMethod;
 }
 
 type LogCallback = (error?: any, level?: string, message?: string, meta?: any) => void;
@@ -15,10 +15,10 @@ export interface LeveledLogMethod {
     (message: string, meta: any, callback: LogCallback): any;
     (message: string, ...meta: any[]): any;
 //    (infoObject: object): any;
-  }
+}
 
-  export interface JsConfig {
-[propName: string]:any;
+export interface JsConfig {
+    [propName: string]: any;
 }
 
 

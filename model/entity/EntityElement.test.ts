@@ -8,5 +8,5 @@ test('1', () => {
     const ee2 = ee.copy();
     expect(ee2).toEqual(ee);
     expect(ee2.toJS()).toMatchSnapshot();
-    });
+});
     

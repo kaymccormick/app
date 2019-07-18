@@ -3,7 +3,7 @@ import { ApplicationModule } from '../../src/ApplicationModule';
 import {Pojo} from 'classModel';
 
 export interface InputObject {
-[propName: string]: any;
+    [propName: string]: any;
 }
 export const REQUEST_PROJECTS = 'REQUEST_PROJECTS';
 export const LOAD_PROJECTS= 'LOAD_PROJECTS';
