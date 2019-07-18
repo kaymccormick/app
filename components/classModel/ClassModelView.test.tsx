@@ -17,6 +17,5 @@ test('1', () => {
     const wrapper = shallow(<ClassModelView loadProjects={loadProjects}
         classModel={classModel}/>);
     const x = wrapper.find(Project);
-    console.log(x);
 });
 

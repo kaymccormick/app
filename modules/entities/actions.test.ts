@@ -23,7 +23,6 @@ test('fetchEntities', () => {
     const dispatch = jest.fn();
     //@ts-ignore
     return fetchEntities(new RestClient({baseUri:''}))(dispatch).then(() => {
-        console.log(dispatch.mock.calls);
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_ENTITIES});
     });

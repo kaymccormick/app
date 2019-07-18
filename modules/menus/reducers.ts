@@ -13,14 +13,23 @@ export interface Args {
 export default (args: Args) => (
     state: ModuleState = args.module.getInitialState(),
     action: ActionTypes): ModuleState | undefined => {
+    const logger = args.module.logger;
     switch(action.type) {
         case ADD_MENU_ITEMS:
 	{
+	logger.debug('ADD_MENU_ITEMS');
 	    let menuItems = state.menuItems;
+	    let root = menuItems.get('root')!;
+	    if(!root) {
+	    logger.error('no root menuitem');
+	      return state;
+	      }
 	    const x = Map<string, MenuItemPojo>(action.items.toSeq()
 	    .map((item:MenuItemPojo|undefined) => [item!.key, item!]));
 	    console.log(x.toJS());
 	    menuItems = menuItems.merge(x);
+	    root.subItems = root.subItems!.merge(x.filter((item: MenuItemPojo|undefined): boolean => item!.parentKey === '').map((item) => item!.key));
+	    menuItems = menuItems.set('', root);
             return Object.assign({}, state, { menuItems });
 	    }
         case ADD_MENU_ITEM:

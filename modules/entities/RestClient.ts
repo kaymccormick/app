@@ -7,7 +7,7 @@ export interface Args {
 export default class RestClient {
     public baseUri: string;
 
-    constructor(args: Args) {
+    public constructor(args: Args) {
         this.baseUri = args.baseUri;
     }
     public getEntities(): Promise<GetEntitiesResponse> {

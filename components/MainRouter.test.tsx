@@ -1,26 +1,23 @@
-test.todo('')
-/*import React from 'react';
+import React from 'react';
 import { shallow,mount } from 'enzyme';
 import MainRouter from './MainRouter';
 import { WebApplication } from '../src/WebApplication';
-jest.mock('../src/WebApplication');
-jest.mock('../src/Configuration');
+import RestClient from '@heptet/rest-client';
+
+let restClient= new RestClient({baseUri:'', logDebug: (arg) => console.log(arg)});
+let configJs = require('../core.conf').default;
+let app = new WebApplication({ config: configJs, restClient });
+app.init();
 
 beforeEach(() => {
-// @ts-ignore
-WebApplication.mockClear();
-// @ts-ignore
-WebApplication.mockImplementation(() => {
-return {
-  modules: () => [],
-};
-});
+    configJs = require('../core.conf').default;
+    app = new WebApplication({ config: configJs, restClient });
+    app.init();
 });
 
-test.skip('MainRouter', () => {
-const app = new WebApplication();
-const wrapper = mount(<MainRouter app={app}/>);
-expect(wrapper).toBeDefined();
-expect(wrapper.html()).toMatchSnapshot();
+
+test('MainRouter', () => {
+    const wrapper = mount(<MainRouter store={app.store!} app={app}/>);
+    expect(wrapper).toBeDefined();
+    expect(wrapper.html()).toMatchSnapshot();
 });
-*/

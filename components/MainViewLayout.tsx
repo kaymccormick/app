@@ -22,13 +22,17 @@ class MainViewLayout extends React.Component<MainViewLayoutProps> {
     }
 
     render() {
+
+        let menu = <MetisMenuContainer app={this.props.app} site={this.props.site}/>;
+    
+    
     //@ts-ignore
         return <div className="mainViewLayout">
             <div className="toolbarContainer">
                 <Toolbar/>
             </div>
             <div className="mainTreeContainer">
-                <MetisMenuContainer app={this.props.app} site={this.props.site}/>
+	    { menu }
             </div>
             <div className="mainViewContainer">
                 {this.props.renderMainView()}

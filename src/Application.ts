@@ -33,9 +33,7 @@ export class Application {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public init(): Promise<any> {
-        this.logger.info('Application.init');
         fs.readdirSync(moduleRoot).filter((e): boolean => !/^\./.test(e) && fs.statSync(path.join(moduleRoot, e)).isDirectory()).forEach((ent): void => {
-            this.logger.info(`got entry ${ent}`, { ent });
             try {
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
                 const m = require(path.join(relModulePath, ent + '/ServerModule'));

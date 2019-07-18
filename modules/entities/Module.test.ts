@@ -2,20 +2,26 @@ import { Module } from './Module';
 import { WebApplication } from '../../src/WebApplication';
 import { Configuration } from '../../src/Configuration';
 import{ AppLogger} from '../../src/AppLogger';
+import RestClient from '@heptet/rest-client';
+import { createRestClient,createAppLogger } from '../../src/testUtils';
+jest.mock('@heptet/rest-client');
 jest.mock('../../src/WebApplication');
 jest.mock('../../src/Configuration');
 
 let appLogger: AppLogger;
 beforeEach(() => {
-    appLogger = new AppLogger();
+    appLogger = new createAppLogger);
     // @ts-ignore
     WebApplication.mockClear();
     // @ts-ignore
     Configuration.mockClear();
+    // @ts-ignore
+    RestClient.mockClear();
 });
 
 test('Module.constructor', () => {
-    const m = new Module({logger: appLogger});
+    const restClient = createRestClient();
+    const m = new Module({logger: appLogger, restClient});
     expect(m).toBeDefined();
     expect(m.id).toBeDefined();
     expect(m.actions).toBeDefined();
@@ -23,27 +29,16 @@ test('Module.constructor', () => {
 });
 
 test('Module.getInitialState', () => {
-    const m = new Module({logger: appLogger});
+    const restClient = createRestClient();
+    const m = new Module({logger: appLogger, restClient});
     const state = m.getInitialState();
     expect(state).toBeDefined();
     expect(state.entities).toStrictEqual([]);
 });
 test('Module.getReducers', () => {
-    const m = new Module({logger: appLogger});
+    const restClient = createRestClient();
+    const m = new Module({logger: appLogger, restClient});
     const reducers = m.getReducers();
     expect(reducers).toBeDefined();
     expect(Object.keys(reducers)).toMatchSnapshot();
 });
-test('Module.setup', () => {
-    const app = new WebApplication({config: { modules: []}});
-    const config = new Configuration();
-    const m = new Module({logger: appLogger});
-    m.setup(app, config);
-});
-
-/*test('Module.getMainComponent',() => {
-const m = new Module({logger: appLogger});
-const component = m.getMainComponent();
-expect(component).toBeDefined();
-});*/
-

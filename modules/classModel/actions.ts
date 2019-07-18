@@ -107,7 +107,7 @@ export default (restClient: RestClient) => {
                     let map = Map<number, Pojo.BasePojo>(List<InputObject>(ary).filter((elem): boolean => elem !== undefined).map((elem: InputObject|undefined) => [elem!.id, elem!]));
                     container = container.set(key, map);
                 });
-                new Promise((resolve, reject) => {
+                return new Promise((resolve, reject) => {
                   dispatch(intermediateReceiveInitialData(container));
                   resolve();
                   });

@@ -4,6 +4,24 @@ import { AppLogger } from './AppLogger';
 import { Configuration } from './Configuration';
 import { WebApplication } from './WebApplication';
 
+export interface BasicLogger {
+debug: LeveledLogMethod;
+error: LeveledLogMethod;
+}
+
+type LogCallback = (error?: any, level?: string, message?: string, meta?: any) => void;
+export interface LeveledLogMethod {
+    (message: string, callback: LogCallback): any;
+    (message: string, meta: any, callback: LogCallback): any;
+    (message: string, ...meta: any[]): any;
+//    (infoObject: object): any;
+  }
+
+  export interface JsConfig {
+[propName: string]:any;
+}
+
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface Resources { [resourceName: string]: any }
 

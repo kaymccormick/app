@@ -24,6 +24,7 @@ test("1", () => {
     items = items.push(testItem);
     const newState = reducer(state, actions.addMenuItems(items));
     expect(newState).toBeDefined();
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const menuItems = newState!.menuItems;
     expect(menuItems).toBeDefined();
     const t = menuItems.get('test');
@@ -31,6 +32,8 @@ test("1", () => {
     expect(t).toEqual(testItem);
     let root= menuItems.get('');
     expect(root).toBeDefined();
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     root =root!;
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     expect(root.subItems!.includes('test')).toBeTruthy();
 });

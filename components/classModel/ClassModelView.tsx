@@ -23,7 +23,6 @@ class ClassModelView extends React.Component<ClassModelViewProps> {
     }
 
     public componentDidMount() {
-        console.log('moutn');
         if(this.props.fetchEntities) {
             console.log('fetch entities');
             this.props.fetchEntities();
