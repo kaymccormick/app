@@ -10,13 +10,18 @@ jest.mock('@heptet/rest-client', () => {
 
 import RestClient from '@heptet/rest-client';
 import actionsFn from './actions';
-import {FETCH_INITIAL_DATA,REQUEST_INITIAL_DATA} from './types';
+import { FETCH_INITIAL_DATA,
+REQUEST_INITIAL_DATA,
+RECEIVE_INITIAL_DATA,
+} from './types';
 import { createRestClient } from '../../src/testUtils';
 
 const restClient = new RestClient({baseUri:'', logDebug: (arg) => console.log(arg)});
 
 const actions = actionsFn(restClient);
-const { fetchInitialData, intermediateReceiveInitialData } = actions;
+const { fetchInitialData,
+intermediateReceiveInitialData,
+receiveInitialData } = actions;
 
 beforeAll(() => {
 });
@@ -33,7 +38,8 @@ test('fetchInitialData', () => {
 test('intermediateReceiveInitialData', () => {
     const dispatch = jest.fn();
     //@ts-ignore
-    const result = Map<string, Map<number, Pojo.BasePojo>>();
+    let result = Map<string, Map<number, Pojo.BasePojo>>();
+    result = result.set('Project', Map<number, Pojo.BasePojo>());
     // @ts-ignore
     const fn: (arg: any) => any = intermediateReceiveInitialData(result);
     const r = fn (dispatch);
@@ -51,13 +57,8 @@ test('receiveInitialData', () => {
     //@ts-ignore
     const result = Map<string, Map<number, Pojo.BasePojo>>();
     // @ts-ignore
-    const fn: (arg: any) => any = receiveInitialData(result);
-    const r = fn (dispatch);
-    if(r && typeof r.then === 'function'){
-        return r.then(() => {
-            expect(dispatch).toHaveBeenCalledTimes(2);
-            expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_INITIAL_DATA});
-        });
-    }
+    const r = receiveInitialData(result);
+    expect(r).toBeDefined();
+    expect(r).toHaveProperty('type', RECEIVE_INITIAL_DATA);
 });
   
