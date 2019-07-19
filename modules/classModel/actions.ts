@@ -1,7 +1,7 @@
 import {List,Map,Set} from 'immutable';
 import { Pojo } from 'classModel';
 import RestClient from '@heptet/rest-client';
-import { EntitiesType } from './types';
+import { EntitiesType, ActionTypes } from './types';
 import { addMenuItems } from '../../modules/menus/actions';
 import { MenuItemPojo } from '../../modules/menus/types';
 
@@ -10,32 +10,33 @@ import {
     InputObject,
     RECEIVE_INITIAL_DATA,
     REQUEST_INITIAL_DATA,
-    LOAD_INITIAL_DATA,
     RECEIVE_PROJECTS, REQUEST_PROJECTS, LOAD_PROJECTS } from './types';
 
-export default (restClient: RestClient) => {
-    const requestProjects = () => {
+export default (restClient: RestClient): Actions => {
+    const requestProjects = (): ActionTypes => {
         return { type: REQUEST_PROJECTS };
     }
 
-    const receiveInitialData = (result: EntitiesType) =>{
+    const receiveInitialData = (result: EntitiesType): ActionTypes =>{
         return { type: RECEIVE_INITIAL_DATA, result};
     }
 
-    const requestInitialData = () => {
+    const requestInitialData = (): ActionTypes => {
         return { type: REQUEST_INITIAL_DATA };
     }
 
-    const intermediateReceiveInitialData = (result: EntitiesType) => {
-        return (dispatch: any) => {
+    const intermediateReceiveInitialData = (result: EntitiesType): () => void => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return (dispatch: any): void => {
             let items = List<MenuItemPojo>();
             const projectsKey = 'projects';
             const projectItem = {title: 'Projects', parentKey: '', key: projectsKey, subItems: Set<string>() };
-            result.get('Project').forEach((project: Pojo.ProjectPojo|undefined) => {
+            result.get('Project').forEach((project: Pojo.ProjectPojo|undefined): void => {
                 if(!project) {
                     return;
                 }
                 const childKey = `${projectsKey}-${project.id}`;
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
                 const item = {title: project.name!,
 		  parentKey: projectsKey, key: childKey,
 		  };
@@ -97,36 +98,42 @@ export default (restClient: RestClient) => {
     }
 
 
-    const fetchInitialData = () => {
-        return (dispatch: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const fetchInitialData = (): () => Promise<any> => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return (dispatch: any): Promise<any> => {
             dispatch(requestInitialData());
-            return restClient.getAll().then((result: InputObject) => {
+	    return restClient.getAll().then((result: InputObject): Map<string, Map<number, Pojo.BasePojo>> => {
                 let container = Map<string, Map<number, Pojo.BasePojo>>();
-                Object.keys(result).forEach(key => {
+                Object.keys(result).forEach((key): void => {
                     const ary = result[key];
-                    let map = Map<number, Pojo.BasePojo>(List<InputObject>(ary).filter((elem): boolean => elem !== undefined).map((elem: InputObject|undefined) => [elem!.id, elem!]));
-                    container = container.set(key, map);
-                });
-                return new Promise((resolve, reject) => {
-                    dispatch(intermediateReceiveInitialData(container));
-                    resolve();
-                });
-            });
+		    // how can we sanity check the value?
+		    if(ary !== undefined && Array.isArray(ary)) {
+		    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                        let map = Map<number, Pojo.BasePojo>(List<InputObject>(ary).filter((elem): boolean => elem !== undefined).map((elem: InputObject|undefined): [number, Pojo.BasePojo] => [elem!.id, elem!]));
+                        container = container.set(key, map);
+		    } else{
+		    console.log(`invalid value ${ary} for key ${key} in result`)
+		    }
+		    });
+		    }).then((container): void => {
+                dispatch(intermediateReceiveInitialData(container));
+		    });
         };
     };
 
-    const fetchProjects = () => {
-        return (dispatch: any) => {
+    const fetchProjects = (): () => void => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return (dispatch: any): void => {
             dispatch(requestProjects());
         }
     }
-    const loadProjects = () => {
-        console.log('load');
+    const loadProjects = (): ActionTypes => {
         return {type: LOAD_PROJECTS};
     }
 
 
-    const receiveProjects = (projects: List<Pojo.ProjectPojo>) => {
+    const receiveProjects = (projects: List<Pojo.ProjectPojo>): ActionTypes => {
         return {type:RECEIVE_PROJECTS,projects};
     }
 
@@ -135,5 +142,8 @@ export default (restClient: RestClient) => {
         intermediateReceiveInitialData,
         fetchInitialData,
         receiveInitialData,
+        receiveProjects,
+        loadProjects,
+        fetchProjects,
     };
 };
