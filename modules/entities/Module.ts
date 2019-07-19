@@ -44,7 +44,5 @@ export class Module extends ApplicationModule<EntitiesState> {
     public getMainComponent(): Promise<any> {
         return import('./components/MainComponent');
     }
-/*    public getMenuTree(): Tree {
-    }*/
 }
 

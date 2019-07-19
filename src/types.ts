@@ -4,6 +4,8 @@ import { AppLogger } from './AppLogger';
 import { Configuration } from './Configuration';
 import { WebApplication } from './WebApplication';
 
+export type ModuleType = ApplicationModule<any>;
+
 export interface BasicLogger {
     debug: LeveledLogMethod;
     error: LeveledLogMethod;

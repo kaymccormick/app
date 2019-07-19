@@ -2,6 +2,7 @@ import {Module as ClassModelModule } from './modules/classModel';
 import {Module as EntitiesModule } from './modules/entities';
 import {Module as LoggingModule } from './modules/logging';
 import {Module as JsonTreeModule } from './modules/jsontree';
+import {Module as EditorModule } from './modules/editor';
 import {Module as MenusModule } from './modules/menus';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,6 +12,7 @@ const modules: any[] = [
     LoggingModule,
     MenusModule,
     JsonTreeModule,
+    EditorModule,
 ];
 
 export default { modules };
