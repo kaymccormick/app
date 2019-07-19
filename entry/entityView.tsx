@@ -5,12 +5,8 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, combineReducers,compose } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { DndProvider } from 'react-dnd';
-
 import RestClient from '@heptet/rest-client'
 
 import Site from '../site/Site';
