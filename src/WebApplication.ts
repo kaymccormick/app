@@ -46,9 +46,9 @@ export class WebApplication {
         this.store = createStore(combineReducers(reducers),
             compose(applyMiddleware(thunk),
                 ...(window !== undefined
-        // @ts-ignore
+                // @ts-ignore
 	&& window.__REDUX_DEVTOOLS_EXTENSION__ ?
-        // @ts-ignore
+                // @ts-ignore
                     [window.__REDUX_DEVTOOLS_EXTENSION__()] : [])));
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         this.store!.subscribe(this.handleChange);

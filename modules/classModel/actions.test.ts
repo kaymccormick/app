@@ -17,8 +17,8 @@ let receiveInitialData: () => any;
 let restClient;
 
 beforeAll(() => {
-restClient = createRestClient();
-actions = actionsFn(restClient);
+    restClient = createRestClient();
+    actions = actionsFn(restClient);
 });
 
 test('fetchInitialData', () => {
@@ -27,7 +27,7 @@ test('fetchInitialData', () => {
     return actions.fetchInitialData()(dispatch).then((result) => {
         /* Calls dispatch twice */
         expect(dispatch).toHaveBeenCalledTimes(2);
-	/* First is expect initial data. */
+        /* First is expect initial data. */
         expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_INITIAL_DATA});
     });
 });

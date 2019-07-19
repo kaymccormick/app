@@ -25,7 +25,7 @@ export default (restClient: RestClient): Actions => {
         return { type: REQUEST_INITIAL_DATA };
     }
 
-    const intermediateReceiveInitialData = (result: EntitiesType): (dispatch:any) => void => {
+    const intermediateReceiveInitialData = (result: EntitiesType): (dispatch: any) => void => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return (dispatch: any): void => {
             let items = List<MenuItemPojo>();
@@ -99,7 +99,7 @@ export default (restClient: RestClient): Actions => {
 
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const fetchInitialData = (): (dispatch:any) => Promise<any> => {
+    const fetchInitialData = (): (dispatch: any) => Promise<any> => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return (dispatch: any): Promise<any> => {
             dispatch(requestInitialData());
@@ -118,7 +118,7 @@ export default (restClient: RestClient): Actions => {
 		    });
 		    return container;
 		    }).then((container): void => {
-                 dispatch(intermediateReceiveInitialData(container));
+                dispatch(intermediateReceiveInitialData(container));
 		    });
         };
     };
