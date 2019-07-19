@@ -7,6 +7,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import HTML5Backend from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
+
 import RestClient from '@heptet/rest-client'
 
 import Site from '../site/Site';
