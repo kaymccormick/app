@@ -43,8 +43,13 @@ export class WebApplication {
         modules.forEach((m: any): void => this.configuration.addModule(m));
 
         const reducers = this.configuration.collectReducers();
+        this.store = createStore(combineReducers(reducers),
+            compose(applyMiddleware(thunk),
+                ...(window !== undefined
         // @ts-ignore
-        this.store = createStore(combineReducers(reducers), compose(applyMiddleware(thunk), ...(window !== undefined && window.__REDUX_DEVTOOLS_EXTENSION__ ? [window.__REDUX_DEVTOOLS_EXTENSION__()] : [])));
+	&& window.__REDUX_DEVTOOLS_EXTENSION__ ?
+        // @ts-ignore
+                    [window.__REDUX_DEVTOOLS_EXTENSION__()] : [])));
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         this.store!.subscribe(this.handleChange);
     }

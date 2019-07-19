@@ -2,15 +2,16 @@ import { Module } from './Module';
 import { WebApplication } from '../../src/WebApplication';
 import { Configuration } from '../../src/Configuration';
 import{ AppLogger} from '../../src/AppLogger';
-import RestClient from '@heptet/rest-client';
+import RestClient from '@heptet/rest-client/src/RestClient';
+jest.mock('@heptet/rest-client/src/RestClient');
 import { createRestClient,createAppLogger } from '../../src/testUtils';
-jest.mock('@heptet/rest-client');
+
 jest.mock('../../src/WebApplication');
 jest.mock('../../src/Configuration');
 
 let appLogger: AppLogger;
 beforeEach(() => {
-    appLogger = new createAppLogger);
+    appLogger = createAppLogger();
     // @ts-ignore
     WebApplication.mockClear();
     // @ts-ignore

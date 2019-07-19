@@ -1,6 +1,8 @@
 import { Map } from 'immutable';
 import { ApplicationModule } from '../../src/ApplicationModule';
 import {PopoverPlace} from "react-popover";
+import {EntityPojo,EntityColumnPojo} from '@heptet/rest-client';
+export { EntityPojo,EntityColumnPojo};
 
 export const REQUEST_ENTITIES = 'REQUEST_ENTITIES';
 export const LOAD_ENTITIES = 'LOAD_ENTITIES';
@@ -57,19 +59,3 @@ export interface EntitiesState {
     ui: EntitiesUIState;
 }
 
-export interface EntityPojo {
-    name?: string;
-    tableName?: string;
-    columns?: EntityColumnPojo[];
-}
-export interface EntityColumnPojo {
-    propertyName?: string;
-    type?: string;
-    isPrimary?: boolean;
-    isNullable?: boolean;
-    isGenerated?: boolean;
-    comment?: string;
-    isArray?: boolean ;
-    propertyPath?: string;
-    isObjectId?: boolean;
-}

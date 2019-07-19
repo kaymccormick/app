@@ -1,9 +1,11 @@
-import RestClient from './RestClient';
-import { EntityPojo, REQUEST_ENTITIES, LOAD_ENTITIES, RECEIVE_ENTITIES, ADD_SELECTED_ENTITIES, SELECT_ITEM, EntitiesActionTypes } from './types';
+import RestClient from '@heptet/rest-client';
+import { EntityPojo, REQUEST_ENTITIES, LOAD_ENTITIES,
+    RECEIVE_ENTITIES, ADD_SELECTED_ENTITIES, SELECT_ITEM,
+    EntitiesActionTypes } from './types';
 import GetEntitiesResponse from './rest/response/GetEntitiesResponse';
 import { addMenuItem } from '../../modules/menus/actions';
 
-export default () => {
+export default (restClient: RestClient) => {
     const selectItem = (item: any): EntitiesActionTypes => {
         return { type: SELECT_ITEM, item };
     };

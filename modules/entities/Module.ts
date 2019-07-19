@@ -4,8 +4,7 @@ import {ApplicationModule, ApplicationModuleArgs} from '../../src/ApplicationMod
 import {Configuration} from '../../src/Configuration';
 import reducer from './reducers';
 import actions from './actions';
-import RestClient from './RestClient';
-/*import EntitiesViewContainer from './components/containers/EntitiesViewContainer';*/
+import RestClient from '@heptet/rest-client';
 import { WebApplication } from '../../src/WebApplication';
 import {EntitiesState,EntityPojo} from './types';
 
@@ -18,10 +17,8 @@ export class Module extends ApplicationModule<EntitiesState> {
     public constructor(args: ApplicationModuleArgs) {
         super(args);
         this.id = uuidv4();
-        this.actions = actions();
-        //        console.log(`${this.id} setting rest client`);
-        this.restClient = new RestClient({ baseUri: '/cme'});
-        //        console.log(`${this.id} ${this.restClient}`);
+        this.actions = actions(args.restClient);
+        this.restClient = args.restClient;
     }
 
     public getInitialState(): EntitiesState {
@@ -34,7 +31,7 @@ export class Module extends ApplicationModule<EntitiesState> {
 
     public getReducers(): any {
         if(!this.restClient) {
-            throw new Error(`${this.id} No rest client`);
+            throw new Error(`${this.id} No rest client ${this.restClient}`);
         }
         const r = reducer({module: this,restClient:this.restClient});
         return r;
@@ -51,4 +48,3 @@ export class Module extends ApplicationModule<EntitiesState> {
     }*/
 }
 
-        
