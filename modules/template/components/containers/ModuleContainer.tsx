@@ -21,9 +21,8 @@ const mapDispatchToProps = (dispatch: any, ownProps: MyProps) => {
     }
     const actions = m.actions;
     return {
-        //        "fetchEntities": () => dispatch(actions.fetchEntities(restClient)),
     };
 };
 
 //@ts-ignore
-export default connect(mapStateToProps, mapDispatchToProps)(EntitiesView);
+export default connect(mapStateToProps, mapDispatchToProps)(() => <div/>);
