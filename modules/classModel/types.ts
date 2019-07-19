@@ -33,8 +33,16 @@ export interface LoadInitialDataAction {
 export interface FetchInitialDataAction {
     type: typeof FETCH_INITIAL_DATA;
 }
+export interface LoadProjectsAction {
+    type: typeof LOAD_PROJECTS;
 
-export type ActionTypes = RequestProjectsAction | RequestInitialDataAction |
+}
+export interface ReceiveProjectsAction {
+    type: typeof RECEIVE_PROJECTS;
+    projects: List<Pojo.ProjectPojo>;
+}
+
+export type ActionTypes = ReceiveProjectsAction | LoadProjectsAction | RequestProjectsAction | RequestInitialDataAction |
 ReceiveInitialDataAction | LoadInitialDataAction | FetchInitialDataAction;
 
 export type EntitiesType = Map<string, Map<number, Pojo.BasePojo>> ;

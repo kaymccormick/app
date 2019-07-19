@@ -1,36 +1,33 @@
 import { Map } from 'immutable';
 import {Pojo} from 'classModel';
-
-jest.mock('@heptet/rest-client', () => {
-    return function() {
-        return {getAll: () => Promise.resolve({}),
-        };
-    };
-});
-
 import RestClient from '@heptet/rest-client';
+jest.mock('@heptet/rest-client')
 import actionsFn from './actions';
 import { FETCH_INITIAL_DATA,
-REQUEST_INITIAL_DATA,
-RECEIVE_INITIAL_DATA,
+    REQUEST_INITIAL_DATA,
+    RECEIVE_INITIAL_DATA,
 } from './types';
 import { createRestClient } from '../../src/testUtils';
+import { Actions } from '../../src/types';
 
-const restClient = new RestClient({baseUri:'', logDebug: (arg) => console.log(arg)});
-
-const actions = actionsFn(restClient);
-const { fetchInitialData,
-intermediateReceiveInitialData,
-receiveInitialData } = actions;
+let actions: Actions;
+let fetchInitialData: () => any;;
+let intermediateReceiveInitialData: () => any;
+let receiveInitialData: () => any;
+let restClient;
 
 beforeAll(() => {
+restClient = createRestClient();
+actions = actionsFn(restClient);
 });
 
 test('fetchInitialData', () => {
     const dispatch = jest.fn();
     //@ts-ignore
-    return fetchInitialData()(dispatch).then((result) => {
+    return actions.fetchInitialData()(dispatch).then((result) => {
+        /* Calls dispatch twice */
         expect(dispatch).toHaveBeenCalledTimes(2);
+	/* First is expect initial data. */
         expect(dispatch.mock.calls[0][0]).toStrictEqual({type: REQUEST_INITIAL_DATA});
     });
 });
@@ -41,7 +38,7 @@ test('intermediateReceiveInitialData', () => {
     let result = Map<string, Map<number, Pojo.BasePojo>>();
     result = result.set('Project', Map<number, Pojo.BasePojo>());
     // @ts-ignore
-    const fn: (arg: any) => any = intermediateReceiveInitialData(result);
+    const fn: (arg: any) => any = actions.intermediateReceiveInitialData(result);
     const r = fn (dispatch);
     if(r && typeof r.then === 'function'){
         return r.then(() => {
@@ -50,15 +47,15 @@ test('intermediateReceiveInitialData', () => {
         });
     }
 });
-  
+
 
 test('receiveInitialData', () => {
     const dispatch = jest.fn();
     //@ts-ignore
     const result = Map<string, Map<number, Pojo.BasePojo>>();
     // @ts-ignore
-    const r = receiveInitialData(result);
+    const r = actions.receiveInitialData(result);
     expect(r).toBeDefined();
     expect(r).toHaveProperty('type', RECEIVE_INITIAL_DATA);
 });
-  
+

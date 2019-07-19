@@ -4,7 +4,7 @@ import RestClient from '@heptet/rest-client';
 import { EntitiesType, ActionTypes } from './types';
 import { addMenuItems } from '../../modules/menus/actions';
 import { MenuItemPojo } from '../../modules/menus/types';
-
+import { Actions } from '../../src/types';
 
 import {
     InputObject,
@@ -25,7 +25,7 @@ export default (restClient: RestClient): Actions => {
         return { type: REQUEST_INITIAL_DATA };
     }
 
-    const intermediateReceiveInitialData = (result: EntitiesType): () => void => {
+    const intermediateReceiveInitialData = (result: EntitiesType): (dispatch:any) => void => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return (dispatch: any): void => {
             let items = List<MenuItemPojo>();
@@ -99,7 +99,7 @@ export default (restClient: RestClient): Actions => {
 
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const fetchInitialData = (): () => Promise<any> => {
+    const fetchInitialData = (): (dispatch:any) => Promise<any> => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return (dispatch: any): Promise<any> => {
             dispatch(requestInitialData());
@@ -116,13 +116,14 @@ export default (restClient: RestClient): Actions => {
 		    console.log(`invalid value ${ary} for key ${key} in result`)
 		    }
 		    });
+		    return container;
 		    }).then((container): void => {
-                dispatch(intermediateReceiveInitialData(container));
+                 dispatch(intermediateReceiveInitialData(container));
 		    });
         };
     };
 
-    const fetchProjects = (): () => void => {
+    const fetchProjects = (): (dispatch: any) => void => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return (dispatch: any): void => {
             dispatch(requestProjects());

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`state 1`] = `
+Object {
+  "entities": Array [],
+  "entitiesMap": Immutable.Map {},
+  "ui": Object {
+    "entities": Array [],
+  },
+}
+`;
+
+exports[`state 2`] = `
+Object {
+  "entities": Array [
+    Object {
+      "name": "foo",
+    },
+  ],
+  "entitiesMap": Immutable.Map {
+    "foo": Object {
+      "name": "foo",
+    },
+  },
+  "ui": Object {
+    "entities": Array [],
+  },
+}
+`;

@@ -3,14 +3,13 @@ import { EntitiesState, EntitiesActionTypes, EntityPojo,LOAD_ENTITIES,RECEIVE_EN
 import { ApplicationModule } from '../../src/ApplicationModule';
 import { ApplicationModuleType } from '../../src/types';
 import {List,Map} from 'immutable';
-
-import RestClient from './RestClient';
+import RestClient from '@heptet/rest-client'
 
 export interface Args {
     module: ApplicationModuleType;
     restClient: RestClient;
 }
- 
+
 export default (args: Args) => (
     state: EntitiesState = args.module.getInitialState(),
     action: EntitiesActionTypes): EntitiesState | undefined => {
