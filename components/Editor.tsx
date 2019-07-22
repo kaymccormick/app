@@ -19,7 +19,6 @@ import Draft, {
 import {
   StandaloneReader as Reader, defaults as settings, parse, StringOutput,
 } from 'docutils-js';
-import JSONTree from 'react-json-tree';
 // @ts-ignore
 import DraftBlockType = Draft.Model.Constants.DraftBlockType;
 // @ts-ignore
@@ -306,12 +305,6 @@ export default class MyEditor extends React.Component<Props, State> {
     // @ts-ignore
     return (
       <div>
-        <div>
-          <form>
-            <p><button onClick={(e) => { e.preventDefault(); this.publish(); }}>Publish</button></p>
-            <p><textarea style={{ width: '40em', height: '15em' }} id="input" onChange={this.handleInputChange} value={this.state.input} /></p>
-          </form>
-        </div>
         <div className="RichEditor-root">
           <button onClick={this.handleDebugClick}>Debug</button>
           <BlockStyleControls
@@ -335,9 +328,6 @@ export default class MyEditor extends React.Component<Props, State> {
               spellCheck
             />
           </div>
-        </div>
-        <div>
-          <JSONTree data={this.state.rawContent!} />
         </div>
       </div>
     );
