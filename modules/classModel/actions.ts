@@ -10,19 +10,24 @@ import {
     InputObject,
     RECEIVE_INITIAL_DATA,
     REQUEST_INITIAL_DATA,
-    RECEIVE_PROJECTS, REQUEST_PROJECTS, LOAD_PROJECTS } from './types';
+    RECEIVE_PROJECT_DATA,
+    REQUEST_PROJECT_DATA,
+    } from './types';
 
 export default (restClient: RestClient): Actions => {
-    const requestProjects = (): ActionTypes => {
-        return { type: REQUEST_PROJECTS };
-    }
-
     const receiveInitialData = (result: EntitiesType): ActionTypes =>{
         return { type: RECEIVE_INITIAL_DATA, result};
     }
 
+    const receiveProjectData = (projects: List<Pojo.ProjectPojo>): ActionTypes =>{
+        return { type: RECEIVE_PROJECT_DATA, projects };
+    }
+
     const requestInitialData = (): ActionTypes => {
         return { type: REQUEST_INITIAL_DATA };
+    }
+    const requestProjectData = (): ActionTypes => {
+        return { type: REQUEST_PROJECT_DATA };
     }
 
     const intermediateReceiveInitialData = (result: EntitiesType): (dispatch: any) => void => {
@@ -123,19 +128,11 @@ export default (restClient: RestClient): Actions => {
         };
     };
 
-    const fetchProjects = (): (dispatch: any) => void => {
+    const fetchProjectData = (): (dispatch: any) => void => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return (dispatch: any): void => {
-            dispatch(requestProjects());
+            dispatch(requestProjectData());
         }
-    }
-    const loadProjects = (): ActionTypes => {
-        return {type: LOAD_PROJECTS};
-    }
-
-
-    const receiveProjects = (projects: List<Pojo.ProjectPojo>): ActionTypes => {
-        return {type:RECEIVE_PROJECTS,projects};
     }
 
     return {
@@ -143,8 +140,7 @@ export default (restClient: RestClient): Actions => {
         intermediateReceiveInitialData,
         fetchInitialData,
         receiveInitialData,
-        receiveProjects,
-        loadProjects,
-        fetchProjects,
+        receiveProjectData,
+        fetchProjectData,
     };
 };

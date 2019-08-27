@@ -3,3 +3,6 @@ lib
 \#*\#
 tscommand*.txt
 node_modules
+.idea
+.tscache
+coverage

@@ -27,6 +27,7 @@ export class Module extends ApplicationModule<ModuleState> {
     public getInitialState(): ModuleState {
         return {
             entities: Map<string, Map<number, Pojo.BasePojo>>(),
+	    projects: List<Pojo.ProjectPojo>(),
         }
     }
     

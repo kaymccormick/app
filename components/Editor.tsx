@@ -17,7 +17,7 @@ import Draft, {
   DraftHandleValue,
 } from 'draft-js';
 import {
-  StandaloneReader as Reader, defaults as settings, parse, StringOutput,
+  StandaloneReader as Reader, getDefaultSettings, parse, StringOutput,
 } from 'docutils-js';
 // @ts-ignore
 import DraftBlockType = Draft.Model.Constants.DraftBlockType;

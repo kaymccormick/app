@@ -8,6 +8,7 @@ import { Connection } from 'typeorm';
 import {createConnection}from './Factory';
 import {ServerConfiguration} from './ServerConfiguration';
 import {ServerApplicationModule} from './ServerApplicationModule';
+import * as EntityCore from '../entity/core';
 
 const relModulePath = '../modules';
 const moduleRoot = path.join(__dirname, relModulePath);
@@ -44,6 +45,7 @@ export class Application {
 
         });
         this.entities.length = 0;
+	this.entities.push(...Object.values(EntityCore));
         this.modules.forEach((module: ServerApplicationModule): void => {
             this.entities.push(...module.getEntities());
         });

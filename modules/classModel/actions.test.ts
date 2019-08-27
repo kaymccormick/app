@@ -1,12 +1,13 @@
+import sinon from 'sinon';
 import { Map } from 'immutable';
 import {Pojo} from 'classModel';
 import RestClient from '@heptet/rest-client';
-jest.mock('@heptet/rest-client')
 import actionsFn from './actions';
 import { FETCH_INITIAL_DATA,
     REQUEST_INITIAL_DATA,
     RECEIVE_INITIAL_DATA,
 } from './types';
+
 import { createRestClient } from '../../src/testUtils';
 import { Actions } from '../../src/types';
 
@@ -14,10 +15,17 @@ let actions: Actions;
 let fetchInitialData: () => any;;
 let intermediateReceiveInitialData: () => any;
 let receiveInitialData: () => any;
-let restClient;
+let restClient: RestClient;
+
+beforeEach(() =>{
+});
+afterEach(() =>{
+sinon.restore();
+})
 
 beforeAll(() => {
-    restClient = createRestClient();
+// @ts-ignore
+    restClient = sinon.createStubInstance(RestClient, { getAll: sinon.stub().returns(Promise.resolve({})) });
     actions = actionsFn(restClient);
 });
 

@@ -6,6 +6,7 @@ import {ApplicationModule} from '../../../src/ApplicationModule';
 import {ModuleState} from '../types';
 import { ModuleState as MenusModuleState } from '../../menus/types';
 import Site from '../../../model/site/Site';
+import Entity from './Entity';
 
 export interface ClassModelViewProps {
     classModel?: ModuleState;
@@ -29,6 +30,6 @@ export default class ClassModelView extends React.Component<ClassModelViewProps>
 
     public render() {
         const content = null;
-        return <div>{content}</div>;
+        return null;
     }
 }

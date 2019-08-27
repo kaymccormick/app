@@ -2,6 +2,10 @@
 
 exports[`classModel.getMainComponent 1`] = `"<div></div>"`;
 
+exports[`docBrowser.getMainComponent 1`] = `"<div></div>"`;
+
+exports[`editor.getMainComponent 1`] = `"<div><div class=\\"RichEditor-root\\"><button>Debug</button><div class=\\"RichEditor-controls\\"><span class=\\"RichEditor-styleButton\\">H1</span><span class=\\"RichEditor-styleButton\\">H2</span><span class=\\"RichEditor-styleButton\\">H3</span><span class=\\"RichEditor-styleButton\\">H4</span><span class=\\"RichEditor-styleButton\\">H5</span><span class=\\"RichEditor-styleButton\\">H6</span><span class=\\"RichEditor-styleButton\\">Blockquote</span><span class=\\"RichEditor-styleButton\\">UL</span><span class=\\"RichEditor-styleButton\\">OL</span><span class=\\"RichEditor-styleButton\\">Code Block</span></div><div class=\\"RichEditor-controls\\"><span class=\\"RichEditor-styleButton\\">Bold</span><span class=\\"RichEditor-styleButton\\">Italic</span><span class=\\"RichEditor-styleButton\\">Underline</span><span class=\\"RichEditor-styleButton\\">Monospace</span></div><div class=\\"RichEditor-editor\\"><div class=\\"DraftEditor-root\\"><div class=\\"public-DraftEditorPlaceholder-root\\"><div class=\\"public-DraftEditorPlaceholder-inner\\" id=\\"placeholder-e09b4\\" style=\\"white-space:pre-wrap\\">Tell a story...</div></div><div class=\\"DraftEditor-editorContainer\\"><div aria-describedby=\\"placeholder-e09b4\\" class=\\"notranslate public-DraftEditor-content\\" contenteditable=\\"true\\" role=\\"textbox\\" spellcheck=\\"true\\" style=\\"outline:none;user-select:text;-webkit-user-select:text;white-space:pre-wrap;word-wrap:break-word\\"><div data-contents=\\"true\\"><div class=\\"\\" data-block=\\"true\\" data-editor=\\"e09b4\\" data-offset-key=\\"4m8lo-0-0\\"><div data-offset-key=\\"4m8lo-0-0\\" class=\\"public-DraftStyleDefault-block public-DraftStyleDefault-ltr\\"><span data-offset-key=\\"4m8lo-0-0\\"><br data-text=\\"true\\"/></span></div></div></div></div></div></div></div></div></div>"`;
+
 exports[`jsontree.getMainComponent 1`] = `"<div></div>"`;
 
 exports[`logging.getMainComponent 1`] = `"<div></div>"`;

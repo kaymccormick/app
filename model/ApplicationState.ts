@@ -15,6 +15,7 @@ export const model: ModelState = {
 };
 export const classModel: ClassModelState = {
     entities:Map<string,Map<number,Pojo.BasePojo>>(),
+    projects: List<Pojo.ProjectPojo>(),
 };
 export const entities: EntitiesState = {
     entities: [],

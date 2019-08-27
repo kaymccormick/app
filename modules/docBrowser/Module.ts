@@ -8,8 +8,8 @@ import { WebApplication } from '../../src/WebApplication';
 import {ModuleState} from './types';
 
 export class Module extends ApplicationModule<ModuleState> {
-    public name: string = 'templateChangeMe';
-    public key: string = 'templateChangeMe';
+    public name: string = 'docBrowser';
+    public key: string = 'docBrowser';
     public id: string;
 
     public constructor(args: ApplicationModuleArgs) {

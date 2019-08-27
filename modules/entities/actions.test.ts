@@ -1,22 +1,13 @@
+import sinon from 'sinon';
 import actionsFn from './actions';
 import {REQUEST_ENTITIES} from './types';
 
-const actions = actionsFn();
+const restClient: RestClient = sinon.createStubInstance(RestClient, { getAll: sinon.stub().returns(Promise.resolve({})) });
+const actions = actionsFn(restClient);
 const { fetchEntities } = actions;
 
-import RestClient from './RestClient';
-jest.mock('./RestClient');/*, () => {
-return jest.fn().mockImplementation(() => {
-return {getEntities: mockGetEntities};
-});
-});*/
-beforeAll(() => {
-//@ts-ignore
-    RestClient.mockImplementation(() => {
-        return {
-            getEntities: () => Promise.resolve([]),
-        };
-    });
+afterEach(() => {
+sinon.restore();
 });
 
 test('fetchEntities', () => {
