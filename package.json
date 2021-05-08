@@ -70,7 +70,7 @@
     "redux-thunk": "^2.3.0",
     "rx": "^4.1.0",
     "ts-jest": "^24.0.2",
-    "typeorm": "^0.2.18",
+    "typeorm": "^0.2.25",
     "typescript": "^3.5.2",
     "winston": "^3.2.1"
   },
